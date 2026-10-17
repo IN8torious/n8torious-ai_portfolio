@@ -1,1 +1,66 @@
-IyBOOFRPUklPVVMgQUkg4oCUIFBvcnRmb2xpbwoKKipOYXRoYW4gQnJvd24qKiDCtyBGb3VuZGVyLCBOOHRvcmlvdXMgQUkgwrcgQWtyb24sIE9oaW8K8J+MkCBbcmFpamluc29jaWFsLmNvbV0oaHR0cHM6Ly9yYWlqaW5zb2NpYWwuY29tKSDCtyBbZGVlcGFsY2hlbXkuYWldKGh0dHBzOi8vZGVlcGFsY2hlbXkuYWkpIMK3IFtkZWVwYWxjaGVteS5hcHBdKGh0dHBzOi8vZGVlcGFsY2hlbXkuYXBwKQoKQWdlbnQtbmF0aXZlIG9wZXJhdGluZyBzeXN0ZW1zLCBzb3ZlcmVpZ24gcHJvZ3JhbW1pbmcgbGFuZ3VhZ2VzLCBhbmQgM0Qgd29ybGQgZW5naW5lcyDigJQgYnVpbHQgZnJvbSB0aGUga2VybmVsIHVwLgoKLS0tCgojIyBIYXJha2lyaSBPUyDigJQgQWdlbnQtTmF0aXZlIEFSTTY0IEtlcm5lbAoKVGhlIE9TIHRoYXQgdGFrZXMgb3ZlciB0aGUgcGhvbmUuIEEgR0tJIDYuNiBrZXJuZWwgZm9yIFNuYXBkcmFnb24gNiBHZW4gMyAoTW90b3JvbGEgbW9uYSkgd2l0aCBuaW5lIEFJIGFnZW50cyBiYWtlZCBpbiBhdCB0aGUga2VybmVsIGxldmVsIOKAlCBub3QgdXNlcnNwYWNlIGRhZW1vbnMsIGJ1dCBmaXJzdC1jbGFzcyBrZXJuZWwgY2l0aXplbnMuCgotICoqU0kgQ29yZSoqIChga2VybmVscy9oYXJha2lyaS9oYXJha2lyaV9zaWNvcmUuY2ApIOKAlCBzdXBlcnZpc29yeSBpbnRlbGxpZ2VuY2UgYXQgdGhlIGNlbnRlcjsgYWxsIGFnZW50cyByZWdpc3RlciwgaGVhcnRiZWF0LCBhbmQgcmVwb3J0IGNvaGVyZW5jZSB0aHJvdWdoIGAvcHJvYy9oYXJha2lyaS9zaWNvcmVgCi0gKio5IGFnZW50cyoqOiBWZXJhIChpbnRlbnQgcm91dGVyKSwgTWlyYSAoZ2F0ZS9tZW1vcnkpLCBNZXJsaW4gKGV4ZWN1dGlvbiksIEdhdmVuIChzZW50aW5lbCksIEJyb29kIDAw4oCTMDMgKHJlbmRlciBsYW5lcyksIFBhaW5UciAocGFpbnRpbmcpCi0gKipTY2hlZHVsZXIgZGFlbW9uKiog4oCUIDEwMG1zIGt0aHJlYWQsIHdvcmstYXdhcmUgcHJpb3JpdGl6YXRpb24KLSAqKkJvb3QtdGVzdGVkKiogdW5kZXIgUUVNVTsgcmVidWlsZGluZyBhZ2FpbnN0IE1vdG9yb2xhJ3MgQW5kcm9pZCAxNiBtb25hIHNvdXJjZQoKIyMgS2VybmVsIFN5c3RlbXMKClNldmVuIGtlcm5lbCBkZXNpZ25zLCBlYWNoIGEgZGlmZmVyZW50IHRoZXNpcyBvbiB3aGF0IGFuIE9TIGNhbiBiZToKCnwgS2VybmVsIHwgTGFuZ3VhZ2UgfCBUaGVzaXMgfAp8LS0tLS0tLS18LS0tLS0tLS0tLXwtLS0tLS0tLXwKfCAqKkJVQk8qKiB8IEMgfCBGbHVpZC1keW5hbWljcyB0YXNrIHNjaGVkdWxlciB8CnwgKipUaXRhbkJvYSoqIHwgUnVzdCB8IEJyb29kIGFnZW50IGV4ZWN1dGlvbiBmYWJyaWMgfAp8ICoqT2hpb0tlcm5lbCoqIHwgSlMgfCBTcGlkZXIvTW91c2UgZHVhbC1tb2RlIGNvZ25pdGlvbiArIEhpdmVNaW5kIHwKfCAqKkNvcnZ1cyoqIHwgUHl0aG9uIHwgQW5vbWFseSBkZXRlY3Rpb24gZGlyZWN0b3IgfAp8ICoqWmVua2kqKiB8IEpTIHwgTWluaW1hbCBJUEMga2VybmVsIHwKfCAqKktpZG8qKiB8IEMgfCBXb3JrLWNvbnNlcnZpbmcgc2NoZWR1bGVyICg2NC82NCB0ZXN0cyBwYXNzaW5nKSB8CnwgKipIYXJha2lyaSoqIHwgQy9QeXRob24gfCA5LWFnZW50IHJlZ2lzdHJ5LCBTSSBDb3JlIHN1cGVydmlzb3IgfAoKIyMgU292ZXJlaWduIFByb2dyYW1taW5nIExhbmd1YWdlcwoKTGFuZ3VhZ2VzIGRlc2lnbmVkIGZvciB0aGUgaGFyZHdhcmUgdGhleSBydW4gb246CgotICoqUmFpamluTGFuZyoqIOKAlCBFbmdsaXNoIElTIHRoZSBwcm9ncmFtOyBjb2xvciBhcyBncmFtbWFyCi0gKipHZW1iYSoqIOKAlCBQZXRyaS1uZXQgYXJjaGl0ZWN0dXJlCi0gKipSdXN0YmEqKiDigJQgSGFyZHdhcmUtYXdhcmUgTWFtYmEvMTBEIHN0YXRlLXNwYWNlIG1vZGVsCi0gKipMYXZlbWJhKiog4oCUIDIwRCBzeW50aGVzaXMgbGFuZ3VhZ2UKLSAqKnRSdXN0Kiog4oCUIFR5cGUtc2FmZXR5IGxheWVyCi0gKipEZW50YXVyaSoqIOKAlCBQYWluVHIncyBjb21wb3NpdGlvbiBsYW5ndWFnZQoKIyMgV2Vic2l0ZXMgJiBQbGF0Zm9ybXMKCi0gKipbcmFpamluc29jaWFsLmNvbV0oaHR0cHM6Ly9yYWlqaW5zb2NpYWwuY29tKSoqIOKAlCBPdXRlciA0RCBrZXJuZWwgZ2FsYXh5LiBSRVNPTkFOQ0UgV29ybGQgTWFuZGFsYSBrbm93bGVkZ2UgZ3JhcGgsIDg4M0tCIHNpbmdsZS1maWxlIFdlYkdMIGJ1aWxkLCBmbHktbW9kZSBjYW1lcmEsIDREIG1hdGggKFPCsyBzdGVyZW9ncmFwaGljIHByb2plY3Rpb24sIHRlc3NlcmFjdCkKLSAqKltkZWVwYWxjaGVteS5haV0oaHR0cHM6Ly9kZWVwYWxjaGVteS5haSkqKiDigJQgSW5uZXIgc29sYXIgc3lzdGVtLiAxMC1wbGFuZXQgS2VwbGVyaWFuIHNpbXVsYXRpb24sIFNJIENvcmUgYXQgdGhlIGNlbnRlciwgSGFyYWtpcmkgYXMgY2FwaXRhbCB3b3JsZAotICoqW2RlZXBhbGNoZW15LmFwcF0oaHR0cHM6Ly9kZWVwYWxjaGVteS5hcHApKiog4oCUIFN0b3JlZnJvbnQuIDcga2VybmVscywgMjAgM0QgbW9kZWxzLCAxMCB3b3JsZHMg4oCUIGV2ZXJ5IGFzc2V0IHdpdGggUGFpblRyLXBhaW50ZWQgdGh1bWJuYWlscyBhbmQgcmVhbC1tYXRoZW1hdGljcyAzRCBtb2RlbHMKCiMjIFRoZW9yZXRpY2FsIFdvcmsKCioqVGhlIEFsY2hlbWVkaWVzIFByaW5jaXBsZSoqIOKAlCBjb2duaXRpb24gYW5kIGludGVyZmFjZSBlbWVyZ2UgZnJvbSBmbHVpZCBkeW5hbWljcy4gVGhlIHdhdGVyIHN1cmZhY2UgSVMgdGhlIHN5c3RlbSBzdGF0ZS4gQXJjaGltZWRlcyBidW95YW5jeSBhbmQgZGVuc2l0eSBzdHJhdGlmaWNhdGlvbiBhcyB0aGUgY29nbml0aW9uIHN1YnN0cmF0ZSDigJQgYSBnZW5lcmFsaXphdGlvbiBvZiBncmF2aXR5LXdlbGwgbWVtb3J5LiBQcm9jZWR1cmFsIHBoeXNpY3MgYmVhdHMgY29udGV4dCB3ZWlnaHRzOiB3ZWlnaHRzIGJ1cm4gdG9rZW5zIGxpbmVhcmx5LCBwaHlzaWNzIHJlY3Vyc2VzIGZvciBmcmVlLgoKIyMgM0QgJiBWaXN1YWwgRW5naW5lcwoKLSAqKlJhdmVuRXllKiog4oCUIFRocmVlLmpzIG1vZGVsIHZpZXdlciwgY3JpbXNvbiB3aXJlZnJhbWUgYWVzdGhldGljCi0gKipQYWluVHIqKiDigJQgQWdlbnRpYyBwYWludGluZyBzeXN0ZW07IGQxMjAtZHJpdmVuIHByb2NlZHVyYWwgdW5pcXVlbmVzcyBmb3IgZXZlcnkgYXNzZXQKLSAqKlByb2NlZHVyYWwgcGxhbmV0Kiog4oCUIFdhbGthYmxlIHRlcnJhaW4sIHdpdG5lc3NhYmxlIHdlYXRoZXIsIEtlcGxlcmlhbi9HZXJzdG5lci9SYXlsZWlnaC9Db3Jpb2xpcyBwaHlzaWNzLCA0MiBhZ2VudHMKCi0tLQoKIyMgV2hhdCBJJ20gU2Vla2luZwoKRnVsbC10aW1lLCBvbi1zaXRlIHJvbGUuIEEgdGVhbSB0byBidWlsZCB3aXRoLiBBIHBsYWNlIHRvIGJ1aWxkLiBDb21wcmVoZW5zaXZlIHJlbG9jYXRpb24gc3VwcG9ydCBpbmNsdWRpbmcgaG91c2luZy4gQSBsaWZlIG91dHNpZGUgQWtyb24uCgoqSGFsZi1hc3Mgd29yayBpcyB3b3JzZSB0aGFuIG5vIHdvcmsgYXQgYWxsLioK
+# N8TORIOUS AI — Portfolio
+
+**Nathan Brown** · Founder, N8torious AI · Akron, Ohio
+🌐 [raijinsocial.com](https://raijinsocial.com) · [deepalchemy.ai](https://deepalchemy.ai) · [deepalchemy.app](https://deepalchemy.app)
+
+Agent-native operating systems, sovereign programming languages, and 3D world engines — built from the kernel up.
+
+---
+
+## Harakiri OS — Agent-Native ARM64 Kernel
+
+The OS that takes over the phone. A GKI 6.6 kernel for Snapdragon 6 Gen 3 (Motorola mona) with nine AI agents baked in at the kernel level — not userspace daemons, but first-class kernel citizens.
+
+- **SI Core** (`kernels/harakiri/harakiri_sicore.c`) — supervisory intelligence at the center; all agents register, heartbeat, and report coherence through `/proc/harakiri/sicore`
+- **9 agents**: Vera (intent router), Mira (gate/memory), Merlin (execution), Gaven (sentinel), Brood 00–03 (render lanes), PainTr (painting)
+- **Scheduler daemon** — 100ms kthread, work-aware prioritization
+- **Boot-tested** under QEMU; rebuilding against Motorola's Android 16 mona source
+
+## Kernel Systems
+
+Seven kernel designs, each a different thesis on what an OS can be:
+
+| Kernel | Language | Thesis |
+|--------|----------|--------|
+| **BUBO** | C | Fluid-dynamics task scheduler |
+| **TitanBoa** | Rust | Brood agent execution fabric |
+| **OhioKernel** | JS | Spider/Mouse dual-mode cognition + HiveMind |
+| **Corvus** | Python | Anomaly detection director |
+| **Zenki** | JS | Minimal IPC kernel |
+| **Kido** | C | Work-conserving scheduler (64/64 tests passing) |
+| **Harakiri** | C/Python | 9-agent registry, SI Core supervisor |
+
+## Sovereign Programming Languages
+
+Languages designed for the hardware they run on:
+
+- **RaijinLang** — English IS the program; color as grammar
+- **Gemba** — Petri-net architecture
+- **Rustba** — Hardware-aware Mamba/10D state-space model
+- **Lavemba** — 20D synthesis language
+- **tRust** — Type-safety layer
+- **Dentauri** — PainTr's composition language
+
+## Websites & Platforms
+
+- **[raijinsocial.com](https://raijinsocial.com)** — Outer 4D kernel galaxy. RESONANCE World Mandala knowledge graph, 883KB single-file WebGL build, fly-mode camera, 4D math (S³ stereographic projection, tesseract)
+- **[deepalchemy.ai](https://deepalchemy.ai)** — Inner solar system. 10-planet Keplerian simulation, SI Core at the center, Harakiri as capital world
+- **[deepalchemy.app](https://deepalchemy.app)** — Storefront. 7 kernels, 20 3D models, 10 worlds — every asset with PainTr-painted thumbnails and real-mathematics 3D models
+
+## Theoretical Work
+
+**The Alchemedies Principle** — cognition and interface emerge from fluid dynamics. The water surface IS the system state. Archimedes buoyancy and density stratification as the cognition substrate — a generalization of gravity-well memory. Procedural physics beats context weights: weights burn tokens linearly, physics recurses for free.
+
+## 3D & Visual Engines
+
+- **RavenEye** — Three.js model viewer, crimson wireframe aesthetic
+- **PainTr** — Agentic painting system; d120-driven procedural uniqueness for every asset
+- **Procedural planet** — Walkable terrain, witnessable weather, Keplerian/Gerstner/Rayleigh/Coriolis physics, 42 agents
+
+---
+
+## What I'm Seeking
+
+Full-time, on-site role. A team to build with. A place to build. Comprehensive relocation support including housing. A life outside Akron.
+
+*Half-ass work is worse than no work at all.*
