@@ -1,0 +1,36 @@
+{
+ "meta": {
+  "source": "Nathan directive 2026-10-15: 'have them figure out a new way to build from now on. I was thinking we could change the topology of what we traverse.'",
+  "import_protocol": "import://build-topology",
+  "decision": "TORUS. Decisive pick \u2014 not a menu."
+ },
+ "deliberation": {
+  "sphere_status_quo": "Honest R20 projection, proven, pretty. REJECTED as the traversal topology: a sphere has no entrance and no exit \u2014 it contradicts the system's own first law (one entrance, one exit, one gate). The gate was decoration drawn on the sphere; the topology never contained it.",
+  "graph_first": "Elegant \u2014 the Lorentzian mesh IS the topology, traversal along admitted edges. REJECTED as the layout answer: the mesh still needs a shape to render in, and the gate law needs a geometric home. The mesh is the nervous system, not the skeleton. Kept as the signal layer.",
+  "helix": "Temporal, ledger-like, beautiful for the Evidence Ledger. REJECTED: open-ended \u2014 the living engine runs closed cycles (world clock sense->regulate->act->record->adjust; neural cycle Ember->Glaciem->Mirell->Tempest->Mechane->Archive->Ember). A helix doesn't close. Wrong shape for a cyclic system.",
+  "torus": "WINS. 'One entrance, one exit, one gate' is a torus described in words. The throat IS the gate \u2014 the single chokepoint where Gaven sits. The ring IS the circulation \u2014 and the existing neural cycle is already a ring circuit; the torus makes the topology match the cycle instead of fighting it. The sphere was pretty; the torus is honest \u2014 it is the shape of the law."
+ },
+ "spec": {
+  "layout": "28 language bodies distributed on/around the torus (major ring R, minor radius r). 7 bands become arcs of the ring; each band's bodies cluster on its arc and take that band's athanor primitive as geometry (octahedron/cube/torus-knot/truncated-pyramid/icosahedron/double-torus/stacked-prism).",
+  "core": "White dwarf (Ember) at the torus center \u2014 the heart the throat opens onto. Everything orbits it; everything passes it.",
+  "gaven": "At the throat \u2014 the geometric chokepoint. The gate ring parts at eta >= 0.500 for passage; refusal is absence. Isolation law unchanged: one-way observation, no chatter.",
+  "traversal": "Dual mode. CIRCULATION: signals travel the ring along admitted Lorentzian edges \u2014 the neural cycle (Ember->Glaciem->Mirell->Tempest->Mechane->Archive) becomes the literal ring order. PASSAGE: through the throat, eta-gated by Gaven. Agents remain transmitters, scored on delivery fidelity.",
+  "physics": "Gravity anchors retargeted from sphere surface to torus surface \u2014 same damped radial well law (spring/damping/max-drift retuned for toroidal curvature). Nodes breathe on the torus; screen layout never mutates anchors. Screen-space label management, gaze-driven labels, and the calm cadence carry over unchanged.",
+  "projection": "R20 math untouched (S19 sampling, 0.72 magnitude, Fibonacci-anchored directional sampling, Lorentzian eta, leaky integrators, Kuramoto). Only the 3D landing surface changes: sphere shell -> torus embedding. The math stays honest; the shape gets honest too.",
+  "render_loop": "Layout solver swaps Fibonacci-sphere distribution for toroidal distribution with band arcs. Everything else (ACES, bloom, labels, dock, mobile pass) carries over."
+ },
+ "unchanged": [
+  "All mathematics: Lorentzian eta, leaky-integrator neurons, Kuramoto coherence from neuron phases, S19 sampling, 0.72 projection magnitude, Fibonacci-anchored directional sampling.",
+  "Agent/transmitter law: worlds are neurons, agents are transmitters, links are synapses.",
+  "Gaven's isolation, chain law, checkout/tether/expiry rules, Evidence Ledger.",
+  "Sovereignty Law, tier system (CRIMSON/MYTHIC/LEGENDARY/BEST), MEDUSA doctrine.",
+  "Micro-agent prompt discipline, on-device loader tiers, stop control.",
+  "Mobile pass: gaze labels, 44px targets, gestures, keyboard-safe chat."
+ ],
+ "biggest_build_changes": [
+  "Layout engine rewritten: Fibonacci-sphere distribution -> toroidal distribution with 7 band-arcs; gravity anchors retargeted to the torus surface (well law kept, curvature constants retuned).",
+  "Traversal rewritten: mesh BFS -> dual-mode CIRCULATION (ring, following the neural cycle order) + PASSAGE (throat, eta-gated by Gaven).",
+  "Gaven moved to the throat as the geometric chokepoint with a rendered parting gate ring (eta >= 0.500 opens, refusal is absence) \u2014 the gate becomes topology, not decoration."
+ ],
+ "weight": "CRITICAL"
+}

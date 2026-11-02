@@ -1,0 +1,12 @@
+{
+ "meta": {
+  "source": "Nathan's Google Drive: brain.rs (1760B) \u2014 HiveMindHost launcher",
+  "import_protocol": "import://hivemind",
+  "note": "Rust launcher for the HiveMind brain. The HiveMind_STANDALONE.jar (81KB, OhioKernel) exists in Drive/Brain/ \u2014 binary, noted not pulled."
+ },
+ "mechanics": {
+  "launch": "locates Java (JAVA_HOME then PATH, Windows-friendly), spawns com.zenki.hivemind.Main from the JAR",
+  "supervise": "is_alive() via try_wait \u2014 the host watches the brain's process"
+ },
+ "system_role": "Pattern for brain supervision: the Brain's maintainers are watched processes with liveness checks, not fire-and-forget threads."
+}

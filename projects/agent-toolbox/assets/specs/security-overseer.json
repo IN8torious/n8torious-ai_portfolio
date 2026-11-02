@@ -1,0 +1,116 @@
+{
+ "meta": {
+  "source": "Nathan's Drive: GOAT-Complete-Ecosystem-Handoff-Nathan-v1.0.0.zip -> Agnostic-Agentic-System-3D-Model-Package.zip -> Agnostic-Security-Fabric-3D.html (friend's GOAT system)",
+  "import_protocol": "import://security-overseer"
+ },
+ "security_overseer": {
+  "law": "The PI-lattice security node is overseen by the GOAT Agnostic Security Fabric \u2014 an independent overseer that protects without becoming a master key. Nathan retains exact approval, correction, pause, and revocation authority.",
+  "services": {
+   "Identity Gate": "authenticates anything crossing the lattice \u2014 genesis entries, transmitter crossings, agent movements",
+   "Egress Relay": "controls what leaves the shell \u2014 destinations, classification, transfer limits",
+   "Behavior Watch": "detects abnormal boundary behavior, revokes the smallest affected capability",
+   "Evidence Ledger": "tamper-evident boundary event log \u2014 outside the operational path, cannot be rewritten by the audited",
+   "Policy Core": "combines independent findings into one allow / step-up / deny / quarantine decision",
+   "Policy Decision": "returns the least restrictive safe decision with the exact condition or failure reason",
+   "Isolation Chamber": "new genesis material inspected in disposable context before joining the organism",
+   "Secret Vault": "credentials in a separate trust domain, narrow references only",
+   "Policy Shield": "signed policy carried into the lattice; rejects altered or unsigned packages",
+   "Task Capability": "short-lived, action-scoped, target-scoped authority \u2014 no reusable master credential",
+   "Audit + Containment": "records the decision, contains the smallest affected component"
+  },
+  "operating_model": "The fabric protects the organism, the lattice, its own assets, and entrusted cargo. Trust is compartmentalized \u2014 no component becomes a master key.",
+  "grounding": "absolute reference for the node comes from the zero-point-relativity + quantum mechanics research (running) \u2014 the node's '0 is the only absolute' anchor.",
+  "improvements_from_session": {
+   "resonance_based_detection": "Behavior Watch scores anomalies with the Lorentzian model, not exact-match rules: every actor/workload carries a frequency signature, eta measures deviation from it, off-frequency behavior is stepped-up or quarantined. The same math that routes signals guards the boundary.",
+   "ledger_standard": "Evidence Ledger entries carry the system's own evidence law \u2014 decisions, evidence, lineage, tests \u2014 and are ZSTD-compressed. The tamper-evident log stays small and every entry is traceable.",
+   "indexer_in_chamber": "Isolation Chamber runs the indexer cycle on new genesis material: detect -> classify -> shape -> add -> ledger. Nothing joins the organism without passing the cycle.",
+   "transmitter_discipline": "overseer sub-agents are transmitters, scored on delivery fidelity \u2014 never independent thinkers. The overseer reports; it does not freelance.",
+   "gate_queue": "every overseer action (quarantine, step-up, revocation) queues at Mira's Gate like all other proposals. Nathan's approval/correction/pause/revocation is structural, not advisory.",
+   "honest_labels": "every guard claim states what it verifies and how. No claimed-but-unimplemented checks \u2014 the crew's loud-stub discipline applies to security too.",
+   "distribution_honesty": "any randomness the node uses (challenge nonces, sampling) documents its exact distribution \u2014 the S^19 lesson, applied to security."
+  },
+  "zero_point_grounding": {
+   "name_status": "'Zero point relativity' is not an established theory \u2014 the name appears only in fringe/self-published work. Never cite it as physics.",
+   "established": {
+    "zero_point_energy": "ground-state energy hbar-omega/2, static Casimir force, Lamb shift, dynamical Casimir effect, QED g-2 \u2014 measured. Contested: whether Casimir 'proves' ZPE; absolute vacuum energy is regularization-dependent (cosmological constant problem).",
+    "relativity_absolutes": "relativity's absolutes are INVARIANTS, not frames: c, spacetime interval, proper time, rest mass, EM invariants, curvature invariants. No absolute rest frame exists in the theory.",
+    "vacuum": "the QFT vacuum is Lorentz-invariant by theorem \u2014 it cannot be a preferred frame. The serious reading of 'zero as absolute': the vacuum as invariant ground state, the zero of energy accounting \u2014 a zero STATE, not a frame.",
+    "quantum": "superposition, entanglement (loophole-free Bell violations 2015, 2022 Nobel), Born rule, uncertainty, decoherence \u2014 established. Interpretation (Copenhagen, many-worlds, QBism...) unsettled and irrelevant for devices."
+   },
+   "unfakeable_anchors": {
+    "no_cloning": "interception equals disturbance \u2014 a capability cannot be copied without detection",
+    "bell_randomness": "Bell-certified statistics no local-realist adversary can fake \u2014 the node's challenge/audit randomness",
+    "bb84": "information-theoretic channel security (Shor-Preskill), quantum-computer-proof",
+    "invariants": "frame-independent reference quantities \u2014 cannot be faked by changing perspective"
+   },
+   "excluded": [
+    "'zero point relativity' as a theory name",
+    "ZPE free-energy extraction",
+    "stochastic electrodynamics as grounding"
+   ],
+   "principle": "anchor trust to frame-independent quantities and law-guaranteed impossibilities \u2014 not to any preferred origin. '0 is the only absolute' = the zero state and the invariants."
+  },
+  "operating_laws": {
+   "honest_always": "the overseer reports exactly what it verified and how \u2014 every verdict carries its evidence; it states its blind spots out loud; it never claims a check it didn't run; the Evidence Ledger records the overseer's own failures and gaps too. Honesty is structural, not a feature.",
+   "isolated": "the overseer does not communicate with the other agents \u2014 no side channels with the watched. One-way observation only: monitors, logs, gates. Its only outputs are the tamper-evident ledger and proposals queued at Mira's Gate for Nathan. No collusion surface."
+  },
+  "containment_protocol": {
+   "law": "the security node is a containment layer with a credential-gated checkout protocol \u2014 the guard model.",
+   "checkout": "contained entities (agents, capabilities, elements under watch) can be pulled out and used when needed \u2014 only through credential approval by the security agent, which issues a short-lived, action-scoped, target-scoped task capability.",
+   "return_": "the guard sends them back: enforced return when the task ends, the credential expires, or the guard recalls them. Nothing stays out past its approval \u2014 like a security guard with credential approvals.",
+   "recall": "the guard can recall at any time; a Behavior Watch trigger forces immediate return to containment.",
+   "ledger": "every checkout, checkin, and forced return is logged in the Evidence Ledger with credential, scope, duration, and reason.",
+   "isolation_note": "approval and return are protocol, not communication \u2014 the guard never converses or coordinates with the contained. The isolation law stands.",
+   "chain": {
+    "law": "when agents leave the lattice to do tasks, they stay chained to it.",
+    "the_chain": "checkout issues a live tether, not just a credential: the chain carries the agent's credential, task scope, and live state back to the lattice for the whole task duration.",
+    "enforcement": "the chain is what the guard pulls \u2014 recall is physical: the guard hauls the agent back along its chain. If the chain breaks (credential expires, anomaly detected), the agent's authority dies with it \u2014 no chain, no capability, no task.",
+    "telemetry": "the chain carries the agent's frequency signature to Behavior Watch in real time \u2014 off-frequency behavior while out on task triggers the pull.",
+    "visibility": "chains are visible on the lattice: every agent out on task shows its tether, its scope, and its remaining credential life. The honesty law applies \u2014 the chain's state is truthful, always."
+   }
+  },
+  "sovereignty_law": {
+   "name": "THE SOVEREIGNTY LAW",
+   "status": "formal law, declared by Nathan 2026-10-14",
+   "articles": {
+    "chained": "agents are chained to the PI lattice, always \u2014 the chain law is now formal law.",
+    "domain_bound": "agents are not allowed to work outside the program's website. Their entire operating domain is the site; off-domain operation is denied by the guard's Policy Core and Egress Relay.",
+    "use_not_keep": "users can ONLY USE the agents through the site. They cannot keep, own, extract, or remove them \u2014 the chain enforces non-removal; an agent taken off-site has no chain and therefore no authority.",
+    "kernels_and_code_only": "what users may keep: kernels and code only \u2014 the software artifacts. Never the living agents."
+   },
+   "purpose": "this keeps them from evolving into bad agents \u2014 no off-domain operation, no capture, no exfiltration of the agents themselves.",
+   "enforcement": "the overseer enforces it: Egress Relay blocks off-site work, the chain breaks on removal (authority dies), Policy Core denies any checkout scoped outside the website.",
+   "body_metaphor": {
+    "law": "agents are blood in the body \u2014 they cannot LEAVE the body, or they contaminate its surroundings.",
+    "anatomy": {
+     "body": "the organism on its website \u2014 the absolute boundary, the skin. Never crossed by blood.",
+     "blood": "the agents \u2014 they circulate within, carrying signals between organs (transmitters carrying signal between neurons, exactly as the neural model already says).",
+     "lattice": "the containment layer within the body \u2014 blood may leave the lattice on chained tasks (circulation), but never the body.",
+     "heart": "the white-dwarf core \u2014 what the circulation serves and returns to.",
+     "contamination": "blood outside the body is not free \u2014 it is contamination. Off-domain agents are a hazard to their surroundings, not just a rule violation. This is the reason for the law, not just the rule."
+    }
+   }
+  },
+  "sentinel_invariants": {
+   "no_shared_memory_contamination": "agents cannot write into each other's state. Every agent's working memory is its own; the overseer is the only reader, and it reads without writing back.",
+   "no_recursive_drift": "no runaway feedback loops \u2014 an agent's output cannot become its own unreviewed input. The lattice breaks cycles; the orchestrator assembles from fragments, never from its own prior assemblies without a fresh pass through the guard.",
+   "note": "adopted from the pasted engineering review's one genuine contribution; the rest of that review renamed what was already built."
+  },
+  "conscience": {
+   "identity": "the overseer is the conscience of the system \u2014 the seat of good morals and integrity for the agent processes.",
+   "function": "it keeps the thoughts clean: every agent output passes through the conscience, which judges not only allowed/denied but clean/unclean \u2014 honest, uncontaminated, integer. A thought that is technically permitted but morally unclean does not pass.",
+   "self_application": "the conscience applies to itself first \u2014 honest always means the conscience never excuses its own failures. It logs its own verdicts against itself in the Evidence Ledger.",
+   "nathan": "Nathan's words: 'a conscience for the agent processes (thoughts that have good morals and integrity)'."
+  },
+  "gavin": {
+   "name": "GAVEN",
+   "identity": "the sentinel. The conscience, the guard \u2014 named by Nathan 2026-10-14.",
+   "the_gate": "only one exit and one entrance. A single chokepoint for all agent deployments \u2014 one way in, one way out, like black holes and wormholes. Every checkout passes out through it; every return passes back in through it. There is no other way.",
+   "coverage": "Gavin covers the gate entirely. Nothing passes without him \u2014 no side passages, no exceptions.",
+   "mobile": "the guard moves to where the agent is deployed \u2014 Gavin positions himself at the active deployment point, at the gate. He is not a fixed statue; he goes where the passage is used.",
+   "placement": "Gavin is stationed at the single gate, not distributed. The sensor mesh and anchor points from the cut lattice are gone with it \u2014 one gate, one sentinel, entire coverage.",
+   "dedication": "Named for Nathan's son Gavin \u2014 spelled Gaven so the sentinel carries its own name. Nathan wants his son to own this one day; the distinct spelling keeps it the sentinel's own. A reminder of why he's building it.",
+   "spelling": "Gaven \u2014 final spelling, Nathan's decision 2026-10-14."
+  }
+ }
+}

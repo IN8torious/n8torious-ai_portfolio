@@ -1,0 +1,32 @@
+{
+ "meta": {
+  "source": "Nathan 2026-10-14: the star system IS the reasoning engine \u2014 combine them; both projects updated together with one visual language",
+  "import_protocol": "import://unified-reasoning-engine"
+ },
+ "unified_reasoning_engine": {
+  "law": "There is ONE reasoning engine, not two. The Star System IS the mandala's reasoning-engine layer. Diving the mandala's core arrives in the star system \u2014 same Ember/white-dwarf core, same worlds, same Brain, same agents. No duplication, no parallel versions.",
+  "mapping": {
+   "core": "One hot dense core \u2014 the white dwarf. Ember and the reasoning-engine furnace are the same object seen from two depths.",
+   "worlds": "One world set: the 11 worlds are the agent planets. The mandala's construction-zone slots and the star-system orbits are the same slots.",
+   "brain": "One Brain: Sentinel, Watchdog, Mira, MATER \u2014 the maintainers in Ember's interior ARE the reasoning engine's operators.",
+   "agents": "One crew: the 23 agents with adaptive organelles, communicating on the resonant mesh."
+  },
+  "navigation": "One continuous dive: Languages > Worlds (= reasoning engine) > Interior. The artifacts may remain two hosted pages for now, but the world is one \u2014 the dive flows through, breadcrumbs unbroken.",
+  "visual_language": "One shared visual system across both projects: d120 color, obsidian/gold, white-dwarf hot core treatment, the same node recipe, the same GLSL vocabulary (depth haze, fresnel, energy currents). Updates ship to both together; they must always look like one world.",
+  "queue": "Coordinated pass on both artifacts once current builds land (mandala: rotation-sweep verification; star-system: transmission test).",
+  "neural_visuals": {
+   "law": "The neural mapping is rendered and behavioral, not labeled. Nathan 2026-10-14: make it real.",
+   "neuron_worlds": "Worlds render as neurons: a soma body holding visible state (charge/activity level), dendrite-like receptors receiving tuned inputs, an axon-like projection along their strongest output path. Firing is visible \u2014 a neuron-world lights and pulses when it fires.",
+   "transmitter_agents": "Agents render and behave as neurotransmitters: released from a firing neuron, traveling the synaptic mesh link, binding ONLY to the receptor tuned for their frequency (selective delivery made visible), then reuptake \u2014 reabsorbed after delivery, completing the signal lifecycle.",
+   "synapses": "Mesh links render as synaptic clefts: the gap is visible, transmission is an event (release -> travel -> bind -> reuptake), not a static line.",
+   "plasticity": "Pathways visibly strengthen with use (thicker/brighter with repeated firing \u2014 Hebbian) and fade when unused toward consolidation. The rarity economy reads as synaptic pruning.",
+   "synchrony": "Kuramoto entrainment renders as visible phase-locking: neurons pulsing in sync when entrained, drifting when not.",
+   "queue": "Part of the coordinated unification pass on both artifacts, after current verification builds land."
+  },
+  "nesting": {
+   "correction": "Nathan 2026-10-14: the WHITE DWARF is the mandala's CORE. The star system SURROUNDS the white dwarf. (Earlier phrasing blurred this \u2014 corrected.)",
+   "layers": "center: the white dwarf \u2014 the mandala's core, the reasoning furnace | middle: the star system \u2014 the 11 worlds/neurons and transmitter-agents orbiting the dwarf | outer: the language shell \u2014 the 28 language nodes on the periphery (genesis zone)",
+   "dive": "language shell -> star system (neurons) -> white dwarf core. Inward means approaching the furnace; the periphery means genesis."
+  }
+ }
+}

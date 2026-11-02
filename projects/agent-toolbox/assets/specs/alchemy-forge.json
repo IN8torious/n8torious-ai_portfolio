@@ -1,0 +1,10 @@
+{
+ "meta": {
+  "source": "alchemy_8_kj6p.html",
+  "title": "Alchemy \u00b7 Truth Engine",
+  "import_protocol": "import://alchemy-forge"
+ },
+ "structure": "Forge panel (prompt textarea + Manifest Image / Manifest Video buttons) + output panel. POSTs to /api/image and /api/video \u2014 expects Cloudflare Functions on the edge deployment; static file alone shows SIGNAL LOST.",
+ "brand": "Alchemy \u00b7 515 Hz",
+ "agent_use": "Pattern for the Hub's synthesis ordering UI: prompt in, artifact out, async with loading state. The /api/* convention matches the digest-worker.js pattern already in the package."
+}

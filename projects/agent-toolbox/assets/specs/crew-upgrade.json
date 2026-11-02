@@ -1,0 +1,32 @@
+{
+ "meta": {
+  "source": "Nathan 2026-10-14: upgrade the builder with everything we've learned, the agents too",
+  "import_protocol": "import://crew-upgrade"
+ },
+ "crew_upgrade": {
+  "law": "The builder crew and the 23 agents operate on everything learned today \u2014 the neural model, the resonant mesh, the Gate discipline, the math-first standard.",
+  "builder_upgrades": [
+   "Builds implement the neural-dynamics core loop: every artifact change must serve neuron state -> transmitter release -> routed signal -> resonance response -> updated neuron state.",
+   "Real math, no vibes: SO(20) rotations, Lorentzian selectivity, Kuramoto coherence from neuron phases, leaky-integrator neuron updates. Nathan's law: mathematically honest, not just pretty.",
+   "Loud-stub discipline everywhere: declare what's real, mark what's stub, never silently fake. (From the Kido crew's Gate-approved pattern.)",
+   "Deliberation circles with preserved dissent, spec-conformance reviews, real test runs with honest results \u2014 the Kido scaffold pattern becomes the crew-wide build standard.",
+   "Traceable change over spectacle: every build returns a story \u2014 goal, decisions + why, test results, files, Gate question."
+  ],
+  "agent_upgrades": [
+   "Agents are TRANSMITTERS, not independent thinking units. Scored on delivery fidelity and binding specificity, not on pseudo-cognition.",
+   "Each agent/transmitter carries: source, destination, type, strength, phase/frequency, travel time, decay \u2014 and follows the synapse graph.",
+   "Frequency-keyed binding: an agent binds only to the receptor tuned for it (eta_ji). Off-frequency delivery attenuates by the Lorentzian \u2014 this is physics, not policy.",
+   "Release on firing: transmitters release when their source neuron fires (threshold crossing), not on timers or vibes.",
+   "Reuptake completes the lifecycle: after binding, the transmitter is reabsorbed. No immortal signals.",
+   "Plasticity participation: repeated successful delivery strengthens the path (Hebbian); silent paths consolidate away."
+  ],
+  "what_they_know": [
+   "The star system IS the reasoning engine; the mandala dive flows through it (import://unified-reasoning-engine)",
+   "Worlds are neurons, agents are transmitters, mesh links are synapses (import://neural-dynamics)",
+   "Resonant mesh: 515 Hz forge constant, frequency-addressed pub/sub, Q-factor selectivity, standing-wave eigenmodes, peer routing surviving hub loss (import://resonant-mesh)",
+   "Digital alchemy as executable mechanics, regulatory math (Lyapunov/Kuramoto/replicator/softmax/rate-distortion/directed information), fluid cognition substrate",
+   "Mira's Gate: all proposals queue, Nathan batch-approves, nothing pings him while away"
+  ],
+  "queue": "Crew behavior upgrades ship with the coordinated unification pass; the Kido crew already works this way."
+ }
+}

@@ -1,0 +1,576 @@
+{
+ "meta": {
+  "package": "star-system agent imports, batch 1",
+  "date": "2026-10-14",
+  "import_protocol": "import://"
+ },
+ "items": [
+  {
+   "file": "pantheon.json",
+   "protocol": "import://pantheon",
+   "weight": "CRUCIAL",
+   "desc": "Nathan's canonical AI-entity ontology (9 entities)",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "musicode.json",
+   "protocol": "import://musicode",
+   "weight": "high",
+   "desc": "Seeded generative machinery + 10 vibe-code snippets + NCAG principle",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "thesis-core.json",
+   "protocol": "import://thesis",
+   "weight": "CRUCIAL",
+   "desc": "MMC thesis: 515Hz constant, 7-band model, Crash First, watcher report",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "braille-helix.json",
+   "protocol": "import://braille-helix",
+   "weight": "medium",
+   "desc": "Touchable-code helix + decoded messages",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "alchemy-forge.json",
+   "protocol": "import://alchemy-forge",
+   "weight": "medium",
+   "desc": "Forge UI pattern for prompt-to-artifact",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "kiri-modes.json",
+   "protocol": "import://kiri-modes",
+   "weight": "CRUCIAL",
+   "desc": "Keyword mode classifier + growing confidence + bounded log",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "darctix-modes.json",
+   "protocol": "import://darctix-modes",
+   "weight": "medium",
+   "desc": "Smooth mode-lerp state blending",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "forge-pipeline.json",
+   "protocol": "import://forge-pipeline",
+   "weight": "high",
+   "desc": "Validation idiom, phyllotaxis, batch ingest, profile dispatch, telemetry",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "mira-governor.json",
+   "protocol": "import://mira-governor",
+   "weight": "CRUCIAL",
+   "desc": "Auto-throttle, home-radius drift, discovery loop, leaky integrator",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "observatory.json",
+   "protocol": "import://observatory",
+   "weight": "low",
+   "desc": "Bank heuristic, storm coupling",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "stone-contract.json",
+   "protocol": "import://stone-contract",
+   "weight": "high",
+   "desc": "Inspection contract, authority flags, snapshots, safe-stop",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "unified-theory.json",
+   "protocol": "import://unified-theory",
+   "weight": "CRUCIAL",
+   "desc": "Reconciled unified theory: signal triad, quanta meter, cascade, corrected wells",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "harmonic-codex.json",
+   "protocol": "import://harmonic-codex",
+   "weight": "CRUCIAL",
+   "desc": "Real-math codex: oscillator entities, coherence scalar, drift, resonance discovery",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "harmonic-volumes.json",
+   "protocol": "import://harmonic-volumes",
+   "weight": "CRUCIAL",
+   "desc": "Volumes II-VII reconciled: adoptable mechanics, cuts, roadmap items",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "raijin-agent.json",
+   "protocol": "import://raijin-agent",
+   "weight": "CRUCIAL",
+   "desc": "Nathan's Raijin agent (Drive): temporal sync service, pressure/energy/resonance, XP skills",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "raijinlang-chat.json",
+   "protocol": "import://raijinlang",
+   "weight": "CRUCIAL",
+   "desc": "RaijinLang physics of language: alphabet energies, keyword chassis, interpreter",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "jin-layout.json",
+   "protocol": "import://jin-layout",
+   "weight": "CRUCIAL",
+   "desc": "Ava 2 / Jin chat layout: top chat bar, right-side thought expander, history icon",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "conversion-intelligence.json",
+   "protocol": "import://conversion-intelligence",
+   "weight": "CRUCIAL",
+   "desc": "Conversions compound intelligence: learning holdings, agent XP, intelligence-upgrade proposals, intelligence metric",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "best-parts.json",
+   "protocol": "import://best-parts",
+   "weight": "CRUCIAL",
+   "desc": "Import law: Nathan feeds HTML, agents decide, best parts survive and seed conversions",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "debug-brain.json",
+   "protocol": "import://debug-brain",
+   "weight": "CRUCIAL",
+   "desc": "Debugging agent (Sentinel, working name) + central Brain: system integrity checks, health drawer, fault proposals",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "drive-watchdog.json",
+   "protocol": "import://drive-watchdog",
+   "weight": "HIGH",
+   "desc": "Drive watchdogs: integrity checks on the Drive bay, anomaly reports, baseline diffing",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "watchdog.json",
+   "protocol": "import://watchdog",
+   "weight": "CRUCIAL",
+   "desc": "Nathan's Watchdog as Brain maintainer: pressure guard, FAIL_SAFE/MONITORING, GLOBAL_THROTTLE",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "mira-agent.json",
+   "protocol": "import://mira-agent",
+   "weight": "CRUCIAL",
+   "desc": "Mira \u00b7 D120 Unified \u00b7 Refined: the strong agent \u2014 six facets, governor mechanics, Brain maintainer",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "enki.json",
+   "protocol": "import://enki",
+   "weight": "CRUCIAL",
+   "desc": "Enki the Smith: Titan-Forge manager, workon/board optimization, Skinning/Smelting/Weaponsmithing",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "brood.json",
+   "protocol": "import://brood",
+   "weight": "CRUCIAL",
+   "desc": "The Brood (Rust): ZENKI-SSJ4 + Brood-Raijin, Agent trait, manifold-step logic",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "temporal-service.json",
+   "protocol": "import://temporal-service",
+   "weight": "CRUCIAL",
+   "desc": "TemporalService base law: observe/process/execute daemon, telemetry, skills, authority hub",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "mater.json",
+   "protocol": "import://mater",
+   "weight": "CRUCIAL",
+   "desc": "MATER the eagle: BUBO OS build watchdog \u2014 hashing, signing, audit log; Brain integrity maintainer",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "orbit-cam.json",
+   "protocol": "import://orbit-cam",
+   "weight": "HIGH",
+   "desc": "Orbit cam: inertia, fov discipline, slow target + zoomed free-look (turn and face the sun)",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "omni.json",
+   "protocol": "import://omni",
+   "weight": "CRUCIAL",
+   "desc": "Omni the Unified Field Agent: RAIJIN/ZENKI/ENKI/ZEN/ZENKAY mode-shifting, auto-return to ZEN",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "vera.json",
+   "protocol": "import://vera",
+   "weight": "CRUCIAL",
+   "desc": "Vera the Many-Faced God: intent router \u2014 reads what Nathan means, routes to the right agent",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "corvus.json",
+   "protocol": "import://corvus",
+   "weight": "CRUCIAL",
+   "desc": "Corvus the Raven: long memory, pattern detection, insight publishing; the crew gets smarter",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "kami.json",
+   "protocol": "import://kami",
+   "weight": "CRUCIAL",
+   "desc": "Kami: Nathan's personal agent \u2014 calm, direct, loyal; session memory, voice, task routing",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "kami-window.json",
+   "protocol": "import://kami-window",
+   "weight": "CRUCIAL",
+   "desc": "Kami's Akatsuki chat window: layout/color/tag reference for the Raijin chat panel",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "zenki-py.json",
+   "protocol": "import://zenki-py",
+   "weight": "CRUCIAL",
+   "desc": "Zenki Temporal Enforcement: de-prioritizes predictability violators; Logging/Leatherworking/Armoring",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "sol.json",
+   "protocol": "import://sol",
+   "weight": "CRUCIAL",
+   "desc": "Sol Temporal Analytics: I/O causal optimization; Mining/Smelting/Engineering",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "agent-skills.json",
+   "protocol": "import://agent-skills",
+   "weight": "CRUCIAL",
+   "desc": "AgentSkills XP backbone: 17 New World skills, 100*1.2^(level-1) curves",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "genki.json",
+   "protocol": "import://genki",
+   "weight": "CRUCIAL",
+   "desc": "Genki: universal-time automation \u2014 git watch/pull/deploy/restart, Zulu logging",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "kairoo.json",
+   "protocol": "import://kairoo",
+   "weight": "CRUCIAL",
+   "desc": "Kairoo the Orchestrator: user input + Kiri edicts -> operational routing",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "kiri-py.json",
+   "protocol": "import://kiri-py",
+   "weight": "CRUCIAL",
+   "desc": "Python Kiri the Governor: bus-wide policy watch, 60s mandate reaffirmation",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "world-bus.json",
+   "protocol": "import://world-bus",
+   "weight": "CRUCIAL",
+   "desc": "World Bus: agent registry + pub/sub + Constitutional Mandate gate + weather metrics",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "zenki-brain.json",
+   "protocol": "import://zenki-brain",
+   "weight": "CRUCIAL",
+   "desc": "Zenki cognitive loop: Chaotic->Confronting->Truce->Collaborating with feedback law",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "temporal-spec.json",
+   "protocol": "import://temporal-spec",
+   "weight": "CRUCIAL",
+   "desc": "Temporal Kernel Specification: 3 axioms, 7 pillars, temporal isolation",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "temporal-contract.json",
+   "protocol": "import://temporal-contract",
+   "weight": "CRUCIAL",
+   "desc": "Temporal Contract: 5 laws \u2014 time authority, territory, causality, finite existence, shared perception",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "corvus-brain.json",
+   "protocol": "import://corvus-brain",
+   "weight": "CRUCIAL",
+   "desc": "CORVUS Enhanced Brain: 10-agent society, Maslow needs, GOAP, SuperMemory, PIT-tick loop",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "hivemind.json",
+   "protocol": "import://hivemind",
+   "weight": "CRUCIAL",
+   "desc": "HiveMindHost: supervised brain-process launcher (JAR noted, not pulled)",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "crew-roster.json",
+   "protocol": "import://crew-roster",
+   "weight": "CRUCIAL",
+   "desc": "Crew roster: Bubo/Vera/Corvus/Mater/Batty/Kami + weather widget + pull tray + mandate",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "titan-forge.json",
+   "protocol": "import://titan-forge",
+   "weight": "CRUCIAL",
+   "desc": "TitanForge: board profiles (p-core-max/battery-saver) + workon sessions for Enki",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "temporal-rs.json",
+   "protocol": "import://temporal-rs",
+   "weight": "CRUCIAL",
+   "desc": "Temporal kernel primitives: TemporalID, credits, ObjectState, AgentRole, skill transfer",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "zenkay-warband.json",
+   "protocol": "import://zenkay-warband",
+   "weight": "CRUCIAL",
+   "desc": "Zenkay Warband: 32 builders vs 32 breakers debate \u2014 deliberation made physical",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "bubo-sync.json",
+   "protocol": "import://bubo-sync",
+   "weight": "CRUCIAL",
+   "desc": "Bubo Sync Bridge: TCP<->bus bridge pattern for external systems",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "batty.json",
+   "protocol": "import://batty",
+   "weight": "CRUCIAL",
+   "desc": "Batty the bat: PC health monitor \u2014 spoken healthy/warning/critical verdicts per subsystem",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "agent-newsfeed.json",
+   "protocol": "import://agent-newsfeed",
+   "weight": "HIGH",
+   "desc": "Agent news feed: main agents report discoveries, verdicts, completions; newest-first drawer with badge",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "merlin.json",
+   "protocol": "import://merlin",
+   "weight": "CRUCIAL",
+   "desc": "MERLIN: Gordon-style execution agent \u2014 analyze/propose/approve/execute; the system itself is the agents' environment",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "esoteric-languages.json",
+   "protocol": "import://esoteric-languages",
+   "weight": "HIGH",
+   "desc": "20 esoteric crystal languages from the RESONANCE mandala (Gemba, Rustba, LavaFlux, Sovereign Slang + 16 classic esolangs), each with greeting/personality",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "regulatory-layer.json",
+   "protocol": "import://regulatory-layer",
+   "weight": "CRUCIAL",
+   "desc": "Regulatory layer: 5 governance primitives per agent (can_act/update_state/apply_rule/emit_signal/self_repair), homeostasis tick, Archive as shared storage node",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "phi-brain.json",
+   "protocol": "import://phi-brain",
+   "weight": "CRUCIAL",
+   "desc": "Phi ONNX as the main brain (Mira + Brain reasoning) on Nathan's PC; procedural body unchanged; explicit awaken, graceful fallback",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "kido.json",
+   "protocol": "import://kido",
+   "weight": "HIGH",
+   "desc": "KIDO: second BUBO-line kernel-node for the outer (language ball); portable/adaptive, compensates BUBO's x86-bound flaws",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "spatial-20d.json",
+   "protocol": "import://spatial-20d",
+   "weight": "CRUCIAL",
+   "desc": "20D SPATIAL TECHNOLOGY in the mandala: lattice vertices as 20D addressing, doll layers as the dimensional ladder (3D->20D), depth-not-diagram no-confusion law",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "digital-alchemy.json",
+   "protocol": "import://digital-alchemy",
+   "weight": "CRUCIAL",
+   "desc": "REAL DIGITAL ALCHEMY: the seven classical operations as concrete system mechanics (calcination=consolidation burn, separation=best-parts, conjunction=synthesis, coagulation=Mythic); forge is the athanor",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "fluid-cognition.json",
+   "protocol": "import://fluid-cognition",
+   "weight": "CRUCIAL",
+   "desc": "Fluid-as-cognition, equation-level: Navier-Stokes substrate, advection-diffusion transport (D=forgetting), vorticity memory, Boussinesq salience-by-buoyancy, Reynolds cognitive regimes \u2014 the Archimedes half of Alchemedies",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "recursive-nesting.json",
+   "protocol": "import://recursive-nesting",
+   "weight": "CRUCIAL",
+   "desc": "RECURSIVE nesting egg: any inner kernel can generate a further layer (nested + recursive + self-improving); base case + gate prevent unbounded depth; every layer independently testable, results traceable through all outer layers",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "resonant-mesh.json",
+   "protocol": "import://resonant-mesh",
+   "weight": "CRUCIAL",
+   "desc": "Resonant mesh: agents communicate by Tesla-style resonance \u2014 broadcast bus + tuned selective receivers, publish-subscribe keyed on frequency; Q-factor selectivity; survives hub loss",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "unified-reasoning-engine.json",
+   "protocol": "import://unified-reasoning-engine",
+   "weight": "CRUCIAL",
+   "desc": "UNIFIED REASONING ENGINE: the star system IS the mandala's reasoning-engine layer \u2014 NESTING: white dwarf = the mandala's core, star system (worlds/neurons + agents) SURROUNDS the dwarf, language shell on the periphery; one Brain, one crew; one shared visual language; updates ship to both together",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "neural-system.json",
+   "protocol": "import://neural-system",
+   "weight": "CRUCIAL",
+   "desc": "NEURAL SYSTEM: worlds are neurons (state-holding), agents are neurotransmitters (signal carriers); mesh links are synapses with receptor specificity = frequency tuning; rarity economy = synaptic plasticity",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "neural-dynamics.json",
+   "protocol": "import://neural-dynamics",
+   "weight": "CRUCIAL",
+   "desc": "NEURAL DYNAMICS (Nathan verbatim): planets=neurons (leaky-integrator update), agents=transmitters (source/dest/type/strength/phase/decay, routed on synapse graph), Lorentzian resonance response eta_ji, Kuramoto coherence from neuron phases, core loop neuron->release->route->response->update",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "crew-upgrade.json",
+   "protocol": "import://crew-upgrade",
+   "weight": "CRUCIAL",
+   "desc": "CREW UPGRADE: builder + agents upgraded with everything learned \u2014 neural-dynamics core loop, real-math standard, loud-stub discipline, Kido build pattern crew-wide; agents rescored as transmitters (fidelity/specificity), release-on-firing, reuptake, plasticity",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "indexer.json",
+   "protocol": "import://indexer",
+   "weight": "CRUCIAL",
+   "desc": "INDEXER: the element table auto-indexes the world's languages over time \u2014 detect genesis/synthesis -> classify -> shape -> add element -> ledger; runs on the world-clock tick (explicit reindex until then, stated loudly); identity-keyed dedup; table shows index state",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "project-ingest.json",
+   "protocol": "import://project-ingest",
+   "weight": "CRUCIAL",
+   "desc": "PROJECT INGEST: all 449 HTML builds cataloged (files/project-ingest-manifest.json) \u2014 indexer walks them over time, Archive ingests under 15MiB rate-distortion via best-parts extraction, agents consume past builds as material for new genesis",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "executable-neural-cycle.json",
+   "protocol": "import://executable-neural-cycle",
+   "weight": "CRUCIAL",
+   "desc": "EXECUTABLE NEURAL CYCLE (Nathan directive): one real transmitter cycle before any new systems \u2014 executable planet/agent ontology, Lorentzian eta-gated delivery with computed (not declared) connectivity, automated tests (boundedness/decay/reachability/failure/balance), mechanics-claims gap closures, browser-is-not-cognition runtime boundary, replayable event log, sim/renderer/UI separation",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "dentauri-harness.json",
+   "protocol": "import://dentauri-harness",
+   "weight": "IMPORTANT",
+   "desc": "DENTAURI HARNESS (Nathan): Tauri+Deno as the faster QEMU \u2014 Rust backend runs Kido's hosted path natively, Deno UI visualizes boot/console/tests; QEMU still proves bare metal, Dentauri proves logic fast; mandala node is the harness launch surface; build after QEMU proof",
+   "approved": "2026-10-14"
+  },
+  {
+   "file": "zstd-layer.json",
+   "protocol": "import://zstd-layer",
+   "weight": "IMPORTANT",
+   "desc": "ZSTD LAYER (Nathan): Zstandard as the Archive's compression \u2014 holdings squeezed under the 15MiB budget, dictionary compression on the 449-HTML corpus, event-log/snapshot compression for replays; compression AFTER best-parts triage, never on the hot tick",
+   "nathan_approved": "2026-10-15"
+  },
+  {
+   "file": "security-overseer.json",
+   "protocol": "import://security-overseer",
+   "weight": "IMPORTANT",
+   "desc": "SECURITY OVERSEER (Nathan, from friend's GOAT system): the Agnostic Security Fabric oversees the PI-lattice security node \u2014 Identity Gate, Egress Relay, Behavior Watch, Evidence Ledger, Policy Core, Isolation Chamber, Secret Vault, Policy Shield; protects without becoming a master key; Nathan keeps approval/correction/pause/revocation",
+   "nathan_approved": "2026-10-15"
+  },
+  {
+   "file": "orchestration-node.json",
+   "protocol": "import://orchestration-node",
+   "weight": "IMPORTANT",
+   "desc": "ORCHESTRATION NODE (Nathan, NEXT MILESTONE): the mandala egg becomes a working chat window \u2014 the mandala IS the chat; small transmitter-agents carry word-fragments, the orchestration node (the speech center) assembles them like a human mind; queued until the current build queue is finished",
+   "nathan_approved": "2026-10-15"
+  },
+  {
+   "file": "deepalchemy-tiers.json",
+   "protocol": "import://deepalchemy-tiers",
+   "weight": "IMPORTANT",
+   "desc": "DEEPALCHEMY TIERS (Nathan): deepalchemy.app storefront for models+kernels; tiers LEGENDARY (free) / BEST (sold) / below (repurposed) applied to kernels, AI-generated models, 2D AI images; models AI-generated from here on; deepalchemy.ai holds the unified theory + dimensional model examples",
+   "nathan_approved": "2026-10-15"
+  },
+  {
+   "file": "medusa-doctrine.json",
+   "protocol": "import://medusa-doctrine",
+   "weight": "IMPORTANT",
+   "desc": "MEDUSA DOCTRINE (Nathan 2026-10-15): Model Equation Driven Understandable Signature Alchemy \u2014 every model equation-driven and understandable, no black boxes; the Alchemedies Principle in practice; the implementation answer to interpretable-AI essays",
+   "nathan_approved": "2026-10-15"
+  },
+  {
+   "file": "deepseek-carrier-painting.json",
+   "protocol": "import://deepseek-carrier",
+   "weight": "IMPORTANT",
+   "desc": "DEEPSEEK CARRIER PAINTING (Nathan upload 2026-10-15): zero-dependency WebGL icosphere displaced per-frame by standing-wave shader, 28 Fibonacci-sphere bodies, Lorentzian eta>=0.5 links removed-not-dimmed. ADOPTED: absence-is-signal mesh convention, rotating blind-spot HUD pattern, window.X honest API standard, refusal-as-absence for Gaven's gate, procedural-displacement technique for white-dwarf core. REJECTED: decorative gate (gates nothing), '515 Hz' geometry as physics, redundant dual-condition link test, outlier construction that fails its own severing intent (forgeweave stays linked).",
+   "nathan_approved": "2026-10-15"
+  },
+  {
+   "file": "deepseek-witness-painting.json",
+   "protocol": "import://deepseek-witness",
+   "weight": "IMPORTANT",
+   "desc": "DEEPSEEK WITNESS PAINTING (Nathan upload 2026-10-15): 2D self-auditing painting \u2014 glyph membership tests, red-scar failures, timestamped refusal ledger, rotating blind spots. ADOPTED: epistemic standard 'it can verify that I put it there \u2014 those are different claims' as standing law; red-scar convention for Gaven anomalies; ledger pattern for Evidence Ledger health entries; 'audit the auditor' API exposure; META-LAW: a test that cannot fail is a painting, not a test. REJECTED: the circular audit implementation (cannot fail by construction \u2014 draws from the pool it tests), decorative gate, numerology-as-decision, glyph strings as language data.",
+   "nathan_approved": "2026-10-15"
+  },
+  {
+   "file": "deepseek-athanor-gate.json",
+   "protocol": "import://deepseek-athanor",
+   "weight": "IMPORTANT",
+   "desc": "DEEPSEEK ATHANOR GATE (Nathan upload 2026-10-15, Ogechi-repaired: 5 shader bugs fixed, all 8 shaders verified). The gate audits YOU: torus ring + 7 band-derived primitives, ring parts at eta>=0.500, reachable refusal. ADOPTED: gate-audits-you posture for Gaven, 7 band primitives as body geometry, refusal-as-absence, eta-gated parting ring, torus-throat as the gate's shape. REJECTED: unrun shaders as-shipped, pointer-frequency as measurement, DHR films as computed.",
+   "nathan_approved": "2026-10-15"
+  },
+  {
+   "file": "build-topology-v2.json",
+   "protocol": "import://build-topology",
+   "weight": "CRITICAL",
+   "desc": "BUILD TOPOLOGY V2 (Nathan directive 2026-10-15): TORUS replaces sphere as the traversal topology. 'One entrance, one exit, one gate' is a torus described in words \u2014 the throat IS the gate (Gaven's chokepoint), the ring IS the circulation (neural cycle becomes the literal ring order), white dwarf at the center, 7 bands as ring arcs with athanor primitives. R20 math untouched; only the 3D landing surface changes. Biggest changes: toroidal layout engine + retargeted gravity anchors; dual-mode circulation/passage traversal; Gaven moved to the throat with a rendered parting gate.",
+   "nathan_approved": "2026-10-15"
+  },
+  {
+   "file": "language-ecology.json",
+   "protocol": "import://language-ecology",
+   "weight": "IMPORTANT",
+   "desc": "LANGUAGE ECOLOGY (Nathan 2026-10-15): 28 bodies consolidated to 18 \u2014 sovereign family untouchable, 9 new synthesized families (Lavaweave, Malbrain, Vitrafunge, Chickencal, Nullspace, Chefspeare, Pietato, Fracthue, LOLnold) with etymologies; full label set (name/what/why) for all 18; evolution mechanics \u2014 Crystallis births, eta-gated by Gaven, ledger-recorded, with death/repurpose per tier law"
+  }
+ ],
+ "routing": "pantheon -> all agents (entity resolution); thesis-core -> Glaciem/Mirell (verification/intent); musicode -> Pyrrhos/Mirell (creative generation); braille-helix -> Archive/Mechane (walkable data design); alchemy-forge -> Hub (ordering UI pattern); kiri-modes -> Director intake + all agents; mira-governor -> engine frame loop + harvesters + Seeker; forge-pipeline -> Director validation + Archive layout; stone-contract -> agent identity + purge gate; darctix-modes -> planet temperaments; unified-theory -> all agents (entity model + truth meter); harmonic-codex -> engine math (entities, coherence, discovery); raijin-agent+raijinlang+jin-layout -> Raijin chat panel; conversion-intelligence -> conversion pipeline + Agents drawer; debug-brain -> new agent + system-health drawer; watchdog -> Brain maintainers; mira-agent -> Brain maintainers; mater -> Brain maintainers; omni/vera/corvus/kami/genki/kairoo/kiri-py/zenki-py/sol/skills/world-bus/zenki-brain/temporal-spec/temporal-contract/corvus-brain/hivemind/crew-roster/titan-forge/temporal-rs/zenkay-warband/bubo-sync/batty/kami-window -> micro-agent brains + Brain + chat",
+ "status": "extracted and ready; ingest into Archive on the HTML-import pipeline landing",
+ "gate_approval": {
+  "date": "2026-10-14",
+  "by": "Nathan",
+  "scope": "all 70 imports",
+  "standing": "The crew builds from the full approved manifest. New imports queue at Mira's Gate; Nathan batch-approves."
+ }
+}

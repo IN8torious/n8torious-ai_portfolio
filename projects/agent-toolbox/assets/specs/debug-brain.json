@@ -1,0 +1,35 @@
+{
+ "meta": {
+  "source": "Nathan 2026-10-14",
+  "import_protocol": "import://debug-brain",
+  "note": "A debugging agent that keeps the entire system in check, wrapped into a brain."
+ },
+ "debugging_agent": {
+  "working_name": "Sentinel (Nathan can rename)",
+  "role": "System integrity. Not a 43rd ring agent \u2014 it sits at the center and watches everything.",
+  "checks_slow_tick": [
+   "inspection contracts complete (id/type/state/source/evidence/role) on all entities",
+   "every world's app card renders",
+   "mechanics alive: fluid levels moving, quanta updating, drift accumulating, currents diffusing",
+   "Archive budget within 15MB cap; no silent drops",
+   "zero console errors; no broken assets"
+  ],
+  "on_fault": "Logs a health holding to the Archive (first-class, against budget), proposes a fix as PROPOSAL_ONLY through the normal approval gate. Critical faults surface to Nathan directly."
+ },
+ "brain": {
+  "desc": "The central coordination layer the debugging agent runs in \u2014 the system's brain.",
+  "panel": "A system-health drawer: per-subsystem status (planets, agents, Archive, engine loop), thermo vitals, intelligence metric slope, recent anomalies, proposed fixes awaiting approval.",
+  "position": "At the center of the system, observing all \u2014 the nucleus to the 42 agents' ring. Fits the organism framing: the brain guards coherence.",
+  "ties": [
+   "heat-death guard (brain watches the vitals)",
+   "intelligence metric (brain watches the slope)",
+   "quanta meter (brain watches system H)"
+  ]
+ },
+ "maintainers": [
+  "Sentinel (correctness: contracts, cards, mechanics, budget)",
+  "Watchdog (pressure: load guard, FAIL_SAFE throttle) \u2014 Nathan's own background process",
+  "Mira (meaning: identity, memory, translation, recovery; her Gate facet runs the approval gate) \u2014 Nathan's strong agent",
+  "MATER (integrity: SHA-256 hashing, Ed25519 signing, tamper-evident audit log) \u2014 the eagle of BUBO OS"
+ ]
+}

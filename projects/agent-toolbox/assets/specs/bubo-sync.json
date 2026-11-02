@@ -1,0 +1,13 @@
+{
+ "meta": {
+  "source": "Nathan's Google Drive: bubo_sync.py (2722B) \u2014 Bubo Sync Bridge",
+  "import_protocol": "import://bubo-sync",
+  "note": "TCP bridge (port 9060) between external systems and the world bus."
+ },
+ "mechanics": {
+  "bridge": "socket server; external clients connect, get registered (HiveMind example)",
+  "protocol": "SYNC:<sys>:ACTIVE -> heartbeat; CMD:<cmd> -> dispatched to bus; else relayed as message; every message ACKed",
+  "lifecycle": "connect/disconnect published to system.log; registry status tracked"
+ },
+ "system_role": "The external-bridge pattern: how outside systems (future: Copilot, phone, kernels) join the bus. Reference for the digest-worker/KV bridge."
+}

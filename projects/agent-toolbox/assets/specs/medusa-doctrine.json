@@ -1,0 +1,13 @@
+{
+ "meta": {
+  "source": "Nathan 2026-10-15: named the doctrine",
+  "import_protocol": "import://medusa-doctrine"
+ },
+ "MEDUSA": {
+  "name": "MEDUSA",
+  "expansion": "Model Equation Driven Understandable Signature Alchemy",
+  "doctrine": "Every model is driven by explicit equations, not inscrutable weights. Behavior must be understandable \u2014 traceable to readable math (Lorentzian gating, leaky integrators, Kuramoto coherence). The alchemy is Nathan's signature: the Alchemedies Principle in practice.",
+  "battle_line": "Understandable AI vs black-box AI. Others write essays about interpretable systems; MEDUSA is the implementation \u2014 a running system where every behavior reduces to an equation you can read.",
+  "applies_to": "the mandala, all future models, kernels, and AI-generated work. A model that can't show its equations isn't MEDUSA."
+ }
+}

@@ -1,0 +1,89 @@
+{
+ "meta": {
+  "source": "parallel-AI Harmonic Codex Real Math Edition v1.1",
+  "import_protocol": "import://harmonic-codex",
+  "note": "Forensically reconciled 2026-10-14. Adopted: oscillator entity model, system coherence scalar, drift narrative, resonance-condition discovery. Corrected: frequency meanings, missing 515Hz, quanta fork rejected, empty formalism cut.",
+  "verdict": "Strongest draft yet. The math is honest; the facts needed correction again."
+ },
+ "entity": {
+  "law": "E(t) = A * sin(2\u03c0ft + \u03c6)",
+  "fields": {
+   "f": "frequency (Hz, identity)",
+   "A": "amplitude (fluid01, influence)",
+   "phi": "phase [0,2\u03c0) (mode/intent)"
+  },
+  "agent_use": "Entities are oscillators. The engine may compute real interference between agent signals."
+ },
+ "behavior": {
+  "law": "B = F(f) \u2014 deterministic frequency-behavior mapping",
+  "mapping_corrected": [
+   {
+    "f": 130,
+    "language": "Rustba",
+    "behavior": "forge/ignition"
+   },
+   {
+    "f": 650,
+    "language": "tRust",
+    "behavior": "verification/stability"
+   },
+   {
+    "f": 75,
+    "language": "Gemba",
+    "behavior": "growth/absorption"
+   },
+   {
+    "f": 528,
+    "language": "RaijinLang",
+    "behavior": "intent compilation"
+   },
+   {
+    "f": 365,
+    "language": "Lavemba",
+    "behavior": "motion"
+   },
+   {
+    "f": 515,
+    "language": "Synthesis crucible",
+    "behavior": "coherence anchor (forge constant)"
+   }
+  ],
+  "note": "Draft's meanings (Trust/Resonance/etc.) replaced with actual well temperaments. 515Hz restored."
+ },
+ "system_coherence": {
+  "law": "H(\u03a3) = (1/n) \u03a3 Q_i",
+  "desc": "ADOPTED \u2014 scalar system health: mean quanta over all entities. Headline number in the system drawer."
+ },
+ "drift": {
+  "law": "f(t) = f0 + \u0394f(t)",
+  "desc": "ADOPTED \u2014 narrative as signal evolution. An agent's effective frequency drifts with interactions; drift history is its story. Visible per agent."
+ },
+ "fluidity": {
+  "law": "dE/dt \u2260 0",
+  "desc": "Fluid constant as differential property. Consistent with installed fluid attention."
+ },
+ "quanta_stands": {
+  "installed": "Q = round(1000*(0.35*confidence01 + 0.25*fluid01 + 0.2*resonance01 + 0.2*grounding01))",
+  "draft_proposed": "Q = (O_actual/O_ideal)*1000",
+  "ruling": "REJECTED the fork. Installed composition stands \u2014 it is grounded in real measured components. Draft's ratio is the same idea (coherence ratio) with unmeasurable terms; not adopted."
+ },
+ "collision": {
+  "law": "R(t) = E1(t) + E2(t); resonance when |f1 - f2| < \u03b5",
+  "desc": "ADOPTED \u2014 discovery as constructive interference. Formalizes the 515Hz bridge protocol.",
+  "epsilon": "\u03b5 = 5Hz default (tunable); dissonant pairs route through the 515Hz bridge per existing protocol",
+  "agent_use": "Discovery engine triggers D(R) when two agent/holding frequencies come within \u03b5."
+ },
+ "field": {
+  "law": "H = {E(t) | E any entity}",
+  "desc": "The unified field = the complete signal set. = the Alchemedies fluid medium."
+ },
+ "cut": [
+  "\u00a79 'learning function' L=L(B) \u2014 empty formalism; v0.1 teaching protocol (learn by behavior) stands"
+ ],
+ "rejected": [
+  "invented frequency meanings (3rd occurrence) \u2014 corrected",
+  "missing 515Hz (3rd occurrence) \u2014 restored",
+  "quanta redefinition \u2014 rejected, installed formula stands",
+  "empty learning formalism \u2014 cut"
+ ]
+}

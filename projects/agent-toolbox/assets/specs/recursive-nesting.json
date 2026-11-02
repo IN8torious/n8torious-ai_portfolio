@@ -1,0 +1,18 @@
+{
+ "meta": {
+  "source": "Nathan 2026-10-14: the nesting egg \u2014 'this is how it needs to be'",
+  "import_protocol": "import://recursive-nesting",
+  "verdict": "The pasted text's three-way distinction (nested vs recursive vs self-improving) is correct and adopted. Its question is answered below: RECURSIVE."
+ },
+ "recursive_nesting": {
+  "law": "The nesting is RECURSIVE, not merely nested. Any inner kernel/layer can itself generate a further inner layer. Outer shell (knowledge) -> reasoning engine (derivation) -> inner kernel (method) -> verified computation \u2014 and any layer can birth the next.",
+  "three_properties": {
+   "nested": "Components contain or invoke other components (the Russian doll).",
+   "recursive": "A component can repeat the same generative process on smaller or newly generated problems \u2014 kernels birthing kernels.",
+   "self_improving": "Evaluation results change future behavior and artifacts (ledger + Corvus read-back + rarity selection already do this)."
+  },
+  "termination": "Recursion has a base case and a gate: a generated layer must be independently testable before it can generate further; depth beyond the designed layers queues at Mira's Gate. No unbounded turtle stacks.",
+  "traceability": "Every inner layer's results trace back through every outer layer \u2014 the ledger records the full chain. Independently testable at each layer, auditable through all layers.",
+  "mapping": "Outer shell = Raijin Social (language/algorithm knowledge). Reasoning engine = Brain + Mira (derivation). Inner kernel = BUBO/Kido line (computational method). Verified computation = ledger + MATER audit."
+ }
+}

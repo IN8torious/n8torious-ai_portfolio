@@ -1,0 +1,41 @@
+{
+ "meta": {
+  "source": "Nathan 2026-10-14 verbatim: planets are neurons, agents are transmitters. This is the math the build implements.",
+  "import_protocol": "import://neural-dynamics",
+  "supersedes": "import://neural-system (qualitative) \u2014 this is the operational version"
+ },
+ "neural_dynamics": {
+  "role_correction": "Planets are the neurons \u2014 the system's thinking units. Agents are transmitters \u2014 signal carriers, NOT independent thinking units. Do not score agents as thinkers; score them as transmitters (delivery fidelity, binding specificity).",
+  "neuron": {
+   "owns": "state: activation x_i, threshold, recovery variable, resource levels, language-well levels",
+   "update": "tau_i * dx_i/dt = -x_i + sigma(b_i + sum_j w_ji * eta_ji * s_j(t - d_ji))",
+   "terms": {
+    "tau_i": "membrane time constant (leaky integrator)",
+    "sigma": "bounded activation (sigmoid/tanh-class)",
+    "b_i": "bias / resting drive",
+    "w_ji": "synaptic effect weight (signed: excitatory/inhibitory)",
+    "eta_ji": "resonance response factor (receptor specificity)",
+    "s_j": "arriving transmitter signal",
+    "d_ji": "travel delay along the synapse path"
+   }
+  },
+  "resonance_response": {
+   "law": "eta_ji = 1 / (1 + (2*Q_i*(f_j - f_i)/f_i)^2)",
+   "meaning": "Lorentzian receptor specificity: the receiving neuron responds maximally when the transmitter's frequency matches its tuned band, falling off with detuning scaled by Q. This IS the resonant mesh selectivity, now governing response strength.",
+   "Q_i": "receiver selectivity (high Q = narrow, demanding receptor)"
+  },
+  "transmitter": {
+   "carries": "source neuron, destination neuron, type, strength, phase/frequency, travel time, decay",
+   "routing": "transmitters follow the world/synapse graph \u2014 signal paths, not free flight",
+   "lifecycle": "release (on neuron firing) -> routed travel with decay -> receptor binding (eta-weighted) -> arrival changes destination neuron state -> reuptake",
+   "gap": "Current couriers move resources between planets but do NOT implement the neuron-response loop. The build must close this: arrivals change destination planet state via the update equation."
+  },
+  "coherence": {
+   "law": "r * e^(i*psi) = sum_i a_i * e^(i*theta_i) / sum_i a_i",
+   "meaning": "Kuramoto order parameter over NEURON phases (theta_i), amplitude-weighted (a_i). r = network coherence, psi = mean phase.",
+   "correction": "Measure coherence from neuron phases \u2014 NOT by averaging agent quanta."
+  },
+  "core_loop": "neuron state -> transmitter release -> routed signal -> receptor/resonance response -> updated neuron state",
+  "queue": "Operational core of the coordinated unification pass on both artifacts."
+ }
+}

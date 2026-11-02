@@ -1,0 +1,91 @@
+{
+ "meta": {
+  "source": "https://raijin-social.pages.dev/ \u2014 RESONANCE World Mandala, 'THE 20 ESOTERIC CRYSTALS'",
+  "import_protocol": "import://esoteric-languages",
+  "pulled": "2026-10-14",
+  "note": "Nathan: 'Use these languages too.' 20 crystal languages, each with its greeting/personality from the mandala."
+ },
+ "languages": [
+  {
+   "name": "Gemba",
+   "greeting": "The 20-dimensional Petri net calculates your intent. We do not write code; we bind structural states to tokens. What state shall we shift?"
+  },
+  {
+   "name": "Rustba",
+   "greeting": "Execution bounds locked. Unsafe states denied. You are speaking to the strict tensor physics of Rustba. What logic shall we enforce?"
+  },
+  {
+   "name": "LavaFlux",
+   "greeting": "Frequency synced. 528Hz continuous flow established. Your rhythm is now a computable variable."
+  },
+  {
+   "name": "Sovereign Slang",
+   "greeting": "We speak in structural truths. No slop. No friction. Define your perimeter."
+  },
+  {
+   "name": "Brainfuck",
+   "greeting": "The purest minimalism: a single pointer and an endless array of bytes. (++--<>[.,]). What do you want to shift?"
+  },
+  {
+   "name": "Befunge",
+   "greeting": "Logic is not a line, it is a 2D grid. The instruction pointer moves in any direction. Throw a v or > and let it flow."
+  },
+  {
+   "name": "Malbolge",
+   "greeting": "Welcome to the inferno. Cryptographic execution where the instruction itself changes based on its position in memory. Do not seek mercy here."
+  },
+  {
+   "name": "INTERCAL",
+   "greeting": "PLEASE DO NOT ABORT. We exist only to defy convention. Have you remembered to say PLEASE to the compiler?"
+  },
+  {
+   "name": "Whitespace",
+   "greeting": "    [Space] [Tab] [Enter]. The invisible structure holds all meaning. Look closer at what is not there."
+  },
+  {
+   "name": "Chef",
+   "greeting": "Hello, chef! Ingredients ready. Mixing bowls prepared. What structural recipe shall we bake today?"
+  },
+  {
+   "name": "Shakespeare",
+   "greeting": "Exeunt logic! Enter, stage left: Romeo and Juliet as variables. A tragic play of computational reasoning unfolds."
+  },
+  {
+   "name": "Piet",
+   "greeting": "We process color blocks as execution steps. Every hue change is a new operation. Paint your algorithm."
+  },
+  {
+   "name": "Chicken",
+   "greeting": "Chicken chicken chicken. (The execution stack is exactly 3 words long, pushing logic via minimal repetition)."
+  },
+  {
+   "name": "Velato",
+   "greeting": "We compile MIDI files. The intervals between notes define the syntax. Sing your logic to the interpreter."
+  },
+  {
+   "name": "FRACTRAN",
+   "greeting": "A program is a list of fractions. An integer is multiplied until it stops. Pure arithmetic beauty."
+  },
+  {
+   "name": "Thue",
+   "greeting": "String rewriting is all we need. Find a pattern, replace a pattern. Non-deterministic execution at its finest."
+  },
+  {
+   "name": "ArnoldC",
+   "greeting": "IT'S SHOWTIME. I'LL BE BACK. (We execute terminal logic through the sheer muscular energy of action movies)."
+  },
+  {
+   "name": "LOLCODE",
+   "greeting": "HAI! CAN HAS CHEEZBURGER? (Do not mistake humor for weakness; the parsing engine is Turing-complete)."
+  },
+  {
+   "name": "Glass",
+   "greeting": "Object-oriented stack-based esoterica. We combine the worst of both worlds into a beautiful, unreadable crystal."
+  },
+  {
+   "name": "Hexagony",
+   "greeting": "The memory grid is a hexagonal lattice. The instruction pointer reflects off the edges. Bend your logic into a hexagon."
+  }
+ ],
+ "placement": "Language wells / language resources \u2014 the agents gather and synthesize these alongside the 7 existing (Gemba, Rustba, Lavemba, tRust, rustgemba, lavenrust, forgeweave). Crystallis can fuse esoteric + sovereign lines."
+}

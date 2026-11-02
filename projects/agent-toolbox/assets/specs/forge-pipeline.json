@@ -1,0 +1,37 @@
+{
+ "meta": {
+  "source": "RavenEye_Viewer_Static__3__13_vp37.html",
+  "name": "Forge spec pipeline",
+  "import_protocol": "import://forge-pipeline",
+  "honest_note": "No decision/scoring logic in this file. Its intelligence is validation discipline + deterministic generation."
+ },
+ "validation_idiom": {
+  "desc": "Untrusted input -> safe action in one pass. Template for Director task intake.",
+  "steps": [
+   "type allowlist (7 types)",
+   "clamp every number with explicit min/max/default",
+   "freshness flag: Date.now()-created < 172800000"
+  ],
+  "js_clamp": "function clampNumber(v,mn,mx,fb){v=Number(v);return Number.isFinite(v)?Math.min(mx,Math.max(mn,v)):fb;}"
+ },
+ "ingest_pattern": "Per-item try/catch, collect error strings, require >=1 success, report 'N ready \u00b7 M skipped'. Never let one bad row kill the batch. Use for task batches and HTML imports.",
+ "phyllotaxis": {
+  "desc": "Optimal even distribution of N items, 3 lines.",
+  "js": "a=i*2.399963; r=Math.sqrt(i/n)*R;",
+  "uses": [
+   "harvester spread across wells",
+   "Mechane 12 plots",
+   "symbolic constellation ring",
+   "Archive monoliths"
+  ]
+ },
+ "profile_dispatch": {
+  "desc": "kind -> profile -> parameter policy. 20-line policy engine.",
+  "uses": [
+   "task.type -> behavior profile (budget, route, creativity)",
+   "agent role -> tuning policy"
+  ]
+ },
+ "telemetry_shape": "One function returning the complete machine-readable state object; render as ?telemetry=json. Mirror for the star system's live engine state.",
+ "provenance": "Every output carries {agent, quote}: 'no naked claims' as a data convention."
+}

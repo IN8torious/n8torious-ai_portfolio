@@ -1,0 +1,17 @@
+{
+ "meta": {
+  "source": "Nathan 2026-10-14: after the queue is knocked out \u2014 the orchestration node; the mandala egg becomes a working chat window",
+  "import_protocol": "import://orchestration-node"
+ },
+ "orchestration_node": {
+  "law": "THE EGG SPEAKS. The mandala is not a place with a chat panel in it \u2014 the mandala IS the chat window.",
+  "design": {
+   "orchestration_node": "a new node \u2014 the speech center of the organism (its Broca's area). It assembles utterances; it does not author them alone.",
+   "small_agents": "words driven by small agents: transmitter-agents carry word-fragments between neurons, the way blood carries oxygen and signals cross synapses. Each fragment is carried, not generated in isolation.",
+   "assembly": "pieced together similar to a human mind: fragments converge on the orchestration node and are assembled into language \u2014 many small carriers, one coherent voice.",
+   "language_shell": "the words draw from the 28 language nodes of the outer shell \u2014 the genesis layer becomes the vocabulary."
+  },
+  "honest_boundary": "the assembly must be real \u2014 fragments actually carried and actually assembled \u2014 not canned responses wearing an agent costume. Until the controlled external runtime exists, the chat labels what it is (Mira templates), exactly as the current build does.",
+  "queue": "NEXT MILESTONE after the current queue is finished and verified. Not dispatched until then \u2014 Nathan's build discipline: knock out what we have first."
+ }
+}

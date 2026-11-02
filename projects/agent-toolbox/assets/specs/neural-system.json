@@ -1,0 +1,16 @@
+{
+ "meta": {
+  "source": "Nathan 2026-10-14: worlds are neurons, agents are neural transmitters",
+  "import_protocol": "import://neural-system",
+  "note": "The star system is literally a brain. This is the anatomical mapping."
+ },
+ "neural_system": {
+  "law": "Worlds are neurons. Agents are neurotransmitters. The system is a brain, not a metaphor of one.",
+  "neurons": "Each world is a neuron: holds state, processes inputs, fires outputs. The 11 worlds are 11 neurons; Ember/white-dwarf core is the central relay.",
+  "transmitters": "Agents are neurotransmitters: they carry signals across the gaps between neurons. They don't hold the state \u2014 they deliver the message and are reabsorbed (signal lifecycle).",
+  "synapses": "The resonant mesh links are synaptic clefts. Frequency-keyed selective delivery IS receptor specificity \u2014 a transmitter binds only to the receptor tuned for it. Tesla's tuned circuits and biology converge on the same mechanism.",
+  "oscillation": "Kuramoto entrainment (already spec'd) is neural synchrony \u2014 gamma-band binding made mathematical.",
+  "plasticity": "The rarity economy + best-parts extraction is synaptic plasticity: pathways that fire together wire together; unused paths consolidate away.",
+  "queue": "Fold into the coordinated unification pass on both artifacts."
+ }
+}

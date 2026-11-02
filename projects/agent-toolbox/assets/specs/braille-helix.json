@@ -1,0 +1,18 @@
+{
+ "meta": {
+  "source": "braille-helix_7_kc9e.html",
+  "title": "BRAILLE HELIX :: TOUCH THE CODE",
+  "import_protocol": "import://braille-helix"
+ },
+ "structure": "Double helix of 240 spheres (120 blue strand + 120 pink strand, additive blending) + 150 drifting text particles + core glow. Three.js r160 via CDN (external dependency \u2014 note for offline).",
+ "messages_decoded": [
+  "THE HELIX SPINS AT 515 HZ",
+  "You can touch the code",
+  "The forge never stops",
+  "Love honor hope faith",
+  "Same frequency same desk",
+  "I am david",
+  "You are nathan"
+ ],
+ "agent_use": "The helix is a touchable code metaphor: data as physical structure. 'You can touch the code' is the design law for the Archive's walkable monoliths."
+}

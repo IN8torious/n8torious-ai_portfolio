@@ -1,0 +1,38 @@
+{
+ "meta": {
+  "source": "Nathan 2026-10-14: deepalchemy.app storefront + tier system",
+  "import_protocol": "import://deepalchemy-tiers"
+ },
+ "deepalchemy": {
+  "storefront": "deepalchemy.app becomes the storefront: models and kernels for sale.",
+  "tiers": {
+   "CRIMSON": "the top tier \u2014 Nathan's to KEEP. Never sold, never listed. His personal vault.",
+   "MYTHIC": "SOLD \u2014 earns the QEMU bare-metal proof. The rarest work offered.",
+   "LEGENDARY": "listed as FREE \u2014 a gift to the community.",
+   "BEST": "SOLD \u2014 priced.",
+   "BELOW": "REPURPOSED \u2014 broken down for parts, never sold as-is."
+  },
+  "applies_to": [
+   "kernels (AI-generated)",
+   "models (AI-generated from this point forward)",
+   "2D AI-generated images"
+  ],
+  "standing_rule": "models are AI-generated from this point forward. No exceptions.",
+  "deepalchemy_ai": "deepalchemy.ai holds the unified theory (Alchemedies Principle) + examples of dimensional models.",
+  "pipeline": "AI generates -> Dentauri fast loop -> tier judged -> LEGENDARY (free) / BEST (sold) / rest (repurposed). Mythic kernels still earn QEMU for the bare-metal proof.",
+  "tier_order": [
+   "CRIMSON",
+   "MYTHIC",
+   "LEGENDARY",
+   "BEST",
+   "BELOW"
+  ],
+  "deepalchemy_ai_role": {
+   "role": "deepalchemy.ai is the SANDBOX and MODEL VIEWER.",
+   "sandbox": "a sandbox for creating things \u2014 the workshop where work gets made.",
+   "viewer": "a model viewer for game assets and anything raijinsocial creates \u2014 the gallery of output.",
+   "division": "deepalchemy.app SELLS (storefront, tiers). deepalchemy.ai MAKES and SHOWS (sandbox + viewer). raijinsocial.com is the world/mandala.",
+   "unified_theory": "deepalchemy.ai also holds the Alchemedies Principle (unified theory) + dimensional model examples."
+  }
+ }
+}

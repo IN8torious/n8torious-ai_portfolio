@@ -1,0 +1,20 @@
+{
+ "meta": {
+  "source": "Nathan 2026-10-14: use ZSTD (Zstandard) \u2014 the compression layer for the system's data",
+  "import_protocol": "import://zstd-layer"
+ },
+ "zstd_layer": {
+  "law": "ZSTD (Zstandard) is the Archive's compression layer. Everything the system keeps gets squeezed; the 15 MiB budget holds more.",
+  "what_it_is": "Meta's LZ77 + FSE/Huffman compression: fast decompression, high ratio, dictionary support, streaming. Verdict on the pasted explainer: the technical claims are right (kernel/Cloudflare/K8s usage, dictionary compression, configurable levels); the hype is hype.",
+  "plugs_in": {
+   "archive_holdings": "holdings compressed under the 15 MiB rate-distortion ceiling \u2014 compression multiplies the budget",
+   "project_ingest": "dictionary compression trained on the 449-HTML corpus \u2014 the files share massive boilerplate (three.js, scaffolds), dictionaries turn that redundancy into near-free storage",
+   "event_log": "world-state snapshots + signal/event history compressed for replayable runs",
+   "best_parts": "compression happens AFTER best-parts extraction \u2014 squeeze what's kept, don't keep what's squeezable-noise",
+   "cloudflare_workers": "Worker response payloads + world-state sync compressed at the edge \u2014 ZSTD is already Cloudflare's native path, so this is swimming downstream"
+  },
+  "not_for": "not a replacement for rate-distortion triage (what to keep is still the Archive's decision); not for the hot neural path (decompression cost stays off the tick)",
+  "queue": "Archive compression pass once the indexer ingestion is underway.",
+  "verdict_second_explainer": "Same accurate core (mechanism, levels, streaming, usage). The '10x faster/smaller with dictionaries' claim is inflated marketing \u2014 dictionaries help most on small structured records, not universally. 'Gold standard' is framing, not fact. No new adoption beyond the Workers payload note."
+ }
+}

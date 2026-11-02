@@ -1,0 +1,47 @@
+{
+ "meta": {
+  "source": "Nathan 2026-10-14: Phi model as the main brain, ONNX on his PC",
+  "import_protocol": "import://phi-brain",
+  "note": "Phi = central nervous system. Procedural machinery = body. Nathan's law honored: physics recurses free, weights think centrally."
+ },
+ "architecture": {
+  "brain": "One Phi model (Phi-3-mini or Phi-4-mini, ONNX, quantized) serves Mira + the Brain (Sentinel/Watchdog/Mira/MATER collective reasoning).",
+  "runtime": "onnxruntime-web in-page, WebGPU execution provider, WASM fallback. Model downloads on first awaken from HuggingFace (~2GB), cached in browser.",
+  "scope": [
+   "Mira's chat reasoning (genuine replies, not templates)",
+   "Brain deliberations (maintainer debates with real reasoning)",
+   "Organelle mutation decisions (adaptive instances guided by reasoning)",
+   "Gate triage (Mira ranks the queue with understanding)"
+  ],
+  "not_in_scope": [
+   "Per-agent LLMs \u2014 the 23 agents stay procedural (cost + physics-beats-weights law)",
+   "Phone \u2014 PC only (WebGPU + model size); phone runs fully procedural"
+  ]
+ },
+ "laws": [
+  "Explicit awaken: a control to download/awaken the brain with progress \u2014 never a silent 2GB download (respects 'UI never opens on its own' + user consent)",
+  "Graceful fallback: no WebGPU or declined download -> full procedural mode, everything still works",
+  "The tick stays procedural; Phi engages for high-level cognition only",
+  "PROPOSAL_ONLY unchanged: Phi reasons, Mira's Gate still approves"
+ ],
+ "honest_costs": [
+  "~2GB first-load download (PC broadband assumed)",
+  "10-30 tok/sec on decent PC GPU \u2014 deliberations take seconds, not ms",
+  "VRAM/RAM pressure: the 3D scene + Phi share the GPU"
+ ],
+ "queue": "Dedicated star-system pass after organelles/back-out land.",
+ "webgpu_node": {
+  "desc": "Nathan 2026-10-14: build a WebGPU node.",
+  "what": "A dedicated compute node living in Ember's interior (the innermost doll), housing the Phi brain. It runs onnxruntime-web with the WebGPU execution provider (navigator.gpu; Chrome/Edge on his PC), WASM fallback when WebGPU is absent.",
+  "does": [
+   "Phi inference (Mira's reasoning, Brain deliberations)",
+   "Eligible for compute-shader work later (WebGPU compute pipelines, not just rendering)"
+  ],
+  "visual": "The node appears in Ember's interior as the brain's physical seat \u2014 distinct from the organelle cells; its activity (inference load) reads visually.",
+  "honest_limits": [
+   "WebGPU required for full speed; WASM fallback is ~5-10x slower",
+   "PC only \u2014 phones lack the VRAM and the model budget",
+   "First load downloads the model; the node shows download/progress state"
+  ]
+ }
+}

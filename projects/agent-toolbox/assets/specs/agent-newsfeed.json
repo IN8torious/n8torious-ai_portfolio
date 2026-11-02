@@ -1,0 +1,35 @@
+{
+ "meta": {
+  "source": "Nathan 2026-10-14",
+  "import_protocol": "import://agent-newsfeed",
+  "note": "The main agents report back the news, like a news feed."
+ },
+ "feed": {
+  "desc": "A news-feed drawer: newest-first timeline of what the main agents report.",
+  "items": [
+   "discoveries (resonance events, new languages, pattern alerts from Corvus)",
+   "forge/smith completions (Enki), integrity verdicts (Mater), pressure events (Watchdog)",
+   "routing notes (Vera: what she routed and why), conversation milestones (Kami)",
+   "conversion approvals/completions, intelligence metric moves, Brain maintainer actions"
+  ],
+  "item_contract": [
+   "agent",
+   "timestamp",
+   "headline",
+   "detail",
+   "confidence",
+   "link to underlying record (deliberation/holding/proposal)"
+  ],
+  "laws": [
+   "UI never opens on its own \u2014 new items surface as a drawer badge only",
+   "drawer, collapsed by default (phone-first)",
+   "Copilot-readable semantic HTML like every panel"
+  ]
+ },
+ "ties": [
+  "Brain drawer (feed lives beside it or inside it)",
+  "Vera's wind speed as the feed's pulse",
+  "Corvus read-back (feed items link learnings)",
+  "Mater signs feed-worthy approvals"
+ ]
+}

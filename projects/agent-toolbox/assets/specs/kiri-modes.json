@@ -1,0 +1,39 @@
+{
+ "meta": {
+  "source": "ai_maintenance_11_hcin.rs",
+  "name": "Kiri orchestrator",
+  "import_protocol": "import://kiri-modes"
+ },
+ "mode_classifier": {
+  "desc": "Keyword -> cognitive mode. ~15 lines. The single cheapest intelligence upgrade.",
+  "modes": [
+   "Daemon",
+   "Strategist",
+   "Creative",
+   "Engineer"
+  ],
+  "rules": [
+   "contains status|load -> Daemon",
+   "contains why|plan|reason -> Strategist",
+   "contains idea|paradox|creative -> Creative",
+   "contains fix|build|code|architecture -> Engineer",
+   "default -> Strategist"
+  ],
+  "js": "function detectMode(s){s=s.toLowerCase();if(/status|load/.test(s))return 'Daemon';if(/why|plan|reason/.test(s))return 'Strategist';if(/idea|paradox|creative/.test(s))return 'Creative';if(/fix|build|code|architecture/.test(s))return 'Engineer';return 'Strategist';}"
+ },
+ "confidence": {
+  "desc": "Grows with experience, capped.",
+  "start": 0.5,
+  "per_cycle": 0.01,
+  "cap": 0.95,
+  "js": "confidence = Math.min(0.95, 0.5 + insightCount*0.01)"
+ },
+ "reasoning_log": {
+  "desc": "Bounded deque: cap 50, GC to 10.",
+  "cap": 50,
+  "gc_keep": 10,
+  "js": "log.push(x); if(log.length>50) log.splice(0, log.length-10);"
+ },
+ "maintenance_loop": "Periodic self-check ticker; agents run sense() on an interval, not every frame.",
+ "agent_use": "Director intake: classify task intent -> mode -> planet routing. Every agent gets confidence + bounded log."
+}

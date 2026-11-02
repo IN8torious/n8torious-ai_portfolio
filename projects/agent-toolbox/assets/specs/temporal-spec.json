@@ -1,0 +1,23 @@
+{
+ "meta": {
+  "source": "Nathan's Google Drive: TEMPORAL_SPECIFICATION.md v1.0.0",
+  "import_protocol": "import://temporal-spec",
+  "note": "The Temporal Kernel Specification \u2014 constitutional foundation."
+ },
+ "axioms": [
+  "Temporal Primacy: time is the primary resource; all else is subordinate to the timeline",
+  "Causal Determinism: every state is the atomic result of a preceding causal event",
+  "Physical Sovereignty: abstractions must never hide physical reality; resources are finite and explicitly allocated"
+ ],
+ "seven_pillars": [
+  "Object Model: everything is a uniquely identified, time-bounded Object",
+  "Capability System: authority via time-anchored, delegatable Leases",
+  "IPC Semantics: Synchronous State Transfer (Rendezvous)",
+  "Thread Lifecycle: execution streams exist only while they hold Temporal Credits",
+  "Scheduling Model: deterministic arbitration by the Temporal Manifold",
+  "Pager Protocol: memory as negotiated territory with explicit TTLs",
+  "The Contract: the kernel is supreme arbitrator of the laws of existence"
+ ],
+ "integrity": "Temporal Isolation: a failure in one object cannot violate another's timeline or territory. Foundation of Sovereign Hosting.",
+ "system_role": "Constitutional foundation for the whole engine: time-first, causal, finite. The Alchemedies fluid medium obeys these axioms."
+}

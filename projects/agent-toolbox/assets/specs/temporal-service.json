@@ -1,0 +1,17 @@
+{
+ "meta": {
+  "source": "Nathan's Google Drive: base_agent.py \u2014 foundation of all his Temporal Services",
+  "import_protocol": "import://temporal-service"
+ },
+ "law": "Every Temporal Service is a bounded daemon thread running observe -> process -> execute, forever (1s cadence), with entropy caught per-cycle.",
+ "contract": {
+  "observe": "perceive the physical territory",
+  "process": "think \u2014 analyze the causal state",
+  "execute": "act \u2014 atomic state transitions",
+  "telemetry": "internal state dict",
+  "skills": "AgentSkills XP ledger",
+  "authority_hub": "shared global state (GLOBAL_THROTTLE etc.)",
+  "is_managed": "when true, the Resonance Core runs the loop instead of the thread"
+ },
+ "note": "This is Nathan's agent architecture law. Raijin, Watchdog, Enki all inherit it."
+}

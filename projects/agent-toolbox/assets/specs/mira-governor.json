@@ -1,0 +1,45 @@
+{
+ "meta": {
+  "source": "best_15_tbgv.html",
+  "name": "Mira agent observatory",
+  "import_protocol": "import://mira-governor"
+ },
+ "auto_throttle": {
+  "desc": "30-frame rolling frame-time average; degrade at 33ms, recover at 23ms (hysteresis band prevents flapping). ~15 lines. Highest-value lift for phone.",
+  "js": "avg=rolling(30); if(avg>33) degrade(); else if(avg<23.1) recover(); // degrade: fewer agents, hide layers; recover: restore"
+ },
+ "home_radius": {
+  "desc": "Every agent has a home territory it drifts back to. 5 lines. Makes 42 agents look purposeful.",
+  "js": "rBase=2+(facetIdx/6)*4; targetR=rBase+0.2*Math.sin(t*0.1+phase); r+=(targetR-r)*0.01;",
+  "mapping": "couriers outer radii, harvesters at wells, synthesizers at Crystallis"
+ },
+ "discovery": {
+  "desc": "Proximity + uuid dedup + quantized reward. Template for Seeker/AnimalPath.",
+  "js": "if(dist<2 && !seen.has(id)){ seen.add(id); log(id); if(seen.size%3===0) intel+=1; }"
+ },
+ "leaky_integrator": {
+  "desc": "Attention meter: events bump (capped), bleeds when idle. 1 line.",
+  "js": "resonance=Math.max(0,resonance-dt*0.002); // bump: resonance=Math.min(1,resonance+0.03)",
+  "uses": [
+   "per-well harvest priority",
+   "per-agent attention"
+  ]
+ },
+ "echo_accrual": "Unbounded interaction counter scaling persistent influence: ring=0.008+echoCount*0.002 (cap 0.025). Use: NarakaPath yeet-priority accrues on repeated flags.",
+ "scan": "Radius-gated, once-only, small random reward, capped global bump. Template for planet inspection granting intel.",
+ "memory_fabric": "Attention-weighted edges with zero graph library: opacity=(0.02+0.02*pulse)*echoFactor*(1-dist/15).",
+ "facet_ontology": [
+  "Identity/permanence",
+  "Memory/continuity",
+  "Translation/meaning",
+  "Recovery/rebuild",
+  "Agency/choice",
+  "Gate/approval"
+ ],
+ "skip": [
+  "personality labels (decorative, no behavioral effect)",
+  "trails (GC churn \u2014 use ring buffers if wanted)",
+  "bloom/ACES stack (phone-expensive)",
+  "voxel pipeline impl (hundreds of draw calls)"
+ ]
+}

@@ -1,0 +1,24 @@
+{
+ "meta": {
+  "source": "Nathan 2026-10-14 physics research; the Archimedes half of the Alchemedies Principle",
+  "import_protocol": "import://fluid-cognition"
+ },
+ "fluid_cognition": {
+  "law": "The physics IS the thinking. Cognition runs on fluid dynamics, not on metaphors about fluid dynamics.",
+  "substrate": "Navier-Stokes for the medium.",
+  "transport": "Advection-diffusion dc/dt + (u . grad) c = D laplacian c + s. Information rides the flow; D is literally forgetting.",
+  "memory": "Vorticity omega = curl u as persistent memory structures. Brunt-Vaisala N^2 stratification for layered memory; internal waves signal across layers.",
+  "salience": "Boussinesq rho = rho0 [1 - alpha (T - T0)]. Salience-by-buoyancy: what matters rises.",
+  "regimes": "Reynolds number sets cognitive regime: laminar = focused, turbulent = brainstorming.",
+  "concepts": "Lagrangian coherent structures as concept boundaries.",
+  "self_organization": "Benard convection / dissipative structures: patterns emerge from the burn. Thermodynamics behind calcination.",
+  "source": "Fluid dynamics, thermodynamics, chaos theory. Per 2026-10-14 physics research.",
+  "calculus": {
+   "navier_stokes_origin": "Derived from mass/momentum balances on infinitesimal control volumes via the divergence theorem.",
+   "vorticity_transport": "D omega/Dt = (omega . grad) u + nu laplacian omega \u2014 pressure drops because curl(grad p) = 0; div omega = 0 keeps vortex lines from ending. In 2D: D omega/Dt = nu laplacian omega = pure advection-diffusion of vorticity = memory.",
+   "information_transport": "dc/dt = div(D grad c) - div(v c) + R, derived from the scalar conservation law + Gauss's theorem. Buoyancy enters as a body-force/source term.",
+   "honest_limit": "Navier-Stokes global smooth existence is a Clay Millennium open problem \u2014 engineer with viscous regularization.",
+   "source": "2026-10-14 calculus research (Wikipedia: Calculus; vorticity equation; convection-diffusion)."
+  }
+ }
+}

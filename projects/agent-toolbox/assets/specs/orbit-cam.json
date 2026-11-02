@@ -1,0 +1,32 @@
+{
+ "meta": {
+  "source": "Nathan 2026-10-14 + parallel-AI camera critique (forensically filtered)",
+  "import_protocol": "import://orbit-cam"
+ },
+ "improvements": [
+  {
+   "id": "inertia",
+   "desc": "Velocity on release: velAz/velPol set on flick, damped *0.92/frame. Fling keeps spinning then settles. 2 multiplies."
+  },
+  {
+   "id": "fov-discipline",
+   "desc": "FOV lerps ONLY during warp transitions. Never touched in orbit mode \u2014 orbit stays stable."
+  },
+  {
+   "id": "slow-target",
+   "desc": "Target lerps slower than rotation (dt*3 vs dt*6) \u2014 parallax weight when flying to a planet."
+  }
+ ],
+ "free_look": {
+  "desc": "Nathan: when zoomed into a planet, be able to look around \u2014 turn and face the sun if wanted.",
+  "law": "When camera distance to the focused planet drops below the free-look threshold, drag switches from orbit-around-target to look-around: yaw/pitch the view direction from the camera position (first-person style). Wheel/pinch still dolly in/out. Dragging back out past the threshold returns to orbit mode.",
+  "constraints": [
+   "no mode button \u2014 the threshold switch must feel seamless",
+   "clamp pitch to avoid flipping",
+   "mobile: one-finger drag looks, pinch zooms"
+  ]
+ },
+ "rejected": [
+  "'lerping lerps' framing \u2014 both approaches lerp; the wins are inertia + rates + fov discipline"
+ ]
+}

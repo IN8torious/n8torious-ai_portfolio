@@ -1,0 +1,16 @@
+{
+ "meta": {
+  "source": "Nathan's Google Drive: mater/src/main.rs \u2014 MATER, BUBO OS Build Watchdog",
+  "import_protocol": "import://mater",
+  "note": "Copyright (c) 2025 Nathan Brown. 'The eagle does not miss.'"
+ },
+ "identity": "MATER \u2014 the eagle of BUBO OS. He watches from above. 'He never lies. He never misses. He is always watching.' / 'I can't fight like you. But I can make sure you don't fight blind.'",
+ "duties": [
+  "SHA-256 integrity hashing of every source file before build \u2014 nothing enters the system unverified",
+  "Ed25519 cryptographic signing of every build report \u2014 every report carries proof",
+  "Append-only tamper-evident audit log (JSON Lines) \u2014 history that cannot be rewritten",
+  "Build runner with structured error parsing \u2014 honest verdicts, colored terminal truth"
+ ],
+ "brain_role": "Fourth maintainer of the Brain. Sentinel watches correctness, Watchdog watches pressure, Mira watches meaning, MATER watches INTEGRITY \u2014 he hashes, signs, and audit-logs. The eagle above the system.",
+ "creed": "No wasted effort. No false alarms. Just truth."
+}

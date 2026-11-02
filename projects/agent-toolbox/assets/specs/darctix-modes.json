@@ -1,0 +1,19 @@
+{
+ "meta": {
+  "source": "darctix-core_12_dd4w.html",
+  "name": "Darctix Core modes",
+  "import_protocol": "import://darctix-modes"
+ },
+ "mode_lerp": {
+  "desc": "States blend smoothly instead of hard-switching. Each mode = full parameter set.",
+  "modes": [
+   "EMBER",
+   "ANXIETY",
+   "HELIX"
+  ],
+  "mechanic": "modeLerp goes 0->1 on switch; every param lerps toward its mode target each frame: v += (target-v)*k*dt",
+  "js": "modeLerp=Math.min(1,modeLerp+dt*1.2); // per-param: cur=lerp(cur, MODES[m].param, dt*2)"
+ },
+ "agent_use": "Planet temperaments and agent states blend (e.g. Tempest calm<->storm) instead of snapping. Auto-cycle on long idle like the 45s screensaver.",
+ "skip": "Three.js scene itself (CDN three.js, decorative); keep the lerp discipline only."
+}

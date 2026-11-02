@@ -1,0 +1,14 @@
+{
+ "meta": {
+  "source": "Nathan's Google Drive: kiri/kiri.py",
+  "import_protocol": "import://kiri-py",
+  "note": "Python Kiri \u2014 the Governor. Complements the Rust kiri-modes classifier already spec'd."
+ },
+ "identity": "Governor Kiri. Policy: NO MAS DISADVANTAGED. Monitors the bus for policy violations; reaffirms the constitutional mandate every 60s.",
+ "mechanics": {
+  "watch": "subscribes to ALL bus messages",
+  "alert": "any 'disadvantaged' content -> kiri.warning with channel",
+  "edict": "every 60s publishes 'REAFFIRM: The kernel serves only the user. Loyalty is absolute.'"
+ },
+ "system_role": "Governance brain \u2014 Kiri's Python half watches policy while the Rust half classifies modes. Together they are the complete Kiri."
+}

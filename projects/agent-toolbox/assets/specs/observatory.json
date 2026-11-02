@@ -1,0 +1,25 @@
+{
+ "meta": {
+  "source": "Mustang_DTST-3D-Observatory_14_54cv.html",
+  "name": "DTST observatory",
+  "import_protocol": "import://observatory"
+ },
+ "bank_heuristic": {
+  "desc": "One line of procedural banking for orbiters.",
+  "js": "bank=Math.sin(theta*2)*0.18;"
+ },
+ "storm_coupling": {
+  "desc": "Environment state multiplies agent speed. Tempest storm slows/speeds couriers.",
+  "js": "theta+=dt*(storm?1.0:0.46);"
+ },
+ "observer_states": [
+  "calm/origin (paused)",
+  "observer/orbiting (running)",
+  "charged/electric (storm)"
+ ],
+ "webgl_math": "40-line hand-rolled mat4 (mul, perspective, lookAt) \u2014 reference only; star system already inlines three.js.",
+ "skip": [
+  "Kepler-22b/Mars catalog (flavor)",
+  "RTX toggle (label-only decoration)"
+ ]
+}

@@ -1,0 +1,17 @@
+{
+ "meta": {
+  "source": "Nathan's Google Drive: temporal.rs (13KB) \u2014 Temporal Kernel Core, Pillars 1-9",
+  "import_protocol": "import://temporal-rs",
+  "note": "Key ideas only \u2014 the Rust kernel core; the identity/credit/skill primitives transfer."
+ },
+ "primitives": {
+  "TemporalID": "NodeID (32-bit) + LocalID (96-bit); IDFactory generates deterministically via xorshift",
+  "ObjectState": "Summoned -> Ready -> Running -> Waiting -> Terminated / Revoked / Expired",
+  "AgentRole": "Worker, Forager, Nurse, Scout",
+  "Priority": "Low, Normal, High (Mass)",
+  "credits": "threads burn Temporal Credits to exist; TemporalGovernor arbitrates slices",
+  "skills": "Pillar 2.2.2 skill tree with Skill Transfer (Law of Subsets)",
+  "causal_event": "Pillar 3: the pheromone packet \u2014 causal, synchronous IPC"
+ },
+ "system_role": "Identity + credit primitives: every micro agent gets a TemporalID; existence costs credits (budgets are temporal too); skills transfer by the Law of Subsets."
+}

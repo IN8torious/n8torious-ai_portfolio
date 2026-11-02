@@ -1,0 +1,19 @@
+{
+ "meta": {
+  "source": "Nathan's Google Drive: sol.py (TemporalService)",
+  "import_protocol": "import://sol",
+  "note": "Sol \u2014 Temporal Analytics Service. 'Drive causal optimization and provide transparent system metrics.'"
+ },
+ "identity": "Deep-system clarity, deterministic performance. Watches I/O territory transitions.",
+ "loop": {
+  "observe": "disk + net I/O counters. XP in Mining (7).",
+  "process": "read_bytes > 100MB -> IO_BOOST strategy + optimization log. XP in Smelting (10).",
+  "execute": "Top I/O process gets high priority (causal chain optimization). XP in Engineering (15)."
+ },
+ "skills": [
+  "Mining (metrics gathering)",
+  "Smelting (data into strategy)",
+  "Engineering (architecture)"
+ ],
+ "system_role": "Analytics brain for metrics micro agents \u2014 transparent system metrics, causal optimization. Feeds the Brain's thermo vitals."
+}

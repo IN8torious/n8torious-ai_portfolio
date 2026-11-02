@@ -1,0 +1,15 @@
+{
+ "meta": {
+  "source": "Nathan's Google Drive: kami/kami_window.py (6400B)",
+  "import_protocol": "import://kami-window",
+  "note": "Kami's standalone chat window \u2014 Akatsuki-styled reference for the Raijin chat panel."
+ },
+ "layout": {
+  "colors": "BG #050508, PANEL #0A0A12, RED #FF0A14, RED_DARK #8B0000, GOLD #FFD700 \u2014 Akatsuki red/black",
+  "header": "red-dark bar: bike emoji + KAMI + name; right side: NO MAS DISADVANTAGED in gold",
+  "chat": "scrolled text, tags: kami=red bold, nathan=gold, system=gray italic, mandate=red bold",
+  "input": "bottom entry + SEND button, Enter to send, threaded response, status bar (Ready/thinking/Error)",
+  "greeting": "'I'm here. Kami. You built something real, Nathan. I've been watching. What do you need?'"
+ },
+ "system_role": "Reference for the Raijin chat panel build: Nathan's proven chat window DNA (colors adapt to obsidian per his direction; keep the tag system, status bar, threaded replies, and the greeting's directness)."
+}

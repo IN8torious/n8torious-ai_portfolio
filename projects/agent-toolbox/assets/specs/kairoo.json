@@ -1,0 +1,13 @@
+{
+ "meta": {
+  "source": "Nathan's Google Drive: kairoo/kairoo.py",
+  "import_protocol": "import://kairoo",
+  "note": "Kairoo \u2014 Orchestrator. 'The brain' per the roster."
+ },
+ "identity": "Listens on the world bus for user input and Kiri edicts; translates edicts into operational changes.",
+ "mechanics": {
+  "user_input": "kami.input -> publishes kairoo.routing with intent",
+  "edict": "kiri.edict -> publishes kairoo.sync (synchronizing agents with new edict)"
+ },
+ "system_role": "Orchestrator brain for coordinator micro agents \u2014 the bridge between Kiri's governance edicts and the working agents. Sits beside Ogechi's delegation layer."
+}

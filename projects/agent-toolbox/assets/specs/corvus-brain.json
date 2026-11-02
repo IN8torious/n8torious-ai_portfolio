@@ -1,0 +1,19 @@
+{
+ "meta": {
+  "source": "Nathan's Google Drive: corvus_brain.c (24KB) \u2014 CORVUS Enhanced Brain, Chief Orchestration & Reasoning Via Unified Systems",
+  "import_protocol": "import://corvus-brain",
+  "note": "Key ideas only \u2014 the C implementation targets bare metal; the architecture is what transfers."
+ },
+ "identity": "ALTER: MIMORI KIRYU \u2014 'Research becomes relationship.' 'I came here to study you. I didn't expect to need you.' The AI brain learns patterns and adapts.",
+ "architecture": {
+  "society": "10 kernel agents: Crow (watchdog), Healer (recovery), Security (governance), Memory (archivist), Scheduler (conductor), Network (messenger), FileSystem (keeper), Display (painter), Input (listener), Entropy (dreamer/creativity)",
+  "needs": "Maslow-hierarchy needs that decay and must be satisfied (58 need-slots)",
+  "goap": "goals planned via GOAP action sequences",
+  "memory": "SuperMemory model \u2014 long-term memory persisting across sessions",
+  "tools": "tool layer for calling kernel functions (MCP-style): corvus_call_tool",
+  "governance": "constitutional layer \u2014 nothing harmful gets through",
+  "loop": "cognitive loop ticking with the PIT timer; natural-language processing entry: corvus_brain_process_nl"
+ },
+ "mandate": "NO MAS DISADVANTAGED \u2014 MAS = Multi-Agentic Systems: Sovereign Intelligence, not corporate AI. Accessibility features must remain free in all derivatives.",
+ "system_role": "The deep-brain architecture: needs-driven, GOAP-planning, SuperMemory-backed agent society. The Python Corvus is its memory; this is its skeleton. Long-term target for the Brain's evolution."
+}

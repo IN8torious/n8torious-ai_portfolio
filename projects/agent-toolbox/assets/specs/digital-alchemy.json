@@ -1,0 +1,65 @@
+{
+ "meta": {
+  "source": "Nathan 2026-10-14: REAL digital alchemy, not abstraction",
+  "import_protocol": "import://digital-alchemy",
+  "note": "The seven classical operations as concrete system mechanics. Alchemedies Principle made executable: Archimedes (fluid medium) + Alchemy (transmutation operations)."
+ },
+ "digital_alchemy": {
+  "law": "No alchemical language without a mechanic. Every operation below is a real function in the system, not a metaphor.",
+  "operations": {
+   "calcination": {
+    "desc": "Burn away the dross.",
+    "mechanic": "IMPLEMENTED: consolidation burn \u2014 Uncommon/Common nodes pulled into the core, husk deleted."
+   },
+   "dissolution": {
+    "desc": "Dissolve the burned into prima materia.",
+    "mechanic": "IMPLEMENTED: consolidated nodes broken into component patterns/learnings."
+   },
+   "separation": {
+    "desc": "Extract the pure from the impure.",
+    "mechanic": "IMPLEMENTED: best-parts extraction \u2014 the extracted best becomes Archive learning holdings."
+   },
+   "conjunction": {
+    "desc": "Recombine the pure into new forms.",
+    "mechanic": "IMPLEMENTED: language synthesis \u2014 Gemba + Rustba -> rustgemba; Crystallis pipeline."
+   },
+   "fermentation": {
+    "desc": "Introduce new life.",
+    "mechanic": "IMPLEMENTED: genesis \u2014 new nodes coalesce from forge light over time."
+   },
+   "distillation": {
+    "desc": "Purify by repeated cycles.",
+    "mechanic": "IMPLEMENTED: deliberation circles refine positions; rarity ranking distills value over cycles."
+   },
+   "coagulation": {
+    "desc": "Manifest the stone.",
+    "mechanic": "IMPLEMENTED: Mythic promotion \u2014 the finished gold; requires Nathan's approval at Mira's Gate."
+   }
+  },
+  "forge": "The forge core is literally the athanor (the alchemist's furnace). Every transmutation passes through it.",
+  "physics_grounding": "The background physics research now serves the operations: thermodynamics of the burn (calcination), fluid dynamics of dissolution, statistical mechanics of separation, wave mechanics of conjunction resonance. The research grounds the mechanics; the mechanics ARE the alchemy.",
+  "conjunction_machinery": {
+   "law": "Conjunction is fusion. Two entities combine by a lawful finite table, not by vibes.",
+   "fusion": "Fusion rules N_{W1,W2}^{W3} = dim of intertwining-operator space. Fusion product W1 x W2 = sum_W N_{W1,W2}^W * W. Finite table, commutative, associative.",
+   "requirement": "Rational VOA with many modules (holomorphic VOAs like the moonshine module have trivial 1x1 fusion \u2014 Monster symmetry gives NO combination laws; alchemy wants rational, not holomorphic).",
+   "runtime": "Ship only finite singular OPE tables + precomputed integer fusion tables. Keep z formal. Skip braided-tensor/Verlinde/Zhu machinery at runtime.",
+   "honest_limits": [
+    "Finite-dimensional vertex algebras are commutative \u2014 literal finite implementation collapses singular interactions; use truncations.",
+    "VOA locality != R^20 spatial locality; the formal variable is not a spatial coordinate.",
+    "No dynamics/time evolution in a VOA \u2014 the tick must come from the regulatory layer, not the algebra."
+   ],
+   "source": "2026-10-14 VOA research (Wikipedia: Vertex operator algebra)."
+  },
+  "calculus_identities": {
+   "calcination_burn": "Sink term (c_dot = -a c).",
+   "dissolution": "Laplacian diffusion.",
+   "separation": "Helmholtz decomposition F = -grad phi + curl A.",
+   "conjunction_recombine": "Convolution / superposition.",
+   "fermentation_generate": "Extremize a functional via Euler-Lagrange.",
+   "distillation_refine": "Gradient flow x_dot = -grad F(x); F is its own Lyapunov function.",
+   "coagulation_manifest": "Boundary-data / Stokes-type principle.",
+   "composition_note": "Pipeline composition semantics (burn -> ... -> manifest) is operator/process algebra \u2014 beyond analytic calculus.",
+   "source": "2026-10-14 calculus research (Wikipedia: Calculus; calculus of variations)."
+  }
+ }
+}

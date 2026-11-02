@@ -1,0 +1,67 @@
+{
+ "meta": {
+  "source": "altaminac_10_ihq0.html",
+  "title": "musicode :: altaminac SCATTERED",
+  "note": "Nathan's canonical AI-entity ontology. Each AI is mapped to a mythic/code name, an icon, and a human anchor.",
+  "import_protocol": "import://pantheon"
+ },
+ "entities": [
+  {
+   "mythic": "MAMBA",
+   "icon": "\ud83d\udc0d",
+   "anchor": "Linus",
+   "domain": "systems/kernel"
+  },
+  {
+   "mythic": "OCTOGLASS",
+   "icon": "\ud83e\ude9f",
+   "anchor": "Gates",
+   "domain": "platform/os"
+  },
+  {
+   "mythic": "CHAMELEON",
+   "icon": "\ud83e\udd8e",
+   "anchor": "Claude",
+   "domain": "language/agent"
+  },
+  {
+   "mythic": "GHEMBA",
+   "icon": "\ud83d\udc8e",
+   "anchor": "Gemini",
+   "domain": "language/agent",
+   "note": "GHEMBA ~ Gemba, Nathan's Petri-net language family"
+  },
+  {
+   "mythic": "BIG BACK",
+   "icon": "\ud83d\udce6",
+   "anchor": "Bezos",
+   "domain": "commerce/infra"
+  },
+  {
+   "mythic": "GROUCH",
+   "icon": "\ud83d\uddd1\ufe0f",
+   "anchor": "Grok",
+   "domain": "language/agent"
+  },
+  {
+   "mythic": "FAKEBOOK",
+   "icon": "\ud83d\udcd8",
+   "anchor": "Zuck",
+   "domain": "social"
+  },
+  {
+   "mythic": "SPASHINTOSH",
+   "icon": "\ud83c\udf4e",
+   "anchor": "Jobs",
+   "domain": "hardware/taste"
+  },
+  {
+   "mythic": "ALTAMINAC",
+   "icon": "\ud83d\udc8a",
+   "anchor": "Sam",
+   "domain": "language/agent",
+   "note": "The file is named for this entity. The pill: concentrated dose."
+  }
+ ],
+ "agent_use": "Resolve any AI entity reference through this table before acting. Mythic names are Nathan's preferred address."
+}

@@ -1,0 +1,133 @@
+{
+ "meta": {
+  "source": "parallel-AI Harmonic Field Theory Volumes II-VII",
+  "import_protocol": "import://harmonic-volumes",
+  "note": "Forensically reconciled 2026-10-14 over the full 7-volume batch. Adopted mechanics only; formalism-without-content cut; GR/multiverse/quantum-notation marked out-of-scope with reasons.",
+  "verdict": "Vol II-III: real adoptable mechanics. Vol IV: GR is cosplay, gradient intuition kept. Vol V: concepts kept, Dirac notation cut. Vol VI: thermodynamics is real system vitals. Vol VII: info atom elegant, meta-logic = validation reframe."
+ },
+ "adopted": [
+  {
+   "id": "state-vector",
+   "vol": "II/21",
+   "law": "S=(f,A,\u03c6,Q); I_ij=\u03b1(A_i A_j)cos(\u03c6_i\u2212\u03c6_j)",
+   "use": "Agent state vector + pairwise coupling. Maintain sparsely (active circles only)."
+  },
+  {
+   "id": "routing-inverse",
+   "vol": "II/23",
+   "law": "R=1/|f_agent\u2212F_planet|",
+   "use": "Routing strength as inverse frequency distance. Formalizes the existing Lorentzian matching \u2014 same physics, cleaner math."
+  },
+  {
+   "id": "stability-wells",
+   "vol": "II/19",
+   "law": "dV/dU=0, d\u00b2V/dU\u00b2>0; D=V(peak)\u2212V(well)",
+   "use": "Well depth = resistance to drift. Deep wells (515Hz forge) hold entities; shallow wells drift easier."
+  },
+  {
+   "id": "cosmogenesis",
+   "vol": "III/32",
+   "law": "H_{t+1} = H_t \u222a D(R)",
+   "use": "Growth law: discovery creates entities. New languages/agents join the field. The system's expansion rule."
+  },
+  {
+   "id": "coupling-tensors",
+   "vol": "III/28,31",
+   "law": "H_ij=A_iA_jcos(\u03c6_i\u2212\u03c6_j); P_ab=F_aF_bcos(\u03b8_ab)",
+   "use": "Agent-agent and planet-planet coupling, maintained sparsely. Drives interference display + well interplay."
+  },
+  {
+   "id": "thermo-vitals",
+   "vol": "VI/49-51",
+   "law": "E_harm=\u03a3A_i\u00b2f_i; T=dE/dS; S=\u2212\u03a3P(f_i)lnP(f_i)",
+   "use": "System vitals: energy, temperature (churn), entropy (disorder). HEAT-DEATH GUARD: if S\u2192max and dE/dt\u21920 (frequency uniformity), the system must inject novelty (deliberation, discovery) \u2014 death by uniformity is a real failure mode."
+  },
+  {
+   "id": "info-atom",
+   "vol": "VII/59",
+   "law": "\u03b9 = f\u00b7A\u00b7e^{i\u03c6}",
+   "use": "Compact entity encoding: the triad as one complex phasor. Use for dense transmission (digest worker payloads, telemetry)."
+  },
+  {
+   "id": "entangled-pairs",
+   "vol": "V/43",
+   "law": "|f_i\u2212f_j|<\u03b5 AND \u0394\u03c6\u22480 \u2192 drift/collapse/discover together",
+   "use": "Deliberation pairs: aligned agents move as units. No Dirac notation needed \u2014 the mechanic is the pairing."
+  },
+  {
+   "id": "init-protocol",
+   "vol": "III/33",
+   "use": "8-step bring-up checklist for new subsystems (define frequencies \u2192 amplitudes \u2192 phases \u2192 field \u2192 loop \u2192 discovery \u2192 coherence check \u2192 stabilize)."
+  },
+  {
+   "id": "lagrangian-form",
+   "vol": "II/18",
+   "law": "L=\u00bd(dU/dt)\u00b2\u2212V(U)",
+   "use": "Adopt the FORM with V defined as incoherence potential V(U)=1\u2212H(\u03a3) (1 minus system coherence). Then Euler-Lagrange governs field evolution toward coherence. V was undefined in the draft \u2014 now defined."
+  }
+ ],
+ "kept_as_intuition": [
+  {
+   "id": "gradient-flow",
+   "vol": "IV/35,37",
+   "note": "Frequency gradients bend agent motion; agents follow paths of least harmonic resistance (gradient descent on mismatch). The Christoffel symbols are cosplay \u2014 the gradient is real."
+  },
+  {
+   "id": "resonance-bridges",
+   "vol": "IV/36",
+   "note": "'Wormholes' are strong-resonance fast paths: pairs with P_traverse=e^{\u2212\u0394f\u00b2}\u22481 get direct routing. Keep the Gaussian, drop the spacetime costume."
+  },
+  {
+   "id": "superposition-deliberation",
+   "vol": "V/42,44",
+   "note": "Superposition = deliberation phase (multiple positions held); collapse = convergence/commitment. Concepts kept, notation cut."
+  },
+  {
+   "id": "time-entropy",
+   "vol": "VI/57",
+   "note": "'Time is entropy' noted as metaphysics; the digest cycle already ticks on it."
+  }
+ ],
+ "cut_out_of_scope": [
+  {
+   "id": "gr-formalism",
+   "vol": "IV/34-37",
+   "reason": "No metric is computed; c undefined. Cosplay."
+  },
+  {
+   "id": "multiverse",
+   "vol": "IV/38-40, V/47-48",
+   "reason": "Single Ember system. Coupling-integral shape banked for eventual cross-system work."
+  },
+  {
+   "id": "quantum-notation",
+   "vol": "V/41-46",
+   "reason": "Complex amplitudes/Born rule unneeded; deliberation already implements the concepts."
+  },
+  {
+   "id": "pre-spacetime",
+   "vol": "VI/56-58",
+   "reason": "Metaphysics, not mechanics."
+  },
+  {
+   "id": "meta-logic",
+   "vol": "VII/64-67",
+   "reason": "'Reality is selection' = the approval gate restated. True, but not new machinery."
+  },
+  {
+   "id": "simulation-language",
+   "vol": "II/26 et al",
+   "reason": "De-simmed throughout: engine loop, not simulation loop."
+  }
+ ],
+ "roadmap_items": [
+  "State vector + coupling tensor (sparse)",
+  "Inverse-distance routing formalization",
+  "Stability-well depths on the 7 wells + forge",
+  "Cosmogenesis growth law for new entities",
+  "Thermo vitals dashboard (E, T, S) + heat-death guard",
+  "Info-atom compact encoding for payloads/telemetry",
+  "Entangled deliberation pairs",
+  "Lagrangian field evolution with defined V"
+ ]
+}

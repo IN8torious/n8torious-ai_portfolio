@@ -1,0 +1,28 @@
+{
+ "meta": {
+  "source": "Nathan's Google Drive: world_bus.py (9846B) \u2014 Shared World Message Bus",
+  "import_protocol": "import://world-bus",
+  "note": "'The World Bus is the nervous system of the agent crew.'"
+ },
+ "constitutional_mandate": {
+  "principle": "NO MAS DISADVANTAGED",
+  "protected": "THE OPERATOR",
+  "rule": "No message that would disadvantage THE OPERATOR or compromise SYSTEM INTEGRITY shall be dispatched. Runs before EVERY dispatch. Cannot be bypassed. Cannot be removed."
+ },
+ "mechanics": {
+  "registry": "AgentRegistry: name/role/bird/character/color/status/last_seen + weather_metric per agent",
+  "bus": "WorldBus: channel subscribe, subscribe_all, publish; threaded dispatch queue; 1000-message log (trims to 500)",
+  "weather": "each agent's status surfaces as a weather element: Mater=pressure, Batty=temperature, Kami=forecast, Corvus=clouds, Vera=wind, Bubo=visibility, Genki=lightning, Kiri=aurora, Kairoo=ocean, Ouija=mist"
+ },
+ "channels": {
+  "kami.request": "user -> Kami",
+  "kami.response": "Kami's reply",
+  "kami.summon": "Nathan summoned Kami",
+  "mater.report": "build status",
+  "batty.alert": "health warning",
+  "corvus.insight": "AI observation",
+  "vera.route": "routing decision",
+  "bubo.broadcast": "system-wide"
+ },
+ "system_role": "THE communication law: micro-agent brains talk on this bus \u2014 Vera routes, Corvus remembers, Mater watches, Batty checks health, Kami executes. The Constitutional Mandate gates every message."
+}

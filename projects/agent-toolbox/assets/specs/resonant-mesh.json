@@ -1,0 +1,23 @@
+{
+ "meta": {
+  "source": "Nathan 2026-10-14: agents communicate using Tesla's resonance ideas",
+  "import_protocol": "import://resonant-mesh",
+  "verdict": "Adopted from the Tesla research mapping: Wardenclyffe's 'one plant, millions of instruments' = broadcast bus with tuned selective receivers = publish-subscribe keyed on frequency. For information this is sound (it IS radio); Tesla's failure was power, not signaling."
+ },
+ "resonant_mesh": {
+  "law": "Agents communicate by resonance. Every signal is broadcast on a frequency; every agent carries tuned receivers. Only agents tuned to the signal's frequency receive it.",
+  "mechanism": "Publish-subscribe keyed on frequency. Broadcast bus + 'carefully attuned receiving circuits' (Tesla's phrase). Vera routes with frequency awareness.",
+  "addressing": "Frequency-division addressing: an agent's tuned band IS its address. Standing-wave eigenmodes as the orthogonal channel basis.",
+  "selectivity": "Q factor governs selectivity: sharper tuning = narrower bands = more addressable channels, but harder to hit. Frequency crowding (agents on nearby bands) causes interference \u2014 the mesh must manage Q per channel.",
+  "integration": [
+   "Regulatory layer emit_signal/send primitives ride the mesh (already spec'd).",
+   "Kuramoto entrainment (already spec'd) is the phase-locking physics underneath.",
+   "Directed information I(X^n -> Y^n) (already spec'd) audits who-influenced-whom on the mesh."
+  ],
+  "honest_limits": [
+   "Resonance gives selective communication, not computation.",
+   "Standing-wave nodes are blind spots by construction.",
+   "Star-topology hub = single point of failure (Wardenclyffe's lesson) \u2014 the mesh must survive hub loss; Marconi's cheaper distributed approach won for a reason."
+  ]
+ }
+}

@@ -1,0 +1,78 @@
+{
+ "meta": {
+  "source": "Nathan's Google Drive: raijin_lang.py (2026-05-15)",
+  "import_protocol": "import://raijinlang",
+  "note": "RAIJINLANG // THE PHYSICS OF LANGUAGE. Vowels = x5 Energy, consonants = x2 mass."
+ },
+ "alphabet": "A=5 B=4 C=6 D=8 E=25 F=12 G=14 H=16 I=45 J=20 K=22 L=24 M=26 N=28 O=75 P=32 Q=34 R=36 S=38 T=40 U=105 V=44 W=46 X=48 Y=50 Z=52",
+ "keywords": {
+  "core": {
+   "rise": 86,
+   "fall": 65,
+   "form": 115,
+   "end": 57,
+   "flow": 141
+  },
+  "variable": {
+   "bind": 61,
+   "shift": 143,
+   "carry": 114,
+   "hold": 119,
+   "free": 76,
+   "mark": 96,
+   "trace": 131
+  },
+  "math": {
+   "plus": 166,
+   "minus": 145,
+   "times": 154,
+   "over": 128,
+   "raise": 116,
+   "root": 190,
+   "merge": 139,
+   "split": 151
+  },
+  "control": {
+   "pulse": 224,
+   "while": 143,
+   "when": 73,
+   "else": 83,
+   "drift": 102,
+   "surge": 182,
+   "halt": 70
+  },
+  "io": {
+   "echo": 122,
+   "listen": 141,
+   "call": 44,
+   "send": 69,
+   "draw": 72
+  },
+  "physics": {
+   "charge": 105,
+   "ground": 169,
+   "spark": 102,
+   "weigh": 154,
+   "phase": 107,
+   "align": 112,
+   "storm": 215
+  },
+  "error": {
+   "static": 145,
+   "noise": 139,
+   "void": 229,
+   "overload": 222,
+   "silence": 164,
+   "break": 107
+  },
+  "system": {
+   "core": 120,
+   "meta": 111,
+   "inner": 142,
+   "outer": 184,
+   "link": 95
+  }
+ },
+ "interpreter": "rise opens the envelope, fall closes it. Verbs: spark (bind energy), form/bind (structure), echo (output), charge/plus (scale/combine).",
+ "chat_use": "Score Nathan's messages with calc_energy + resonate; surface the REU + resonance reading with replies. Keyword hits steer the agent's stance."
+}

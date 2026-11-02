@@ -1,0 +1,76 @@
+{
+ "meta": {
+  "source": "altaminac_10_ihq0.html",
+  "import_protocol": "import://musicode"
+ },
+ "seed_mechanics": {
+  "prng": "mulberry32",
+  "seed_range": [
+   1,
+   1000000
+  ],
+  "resolves": "seed -> palette (14 themes) + snippet (10) + legendary (2% rate) + scatter position",
+  "deterministic": true,
+  "note": "Same seed, same magic. Real seeded RNG, mathematically honest."
+ },
+ "palettes": [
+  "PURPLE VIBE",
+  "BASED RED",
+  "HOT PINK",
+  "CYAN DREAM",
+  "GOLD RUSH",
+  "EMERALD",
+  "ORANGE FIRE",
+  "BLUE STEEL",
+  "MAGENTA STORM",
+  "LIME WIRE",
+  "CORAL REEF",
+  "ICE WHITE",
+  "SUNSET GRAPE",
+  "NEON SLATE"
+ ],
+ "snippets": [
+  {
+   "file": "mashup.music",
+   "code": "import { notes, glow } from \"musicode\"\nplay(vibe).loud()\nlet ncag = chase(perception)\nship(mashup)"
+  },
+  {
+   "file": "vibes.code",
+   "code": "export function spawnVibe(text,color,energy) {\n  const v = create('div')\n  v.style.color = color\n  return energy > 50 ? '\ud83d\udd25' : '\ud83d\udca4'\n}"
+  },
+  {
+   "file": "ncag.principle",
+   "code": "1. ship > perfect\n2. vibes > specs\n3. mashup > monologue\n4. side quest > main quest",
+   "note": "NCAG = no creep, all gas. Nathan's build philosophy, encoded."
+  },
+  {
+   "file": "maddiebear.love",
+   "code": "import { heart, soul } from \"you\"\nconst love = infinity\nplay(forever).together()\nship(us)"
+  },
+  {
+   "file": "dontstop.music",
+   "code": "loop {\n  play()\n  vibe()\n  mash()\n} while (based)"
+  },
+  {
+   "file": "mashit.drop",
+   "code": "drop(beat).hard()\nmix(free + premium).loud()\nship(mashup)"
+  },
+  {
+   "file": "seeded.music",
+   "code": "const vibe = mulberry(seed)\nplay(vibe.next()).forever()\n// same seed, same magic"
+  },
+  {
+   "file": "million.music",
+   "code": "for (let i = 0; i < 1e6; i++)\n  ship(seed + i).based()\n// every one a banger"
+  },
+  {
+   "file": "glow.engine",
+   "code": "class Glow extends Vibe {\n  pulse() { return this.amp * sin(t) }\n  render() { paint(this.color).soft() }\n}"
+  },
+  {
+   "file": "keepgoing.music",
+   "code": "while (alive) {\n  make()\n  ship()\n  repeat()\n} // forever"
+  }
+ ],
+ "agent_use": "musicode snippets are vibe-code training material for Pyrrhos (creative divergence) and Mirell (intent compilation). The seed mechanics are reusable procedural machinery."
+}

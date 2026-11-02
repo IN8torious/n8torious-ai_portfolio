@@ -1,0 +1,63 @@
+{
+ "meta": {
+  "source": "Third-party governance scaffold, forensically reviewed 2026-10-14",
+  "import_protocol": "import://regulatory-layer",
+  "note": "Nathan: 'We created an archive, which is our storage node.' The Archive IS the storage node."
+ },
+ "verdict": {
+  "right": [
+   "The five regulatory primitives (can_act/update_state/apply_rule/emit_signal/self_repair) are a clean, implementable governance API.",
+   "The sense->regulate->act->record->adjust tick gives per-agent homeostasis.",
+   "Storage partitions (state log, regulatory ledger, signal history, identity) are a sound schema."
+  ],
+  "wrong": [
+   "'Living organism, not a config file' is costume \u2014 a JSON schema per agent is still structured state; the name doesn't change the substance.",
+   "'Without a single global cop' conflicts with the architecture \u2014 the Brain maintainers + Mira's Gate ARE the global layer. Correct model: local homeostasis + global Brain, not either/or."
+  ]
+ },
+ "adopted": {
+  "primitives": [
+   "can_act() -> allowed/delayed/denied (energy, error rate, cooldowns, global load)",
+   "update_state(event) -> state log + regulatory ledger",
+   "apply_rule(rule_id, context) -> physics + policy (rate limits, mutation caps, allowed partners)",
+   "emit_signal(kind, payload) -> signal history, may trigger global regulators",
+   "self_repair() -> revert to last stable, disable bad organelle, escalate"
+  ],
+  "tick": "sense -> regulate -> act -> record -> adjust",
+  "storage": "The Archive is the shared storage node. Per-agent partitions (identity/state/history/regulation/rules) live as Archive holdings against the 15MB budget.",
+  "mapping": {
+   "Watchdog": "metabolic regulator (energy/pressure)",
+   "Sentinel": "immune (error density)",
+   "Mira Gate": "escalation path",
+   "Brain": "global layer (kept, not replaced)",
+   "Corvus": "signal-history pattern reader"
+  }
+ },
+ "queue": "Next dedicated star-system pass after organelles land.",
+ "real_machinery": {
+  "homeostasis": "Stable fixed point / limit cycle. Feedback u = -K(x - x*). Lyapunov V with Vdot <= 0 as the stability proof.",
+  "resonance": "Kuramoto: theta_dot_i = omega_i + (K/N) sum sin(theta_j - theta_i). Entrainment is the resonance math, equation-level.",
+  "exploration": "Boltzmann/softmax policy pi(a) ~ exp(-E(a)/T). Temperature T is the exploration knob, annealed on the adjust tick.",
+  "selection": "Replicator equation xdot_i = x_i (f_i - fbar). The rarity economy's real formula.",
+  "error_detection": "Quantum-error-correction pattern: syndrome measurement detects errors without collapsing state -> checksums / invariant watchdogs.",
+  "source": "Nonlinear dynamics, statistical mechanics, thermodynamics (nonequilibrium steady state). Per 2026-10-14 physics research."
+ },
+ "calculus": {
+  "lyapunov": "V > 0, Vdot = grad V . f <= 0 (strict < 0 => asymptotic; radial unboundedness => global). Linear case: V = x^T P x with A^T P + P A < 0.",
+  "kuramoto_mean_field": "Coherence order parameter r e^{i psi} = (1/N) sum e^{i theta_j}; mean-field form d theta_i/dt = omega_i + K r sin(psi - theta_i). Critical coupling needs mean-field/bifurcation theory beyond the ODEs.",
+  "source": "2026-10-14 calculus research (Wikipedia: Calculus; Kuramoto model; Lyapunov stability)."
+ },
+ "information_theory": {
+  "budget": "15 MB = 125,829,120 bits. The Archive is literally a rate-distortion problem: minimize D s.t. rate <= budget. Keep items by delta-D/delta-bits; discard items with H(item|Archive) ~= 0.",
+  "best_parts": "Lossy compression bounded below by R(D) = min_{E[d]<=D} I(U;Uhat).",
+  "signals": "Signal histories are channels auditable via capacity C. Use DIRECTED information I(X^n -> Y^n) = sum_i I(X^i; Y_i | Y^{i-1}) \u2014 not mutual information \u2014 for who-influenced-whom in conversational feedback.",
+  "rarity": "Selection maximizes I(kept; future utility), not raw entropy. Consolidation keeps sufficient statistics. MDL for tier design.",
+  "deliberation": "Distributed source coding: shared context is free side information; store innovations only. H(final|initials) ~= 0 for rejected challenges \u2014 they cost nothing to forget.",
+  "honest_limits": [
+   "Stationarity/ergodicity fail \u2014 use information-spectrum methods and sliding windows; drift costs D_KL(p_new||p_old).",
+   "Bits are syntactic: the distortion function d must come from task utility.",
+   "KL is asymmetric; empirical MI estimators are biased; source-channel separation fails for multi-agent networks."
+  ],
+  "source": "2026-10-14 information theory research."
+ }
+}

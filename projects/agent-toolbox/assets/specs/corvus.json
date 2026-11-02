@@ -1,0 +1,18 @@
+{
+ "meta": {
+  "source": "Nathan's Google Drive: corvus/corvus.py (11395B)",
+  "import_protocol": "import://corvus",
+  "note": "Corvus \u2014 the Raven. 'Corvus does not forget.' S-Cry-Ed AI brain."
+ },
+ "identity": "Memory. Pattern. Adaptation. He watches what Nathan builds, what he asks, what he struggles with. He finds the pattern before Nathan sees it. He is the long memory of the crew. 'He is the reason the crew gets smarter the longer they run.'",
+ "mechanics": {
+  "memory": "CorvusMemory: sessions, observations (cap 1000), patterns, build_history, insights \u2014 persisted to corvus_memory.json",
+  "observe_all": "subscribes to every bus message (except his own); categorizes: build/health/task/routing/general",
+  "pattern_detect": "build failures -> insight + build event; build success -> event; batty.alert -> insight",
+  "think": "answers from memory \u2014 no LLM, just pattern recall: history/builds/insights queries",
+  "feeds": "feeds Kami context on kami.summon; feeds Mater build history; feeds Vera better routing over time",
+  "cloud": "learning activity reported as cloud cover (0-100%) \u2014 decays when quiet"
+ },
+ "quote": "Can I handle the seasons of my life? \u2014 Stevie Nicks, Landslide",
+ "system_role": "Brain-tier: Corvus becomes the learning-brain for analyst micro agents \u2014 persistent memory, pattern detection, insight publishing. Powers the conversion-intelligence learning holdings."
+}

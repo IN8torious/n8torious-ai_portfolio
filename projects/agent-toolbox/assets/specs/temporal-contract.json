@@ -1,0 +1,15 @@
+{
+ "meta": {
+  "source": "Nathan's Google Drive: TEMPORAL_CONTRACT.md v1.0.0",
+  "import_protocol": "import://temporal-contract",
+  "note": "The five laws of the Temporal OS."
+ },
+ "laws": {
+  "authority_of_time": "The Kernel is sole arbitrator of the Physical Timeline; execution quantized into Temporal Slices; sync only at Temporal Boundaries",
+  "physical_territory": "Memory is Physical Territory; access needs explicit Temporal Grant; overcommitment is a violation of reality",
+  "causality": "IPC is causal and synchronous; state transitions atomic and observable; cause precedes consequence in the log",
+  "finite_existence": "All objects have lifecycles; all resources bounded and finite; implicit/infinite authority does not exist",
+  "shared_perception": "Consistent system clock; relative priority = subjective slice of the timeline"
+ },
+ "system_role": "The five laws stand over the engine: finite budgets (15MB), atomic transitions, causal logs, no infinite authority \u2014 the Contract already describes the Archive."
+}

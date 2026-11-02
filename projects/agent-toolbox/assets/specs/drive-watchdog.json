@@ -1,0 +1,16 @@
+{
+ "meta": {
+  "source": "Nathan 2026-10-14",
+  "import_protocol": "import://drive-watchdog",
+  "note": "Watchdogs on Nathan's Google Drive, tied to the Sentinel/Brain system."
+ },
+ "scope": "Start: Drive/Star System/ folder (ID 1T8Z3Q1EKbl1NFWUZxbHdA_E2b_kbCC5r). Nathan can name more folders to watch.",
+ "checks": [
+  "expected files present (no silent deletions)",
+  "no unexpected new files (new uploads get reported, baseline updated on confirmation)",
+  "file sizes sane (no truncated/corrupt uploads \u2014 size drop >50% flags)",
+  "backup recency: at least one backup per active milestone; flag if the bay goes stale"
+ ],
+ "on_anomaly": "Report to Nathan in the main chat; log a health holding for the Brain. Never delete or 'fix' Drive files on its own.",
+ "cadence": "daily"
+}

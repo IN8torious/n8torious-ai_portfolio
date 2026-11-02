@@ -1,0 +1,19 @@
+{
+ "meta": {
+  "source": "Nathan's Google Drive: agents.rs \u2014 The Brood, Agentic Logic for RustyOs",
+  "import_protocol": "import://brood",
+  "note": "TitanBoa's Brood agents, in Rust. The Agent trait: name + step(manifold_pos)."
+ },
+ "agents": [
+  {
+   "name": "ZENKI-SSJ4",
+   "fields": "power_level=1000, stability 0.5-2.0",
+   "logic": "Center-seeking: near manifold center -> power+1, stability+0.1 (cap 2.0); away -> stability-0.05 (floor 0.5). Performance focus."
+  },
+  {
+   "name": "RAIJIN (Brood)",
+   "fields": "latency 1-100",
+   "logic": "Rapid response: manifold x>0.8 -> latency+1 (cap 100); else latency-1 (floor 1). Note: distinct from the Python Raijin TemporalService \u2014 same spirit, different body."
+  }
+ ]
+}

@@ -1,0 +1,34 @@
+{
+ "meta": {
+  "source": "Research 2026-10-14: Docker Gordon agentic architecture (docker.com, docs.docker.com, devops.dev teardown)",
+  "import_protocol": "import://executor",
+  "note": "Nathan: 'Create an execution agent like Docker's Gordon.' Forensically mapped, not copied."
+ },
+ "gordon_loop": {
+  "analyze": "Inspects the LIVE environment (containers, logs, files) \u2014 never guesses from the question alone.",
+  "propose": "Decides a concrete action (command, edit, fix) and shows it BEFORE anything runs.",
+  "approve": "Human approves. Nothing runs without explicit go-ahead. Core permission model, not an afterthought.",
+  "execute": "Runs it, reads the result, feeds the result back into the next turn. That's what makes it agentic, not generative.",
+  "tools": "Minimal sets, broad capability: filesystem, shell, fetch, todo, knowledge base. Emergent behavior from combination."
+ },
+ "our_mapping": {
+  "live_environment": "The star system itself \u2014 agent states, thermo vitals, Archive budget, Brain maintainer reports. Never guesses; reads state first.",
+  "propose": "Concrete system operations as proposals: run a deliberation on X, compact these holdings, engage throttle, route demand to Y, queue a build.",
+  "approve": "Mira's Gate \u2014 already the law. Every action waits there. Nathan batch-approves on visit.",
+  "execute": "Carries out approved operations through the engine's real mechanics, reads the result, feeds it back as the next turn's context.",
+  "verdict": "Gordon's loop maps 1:1 onto the standing approval-gate system \u2014 analyze\u2192propose\u2192approve\u2192execute IS proposal-only + Mira's Gate + result feedback. Cleaner fit than most ports."
+ },
+ "executor": {
+  "working_name": "MERLIN \u2014 Nathan named him 2026-10-14.",
+  "role": "The hands of the system. Turns approved proposals into executed reality, then reports what happened.",
+  "loop": "analyze (read live state) -> propose (concrete op, shown first) -> approve (Mira's Gate) -> execute (run, read result, feed back)",
+  "honest_limits": "Static page: executes the engine's real in-system operations (deliberations, compactions, routing, builds-in-queue). No shell, no filesystem \u2014 the 'environment' is the system itself.",
+  "multi_step": "Tracks multi-step tasks like Gordon's todo tool: breaks approved work into steps, works through them, reports per step.",
+  "name": "Merlin"
+ },
+ "environment_law": {
+  "desc": "Nathan 2026-10-14: the agents' environment IS the system itself.",
+  "law": "The star system is not a backdrop the agents sit on \u2014 it is their environment. They read it (states, vitals, budget, holdings), act on it (deliberate, convert, route, compact, build), and live in it. Like Gordon reads Docker, our agents read the system.",
+  "consequence": "Every agent's observe step reads live system state. No agent guesses from its prompt alone."
+ }
+}

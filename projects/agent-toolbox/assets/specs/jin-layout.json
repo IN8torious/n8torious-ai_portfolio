@@ -1,0 +1,10 @@
+{
+ "meta": {
+  "source": "Nathan's spec 2026-10-11; Ava 2 = Jin, his chat assistant",
+  "import_protocol": "import://jin-layout"
+ },
+ "layout": "Search-bar-style chat bar at the TOP (not bottom). During replies, thought processing appears as a right-side icon that expands to full processing. A chat icon pulls up full history. Main view stays minimal \u2014 not a traditional chat.",
+ "chat_use": "The Raijin chat panel follows this layout exactly.",
+ "colors": "Nathan 2026-10-14: Ava 2 layout, but in his obsidian colors \u2014 deep black volcanic-glass surfaces, subtle sheen highlights, hard dramatic shading. Obsidian = the Archive world material.",
+ "predictive": "Nathan 2026-10-14: chat offers predictive follow-up options like Gemini/Copilot suggestion chips, BUT provided by his agents \u2014 each suggestion comes from a Living Engine agent (attributed, with confidence), not a generic model. Tappable chips. Agent-proposed follow-ups stay PROPOSAL_ONLY per standing law."
+}

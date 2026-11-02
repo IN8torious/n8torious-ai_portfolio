@@ -1,0 +1,45 @@
+{
+ "meta": {
+  "source": "Nathan 2026-10-14: stop adding systems \u2014 make one complete neuron-transmitter cycle real. The milestone everything else grows around.",
+  "import_protocol": "import://executable-neural-cycle"
+ },
+ "executable_neural_cycle": {
+  "law": "No new systems until one complete neuron-transmitter cycle is REAL. Every other feature grows around this foundation.",
+  "milestone": "Send ONE transmitter through the mesh: show its route and resonance calculation, update ONE planet's activation, record a REPLAYABLE event.",
+  "executable_ontology": {
+   "planet": "owns neuron state: activation, threshold, recovery, receptors",
+   "agent": "carries transmitter signal: source, destination, type, strength, frequency, arrival time",
+   "signal": "travels along a network edge; the receiving planet's state CHANGES",
+   "inspection": "the whole causal chain is inspectable: release -> route -> per-hop gain -> binding -> state delta -> reuptake"
+  },
+  "resonance_delivery": {
+   "gain": "eta_ij = 1/(1+(2Q_i(f_j-f_i)/f_i)^2) \u2014 Lorentzian receiver response",
+   "rule": "a signal is DELIVERED only when its gain clears a defined threshold; below threshold it attenuates or fails \u2014 visibly",
+   "connectivity": "COMPUTED from the graded links (reachability via BFS over threshold-clearing edges), never declared. hubIndependent is a measured property, not a flag.",
+   "known_case": "555 Hz world isolated and 547 Hz peer group under exact-match linking \u2014 fixed by graded gain + multi-hop routing, verified by the reachability test"
+  },
+  "automated_tests": [
+   "activations stay bounded under the neuron update",
+   "signal strength decays as specified along the route",
+   "every claimed-connected node is reachable (BFS over live links)",
+   "a failed transmitter (below-threshold gain) behaves as specified \u2014 visible failure, no silent drop",
+   "resource totals balance across harvest, transit, fusion, and construction"
+  ],
+  "mechanics_claims_gaps": {
+   "dissolveLanguage": "must USE the returned primitives to build the new language \u2014 no unused return values",
+   "project_indexer": "discovers files (wired to files/project-ingest-manifest.json or live discovery) \u2014 no embedded fake batches",
+   "rotation_sweep": "checks RENDERED frames (real readback) or is honestly relabeled as a geometric check \u2014 no description claiming what the code doesn't do",
+   "mira": "keyword rules are presentation, not cognition \u2014 labeled honestly"
+  },
+  "runtime_boundary": {
+   "law": "The browser is visualization, state inspection, and approval \u2014 NOT cognition.",
+   "real_agents": "live agent reasoning and tool use go through a controlled runtime; until that runtime exists, template behavior is labeled as template behavior",
+   "persistence": "world state + signal/event history persist; runs are replayable from the event log"
+  },
+  "refactor": {
+   "separation": "simulation model, renderer, and UI are separate layers",
+   "language_index": "the accessible element/project index is the non-3D control surface",
+   "placement_honesty": "the 20D readout (Q^T R x) drives actual placement \u2014 or the readout is fixed to match what places the nodes"
+  }
+ }
+}

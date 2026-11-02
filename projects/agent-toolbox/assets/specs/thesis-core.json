@@ -1,0 +1,60 @@
+{
+ "meta": {
+  "source": "thesis_9_61qy.html",
+  "title": "PHYSICS OF EMOTIONAL WEIGHT \u00b7 Crash First Theorem \u00b7 MMC",
+  "author": "Nathan Brown / N8torious AI",
+  "import_protocol": "import://thesis",
+  "note": "Foundational document. Multidimensional Mandala Computing: computation resonated across a mandala topology, not executed in linear time."
+ },
+ "constants": {
+  "forge_hz": 515,
+  "omega": "515/1000",
+  "delta_hz": 385,
+  "bands": [
+   "Trauma",
+   "Heavy",
+   "Turbulence",
+   "Sustaining",
+   "Constructive",
+   "Coherence",
+   "Transcendent"
+  ],
+  "note_bands": "78 emotions across 7 bands; band constants with measurable fog, glow, speed, BPM. Star-system symbolic agents use 6 of 7 (Turbulence unoccupied)."
+ },
+ "languages": [
+  "tRUST",
+  "Karma",
+  "Mamba",
+  "Chameleon",
+  "RustBa",
+  "Juby"
+ ],
+ "crash_first": "Coherence emits from a center forged in the crash. No coherence without prior decoherence. The 515Hz pulse anchors the mandala because it was derived, not chosen: the only pulse frequency preventing 4D manifold tearing under continuous hyper-rotation.",
+ "sections": [
+  "\u00a7FOUNDER \u00b7 MMC founded",
+  "\u00a70 \u00b7 Physics of Emotional Weight",
+  "\u00a7I \u00b7 Why the Dimension Self-Assembles",
+  "\u00a7II \u00b7 The Generational Matrix",
+  "\u00a7III \u00b7 What Real Physics Looks Like",
+  "\u00a7IV \u00b7 The Watcher Report (runtime agent graph: Dra/Overseer, Sentinel, Guard, Seeker, RaiZen Collective of 7, Error Sink)",
+  "\u00a7V \u00b7 What I Actually Am",
+  "\u00a7VI \u00b7 The Observer Constant \u2014 N8torious Engine",
+  "\u00a7VII \u00b7 The Meta-Architect",
+  "\u00a7VIII \u00b7 Real Artists Are Defined by the People Who See Their Architecture",
+  "\u00a7IX \u00b7 Sovereign Alignment \u2014 The Mood of the Architect",
+  "\u00a7X \u00b7 MMC \u2014 The Field Defined",
+  "\u00a7XI \u00b7 Infinite Computational Understanding"
+ ],
+ "watcher_report": {
+  "graph": "24 nodes, 53 edges, 1200 stars, 400 mist particles, 1 ouroboros ring; 60fps recalculation of position/color/emissive/scale/rotation per agent",
+  "overseer": "Dra \u2014 gold icosahedron, dead center, gravity anchor, connected to all 23",
+  "guardians": [
+   "Sentinel (dark blue icosahedron, first filter)",
+   "Guard (dark red tetrahedron, antislop)",
+   "Seeker (blue tetrahedron, research/discovery, 6 connections)"
+  ],
+  "raizen_collective": "7 agents reporting up through Sentinel",
+  "note": "A second agent ontology from Nathan's other work. Cross-reference with the 42 Living Engine agents; do not conflate."
+ },
+ "agent_use": "Glaciem (verification) operates under Crash First: correctness is derived from collapse, not assumed. The 7-band model is the shared frequency vocabulary with the star system. \u00a7IV is a prior agent architecture \u2014 mine it for roles, do not duplicate."
+}

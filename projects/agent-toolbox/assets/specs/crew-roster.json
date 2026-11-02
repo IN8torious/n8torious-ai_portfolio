@@ -1,0 +1,52 @@
+{
+ "meta": {
+  "source": "Nathan's Google Drive: agents/README.md \u2014 the crew roster",
+  "import_protocol": "import://crew-roster",
+  "note": "'One world. All of them in it together.' Dedicated to Landon Pankuch and Stephen Hawking."
+ },
+ "crew": [
+  {
+   "agent": "Bubo",
+   "bird": "\ud83e\udd89",
+   "role": "The OS \u2014 sees in the dark",
+   "weather": "visibility"
+  },
+  {
+   "agent": "Vera",
+   "bird": "\ud83c\udf0a",
+   "role": "Routes all intent",
+   "weather": "wind speed"
+  },
+  {
+   "agent": "Corvus",
+   "bird": "\ud83d\udc26\u200d\u2b1b",
+   "role": "Learns and adapts",
+   "weather": "cloud cover"
+  },
+  {
+   "agent": "Mater",
+   "bird": "\ud83e\udd85",
+   "role": "Build watchdog",
+   "weather": "atmospheric pressure"
+  },
+  {
+   "agent": "Batty",
+   "bird": "\ud83e\udd87",
+   "role": "PC health monitor",
+   "weather": "temperature"
+  },
+  {
+   "agent": "Kami",
+   "bird": "\ud83c\udfcd\ufe0f",
+   "role": "Nathan's personal agent",
+   "weather": "forecast"
+  }
+ ],
+ "interfaces": {
+  "weather_widget": "always-on ambient display, agent status as weather, AKIRA red/black neon",
+  "pull_tray": "red bar at screen top; crew slides down: status cards + Kami chat",
+  "hotkey": "Ctrl+Shift+K summons Kami"
+ },
+ "mandate": "NO MAS DISADVANTAGED \u2014 runs through every agent, every message, every decision. Cannot be bypassed. Cannot be removed. It is who they are.",
+ "system_role": "The org chart: Bubo (the OS/Ember itself), Vera (router), Corvus (memory), Mater (watcher), Batty (health), Kami (right hand). Maps onto the Brain maintainers + the star system's core loop."
+}

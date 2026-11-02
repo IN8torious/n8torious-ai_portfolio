@@ -1,0 +1,20 @@
+{
+ "meta": {
+  "source": "Nathan 2026-10-14: the element table is an indexer; it must automatically index over time",
+  "import_protocol": "import://indexer"
+ },
+ "indexer": {
+  "law": "The element table is an INDEXER, not a static legend. It automatically indexes the world's languages over time \u2014 as the world grows, the table grows.",
+  "watches": [
+   "node genesis events (new language nodes forming on the periphery \u2014 inward=consumption, periphery=genesis)",
+   "agent language synthesis (agents synthesizing new languages via the LivingEngine synthesis line)",
+   "Archive/holdings additions that constitute new language material"
+  ],
+  "cycle": "detect -> classify by language type -> assign shape -> add element to the table -> log to ledger + agent newsfeed",
+  "tick": "Runs on the world-clock tick (unattended sense->regulate->act->record->adjust). Until the world clock exists, the indexer runs on explicit reindex and says so LOUDLY \u2014 no fake autonomy.",
+  "table_state": "The table visibly shows its index state: total indexed, last index time, pending unindexed items. An unindexed new node is shown as pending, never silently dropped.",
+  "dedup": "Identity-keyed: a language already indexed is never duplicated. Re-detection updates the existing element.",
+  "query": "The table is the query interface: find a language, see its shape, its type, its node, its lineage.",
+  "queue": "Element table ships indexer-ready; the auto-index loop activates with the world clock."
+ }
+}

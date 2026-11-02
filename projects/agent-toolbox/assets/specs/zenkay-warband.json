@@ -1,0 +1,13 @@
+{
+ "meta": {
+  "source": "Nathan's Google Drive: ZenkayWarband.gd (Godot, 4081B)",
+  "import_protocol": "import://zenkay-warband",
+  "note": "32 builders vs 32 breakers \u2014 the faction debate made visible."
+ },
+ "factions": {
+  "builders": "32 Zenkay (green), west side \u2014 'We must protect what we've built!', 'Stability keeps everyone safe.'",
+  "breakers": "32 Zenki (orange), east side \u2014 'Out with the old, in with the new!', 'Chaos is the engine of progress!'"
+ },
+ "mechanics": "spawn 64 NPCs with names/colors/factions; wander on their side; every ~3s a random one shouts its faction's argument in a floating label",
+ "system_role": "The deliberation made physical: builder vs breaker factions with spoken positions. Template for visualizing agent deliberations as opposing sides that argue their case."
+}

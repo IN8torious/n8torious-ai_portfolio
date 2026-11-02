@@ -1,0 +1,32 @@
+{
+ "meta": {
+  "source": "Nathan 2026-10-14",
+  "import_protocol": "import://conversion-intelligence",
+  "note": "Conversions must compound intelligence, not just produce outputs."
+ },
+ "law": "Every approved conversion makes the system smarter. Learning is the product; the artifact is the byproduct.",
+ "mechanics": [
+  {
+   "id": "learning-holding",
+   "desc": "Each approved conversion writes a learning holding to the Archive: the deliberation, the convergence, the approval, the participating agents. Learnings are first-class holdings against the 15MB budget."
+  },
+  {
+   "id": "agent-xp",
+   "desc": "Participating agents gain XP in the Raijin skill pattern (Harvesting/Weaving/Arcana extended to all agents by role), plus a quanta boost and a positive drift delta. Successful deliberation visibly raises an agent's coherence."
+  },
+  {
+   "id": "intelligence-conversions",
+   "desc": "Agents may propose INTELLIGENCE upgrades as a conversion type: refined routing, new deliberation patterns, new capabilities, corrected mappings. PROPOSAL_ONLY until Nathan approves \u2014 same gate as builds and syntheses."
+  },
+  {
+   "id": "intelligence-metric",
+   "desc": "Track system intelligence over time: mean agent quanta + skill XP totals, shown in the Agents drawer. An upward slope = the system getting smarter. Flat = heat-death guard territory."
+  }
+ ],
+ "ties": [
+  "teaching protocol (learn by behavior)",
+  "quanta meter",
+  "Raijin XP skills",
+  "heat-death guard (flat intelligence triggers novelty)"
+ ]
+}

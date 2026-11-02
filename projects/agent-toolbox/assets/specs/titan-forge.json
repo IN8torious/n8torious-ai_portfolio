@@ -1,0 +1,14 @@
+{
+ "meta": {
+  "source": "Nathan's Google Drive: forge.py \u2014 TitanForge (what Enki imports)",
+  "import_protocol": "import://titan-forge",
+  "note": "ChromiumOS/Gentoo-inspired. Completes the Enki picture."
+ },
+ "boards": {
+  "p-core-max": "affinity P-CORES, priority HIGH, io BOOST",
+  "battery-saver": "affinity E-CORES, priority IDLE, io LOW",
+  "generic-x64": "affinity ALL, priority NORMAL, io NORMAL"
+ },
+ "workon": "start_workon(app) pins an app to the current board; get_profile(app) returns its optimization profile",
+ "system_role": "Enki's forge: the board/workon pattern becomes Crystallis/Mechane optimization profiles \u2014 p-core-max for forge runs, battery-saver for idle."
+}

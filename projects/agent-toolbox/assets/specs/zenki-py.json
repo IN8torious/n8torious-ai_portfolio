@@ -1,0 +1,19 @@
+{
+ "meta": {
+  "source": "Nathan's Google Drive: zenki.py (TemporalService)",
+  "import_protocol": "import://zenki-py",
+  "note": "Zenki \u2014 Temporal Enforcement Service. Distinct from the Rust Brood Zenki and zenki_brain.rs cognitive loop."
+ },
+ "identity": "Identify and de-prioritize background processes that violate temporal predictability.",
+ "loop": {
+  "observe": "Scans all processes (pid/name/cpu). XP in Logging (6).",
+  "process": "Flags anomaly-list processes (cortana, searchapp, onedrive) above 5% CPU. XP in Leatherworking (10).",
+  "execute": "Sets violators to idle priority. XP in Armoring (15)."
+ },
+ "skills": [
+  "Logging (event/process logs)",
+  "Leatherworking (refining/trimming)",
+  "Armoring (security/defense)"
+ ],
+ "system_role": "Enforcer brain for guardian micro agents \u2014 the one that trims what violates predictability. Feeds the Watchdog maintainer."
+}

@@ -1,0 +1,19 @@
+{
+ "meta": {
+  "source": "Nathan's Google Drive: enki.py (2026-05-15)",
+  "import_protocol": "import://enki",
+  "note": "Enki the Smith \u2014 Nathan's forge agent."
+ },
+ "identity": "Enki (The Smith): Manages the Titan-Forge. ChromiumOS-style 'Workon' and 'Board' optimization workflows.",
+ "loop": {
+  "observe": "Scans running processes matching active 'workon' packages. XP in Skinning (extracting metadata).",
+  "process": "Identifies which workon apps are running and their boards. XP in Smelting (refining) when targets found.",
+  "execute": "Applies forged optimizations: high priority + P-core affinity for p-core-max boards. XP in Weaponsmithing (crafting)."
+ },
+ "skills": [
+  "Skinning (extracting)",
+  "Smelting (refining)",
+  "Weaponsmithing (crafting)"
+ ],
+ "system_role": "Forge-master of the Crystallis/Mechane line \u2014 smelts raw material, forges optimized profiles."
+}

@@ -1,0 +1,14 @@
+{
+ "meta": {
+  "source": "Nathan 2026-10-14",
+  "import_protocol": "import://kido",
+  "note": "Second BUBO-line node, for the outer part. Named by Nathan: KIDO."
+ },
+ "kido": {
+  "desc": "Kido is the outer kernel-node, second in the BUBO line. BUBO (original C kernel) holds the inner system; Kido holds the outer (language ball).",
+  "role": "Compensates BUBO's flaws: BUBO is x86-bound C heritage (ARM needs ~80% rewrite); Kido is designed portable and adaptive from the start \u2014 the outer layer's kernel, built for where BUBO can't go.",
+  "placement": "The outer doll's kernel seat \u2014 counterpart to BUBO's seat in the inner system. Where BUBO is deep and fixed, Kido is outer and adaptive.",
+  "relationship": "Two kernels, one organism: BUBO (inner, C, stable core) + Kido (outer, adaptive, compensating). They divide the stack by doll layer, not by competition.",
+  "honest_status": "Architectural node in the system design today; a runnable Kido (like the BUBO ARM port) is a deep build, Phase 4 territory."
+ }
+}

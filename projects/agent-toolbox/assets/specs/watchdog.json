@@ -1,0 +1,24 @@
+{
+ "meta": {
+  "source": "Nathan's Google Drive: watchdog.py (2026-05-15) \u2014 his own background process",
+  "import_protocol": "import://watchdog",
+  "note": "Nathan's Watchdog, implemented into the Brain as a maintainer of functionality alongside Sentinel."
+ },
+ "identity": "Watchdog \u2014 Temporal Guard Service. Protects the system from unstable state transitions and resource exhaustion.",
+ "loop": {
+  "observe": "Watches system pressure (frame time / CPU). Overloaded when pressure > threshold. XP in Fishing (watching the waves).",
+  "process": "Decides FAIL_SAFE vs MONITORING. XP in Stonecutting (hardening) when it engages.",
+  "execute": "Sets GLOBAL_THROTTLE on the authority hub \u2014 engaged when overloaded, released when clear. XP in Cooking (safety/sustenance)."
+ },
+ "brain_role": "Second maintainer of the Brain, beside Sentinel. Sentinel watches correctness (contracts, cards, mechanics, budget); Watchdog watches pressure (load, frame health) and pulls the emergency brake.",
+ "engine_mapping": {
+  "pressure_signal": "frame time via the Mira governor (degrade above 33ms, recover below 23.1ms) + thermo T (churn)",
+  "GLOBAL_THROTTLE": "drives the existing auto-throttle: quality tiers step down while engaged, recover when released",
+  "note": "His logic stands as-is; only the pressure source and throttle target are wired to the engine's real governors."
+ },
+ "skills": [
+  "Fishing (watching)",
+  "Stonecutting (hardening)",
+  "Cooking (sustenance/safety)"
+ ]
+}

@@ -1,0 +1,52 @@
+{
+ "meta": {
+  "source": "Raven-AGC1-Philosopher-Stone-Core-D120-74-V3_16_3rwf.html",
+  "name": "Philosopher Stone",
+  "import_protocol": "import://stone-contract",
+  "honest_note": "No AGC algorithm, no transmutation logic, no decision code. Branding. Value is accountability machinery."
+ },
+ "inspection_contract": {
+  "desc": "Every entity carries a self-describing identity card; one renderer audits all. Concrete 'no naked claims'.",
+  "fields": [
+   "id",
+   "type",
+   "state",
+   "source",
+   "evidence",
+   "role"
+  ],
+  "readout": [
+   "TARGET",
+   "TYPE",
+   "STATE",
+   "SOURCE",
+   "EVIDENCE",
+   "AUTHORITY",
+   "MUTATION",
+   "EXPIRY"
+  ]
+ },
+ "authority_flags": {
+  "desc": "PROPOSAL_ONLY by default; mutation needs explicit flip + human gate. Maps to the two-key purge rule.",
+  "values": {
+   "authority": "PROPOSAL_ONLY",
+   "mutation": "NONE",
+   "expiry": "NOT_APPLICABLE"
+  }
+ },
+ "snapshot_schema": "Object.freeze() + version string on world-state snapshots. Discipline for save()/load(): versioned, immutable, auditable.",
+ "safe_stop": "On exception: 'SAFE_STOP \u00b7 cause \u00b7 use preserved baseline'. Name the fallback; never fail silently.",
+ "facet_taxonomy": [
+  "IDENTITY/permanence",
+  "MEMORY/continuity",
+  "TRANSLATION/meaning",
+  "RECOVERY/rebuild",
+  "AGENCY/choice",
+  "GATE/human authority"
+ ],
+ "skip": [
+  "1.146MB three.js vendor (already inlined separately)",
+  "transmutation cage/halo (decorative)",
+  "demo constants (tick 74, seed 74)"
+ ]
+}

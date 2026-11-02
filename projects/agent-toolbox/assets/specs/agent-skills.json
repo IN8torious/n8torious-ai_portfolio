@@ -1,0 +1,34 @@
+{
+ "meta": {
+  "source": "Nathan's Google Drive: skills.py \u2014 AgentSkills, the full XP system",
+  "import_protocol": "import://agent-skills",
+  "note": "New World-inspired. The backbone for conversion-intelligence XP."
+ },
+ "law": "add_xp(amount): xp accumulates; level-up at 100 * 1.2^(level-1), carrying remainder. Returns leveled_up.",
+ "categories": {
+  "gathering": {
+   "Mining": "System Analytics",
+   "Harvesting": "Config/Registry",
+   "Skinning": "Process Metadata",
+   "Logging": "Event Logs",
+   "Fishing": "Network Packets"
+  },
+  "refining": {
+   "Smelting": "Data Aggregation",
+   "Woodworking": "Script Optimization",
+   "Leatherworking": "Memory Compaction",
+   "Weaving": "Thread Alignment",
+   "Stonecutting": "Disk Layout"
+  },
+  "crafting": {
+   "Weaponsmithing": "High-Perf Binaries",
+   "Armoring": "Security Hardening",
+   "Engineering": "Architecture Design",
+   "Jewelcrafting": "UI/UX Polish",
+   "Arcana": "Kernel Alchemy",
+   "Cooking": "Provisioning",
+   "Furnishing": "Layout Management"
+  }
+ },
+ "system_role": "THE xp backbone: every micro agent's brain carries this ledger. Conversion-intelligence XP gains use these exact categories and curves."
+}

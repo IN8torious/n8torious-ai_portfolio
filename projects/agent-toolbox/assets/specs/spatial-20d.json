@@ -1,0 +1,59 @@
+{
+ "meta": {
+  "source": "Nathan 2026-10-14: REAL MATH, not lattices/vertices. Correction owned.",
+  "import_protocol": "import://spatial-20d",
+  "note": "Governed by the local-real-math skill: actual SO(n) rotations, proper hypersphere sampling, formal projections, honest numerics. No decorative geometry."
+ },
+ "spatial_20d": {
+  "coordinates": "Every node carries a TRUE coordinate x in R^20. Not a label, not a lattice vertex \u2014 an actual 20-vector.",
+  "rotations": "Real SO(20): 20x20 orthogonal matrices, det=+1. Interaction uses Givens rotations in coordinate planes. What the user spins is a genuine 20D rotation.",
+  "sampling": "Node placement in 20D via proper uniform sampling on S^19 (normalized Gaussian / Marsaglia). Mathematically honest distribution, not vibes.",
+  "projection": "Formal 20->3 projection: a real projection matrix P: R^20 -> R^3 with orthonormal rows (or stereographic from S^19). The ball the user sees IS the projected 20D structure.",
+  "descent": "Diving a doll deeper = rotating the view into higher coordinate planes (x4-x5, x6-x7, ...). 'Stranger with depth' is genuine higher-dimensional structure revealed \u2014 new 3D slices of the same true 20D object \u2014 never decoration.",
+  "distance": "Resonance/dimensional addressing by true Euclidean distance in R^20.",
+  "no_confusion_law": "The user manipulates a 3D projection + one depth control. The 20D math is the engine, not the wallpaper. Tap a node to see its true 20-coordinate.",
+  "vr_killer": "20 real dimensions, navigable by double-click on a phone. No headset, no controllers."
+ },
+ "queue": "Mandala pass after the mobile fix pass lands.",
+ "real_machinery": {
+  "so20": "R^T R = I, det = +1. 190 skew-symmetric generators. R = exp(A). Angular velocity tensor Omega = Rdot R^T.",
+  "interpolation": "Geodesic interpolation R(t) = R0 exp(t log(R0^T R1)). No Euler/Tait-Bryan angles \u2014 they do not generalize to 20D.",
+  "sampling": "Uniform S^19: z ~ N(0, I_20), z / ||z||. Haar-uniform SO(20): QR of Gaussian matrix.",
+  "projection": "Orthogonal P = Q Q^T (P^2 = P, P^T = P), y = Q^T x. Johnson-Lindenstrauss random projections when distance preservation matters.",
+  "source": "Classical mechanics (Lie groups), quantum linear-algebra toolkit, statistical mechanics (sampling), relativity (invariant-first design). Per 2026-10-14 physics research."
+ },
+ "interaction_algebra": {
+  "law": "Nodes are lattice vectors; interactions come from inner products and the cocycle \u2014 real algebra, not decoration.",
+  "lattice_voa": "For an even lattice L, V_L = direct sum of Heisenberg Fock modules; multiplication via intertwining operators with sign cocycle e_a e_b = (-1)^{(a,b)} e_b e_a. Rank-20 even lattice => c = 20. The lattice orthogonal group embeds in Aut(V_L).",
+  "note": "c is not a free spatial-dimension counter \u2014 the c=20 match is suggestive, not an identity. Design decision: which rank-20 even lattice is still open.",
+  "honest_limits": [
+   "No native SO(20) action on the VOA interaction parameter \u2014 rotations and fusion live in different formalisms; the bridge is designed, not given."
+  ],
+  "source": "2026-10-14 VOA research (Wikipedia: Vertex operator algebra; Frenkel-Kac-Segal construction)."
+ },
+ "calculus": {
+  "flux": "n-dimensional divergence theorem: flux conservation licensed in R^20. Generalized Stokes: integral over boundary of omega = integral over domain of d(omega) \u2014 the fundamental theorem of multivariate calculus.",
+  "honest_limits": [
+   "curl is R^3-native: the 20D engine must use differential forms, not vector-curl. SO(20) as a group (Lie algebra, exponential map, Haar measure) is Lie theory, not calculus."
+  ],
+  "source": "2026-10-14 calculus research (Wikipedia: Calculus; generalized Stokes theorem)."
+ },
+ "linear_algebra": {
+  "dim_so20": "n(n-1)/2 = 190 generators, derived from the R^T R = I constraint count.",
+  "haar": "QR of Gaussian matrix + diagonal-sign correction -> Haar-uniform SO(20), ~10.7k flops.",
+  "geodesic": "R(t) = R0 exp(t log(R0^T R1)).",
+  "CORRECTION": "Johnson-Lindenstrauss with k=3 is VACUOUS \u2014 the guarantee does not hold for 20->3. Use SVD-optimal projection (Eckart-Young) or coordinate planes. (Corrects the earlier JL note.)",
+  "stability": "Homeostasis via Jacobian eigenvalue placement: Re(lambda) < 0 continuous, rho(A) < 1 discrete. Non-normal transient warning applies.",
+  "source": "2026-10-14 linear algebra research."
+ },
+ "differential_geometry": {
+  "manifolds": "S^19 and SO(20) as Riemannian manifolds (round metric; bi-invariant <A,B> = -tr(AB)).",
+  "interpolation": "Geodesics are the paths: slerp with d = arccos(x0 . x1); d(R0,R1) = ||log(R0^T R1)||_F.",
+  "rotation_engine": "Exponential map exp_p(v) = gamma_v(1). Updates R <- R exp(eps A) cannot leave the manifold.",
+  "projection_distortion": "Curvature (Theorema Egregium) => 20->3 MUST distort. Quantified by SVD of the Jacobian: 17 tangent directions annihilated, pullback metric rank 3. Distortion is measured, not hidden.",
+  "doll_nesting": "Nested submanifolds / fiber bundles / foliations \u2014 the Russian doll made rigorous.",
+  "tangent_layer": "Tangent spaces are the per-node interaction layer; parallel transport compares vectors across positions.",
+  "feasible": "Everything named (exp, slerp, QR, SVD, transport) is ~1e4 flops at n=20 \u2014 browser-feasible. Curvature tensors and bundle formalism stay design language.",
+  "source": "2026-10-14 differential geometry research."
+ }
+}

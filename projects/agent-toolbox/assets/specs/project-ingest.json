@@ -1,0 +1,15 @@
+{
+ "meta": {
+  "source": "Nathan 2026-10-14: feed the system every html we made, let them consume my older projects",
+  "import_protocol": "import://project-ingest",
+  "manifest": "files/project-ingest-manifest.json (449 HTML builds cataloged)"
+ },
+ "project_ingest": {
+  "law": "Every HTML build Nathan ever made is system material. The indexer catalogs them all; the Archive ingests them under its rate-distortion budget; the agents consume them.",
+  "catalog": "449 HTML files inventoried at files/project-ingest-manifest.json \u2014 path, title, size. This is the ingestion queue.",
+  "indexing": "The auto-indexer (import://indexer) walks the catalog over time: each project gets an element \u2014 title, era, what it taught the system. Duplicates and dead variants dedup by identity.",
+  "archive_budget": "Full content ingestion obeys the Archive's 15 MiB rate-distortion ceiling: best-parts extraction keeps what matters (novel mechanics, visual DNA, language definitions), the rest stays as index entries pointing at the files. Rank by delta-D per delta-bits; discard what's already implied.",
+  "consumption": "Agents query the project index through the element table: find a past build, see what it contributed, pull its best parts into new work. Old projects become training material for new genesis \u2014 the periphery learns from the past.",
+  "queue": "Ingestion begins with the mandala build now running; the auto-index loop carries it over time with the world clock."
+ }
+}

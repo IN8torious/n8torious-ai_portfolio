@@ -1,0 +1,332 @@
+{
+ "meta": {
+  "source": "Nathan directive 2026-10-15: 'I want languages consolidated and new names being made with better labeling for what it does and why it was made too. This needs to start looking different over time.'",
+  "import_protocol": "import://language-ecology",
+  "decided": "2026-10-15",
+  "weight": "IMPORTANT",
+  "note": "28 bodies -> 18. Sovereign family untouchable. New names synthesized from parent primitives (rustgemba pattern). Every body labeled: name / what it does / why it was made."
+ },
+ "consolidation": {
+  "hard_rule": "Nathan's sovereign family stays distinct and untouchable: Gemba, Rustba (root name 'Rust' in the mandala), Lavemba, tRust, Dentauri.",
+  "map": {
+   "Rust": "Rust (sovereign, distinct)",
+   "Gemba": "Gemba (sovereign, distinct)",
+   "Lavemba": "Lavemba (sovereign, distinct)",
+   "tRust": "tRust (sovereign, distinct)",
+   "Dentauri": "Dentauri (sovereign, distinct)",
+   "rustgemba": "rustgemba (kept synthesis)",
+   "lavenrust": "lavenrust (kept synthesis)",
+   "forgeweave": "Lavaweave",
+   "LavaFlux": "Lavaweave",
+   "Brainfuck": "Malbrain",
+   "Malbolge": "Malbrain",
+   "Befunge": "Vitrafunge",
+   "Hexagony": "Vitrafunge",
+   "Glass": "Vitrafunge",
+   "INTERCAL": "Chickencal",
+   "Chicken": "Chickencal",
+   "Whitespace": "Nullspace",
+   "NULL": "Nullspace",
+   "Chef": "Chefspeare",
+   "Shakespeare": "Chefspeare",
+   "Piet": "Pietato",
+   "Velato": "Pietato",
+   "FRACTRAN": "Fracthue",
+   "Thue": "Fracthue",
+   "ArnoldC": "LOLnold",
+   "LOLCODE": "LOLnold",
+   "Sovereign Slang": "Sovereign Slang (distinct)",
+   "Witness": "Witness (distinct)"
+  },
+  "families": [
+   {
+    "name": "Lavaweave",
+    "members": [
+     "LavaFlux",
+     "forgeweave"
+    ],
+    "etymology": "lava (molten flow) + weave (making) \u2014 the molten loom",
+    "band_arc": "Forge (Heavy)",
+    "geometry": "solid cube (band primitive)"
+   },
+   {
+    "name": "Malbrain",
+    "members": [
+     "Brainfuck",
+     "Malbolge"
+    ],
+    "etymology": "mal (pain, from Malbolge) + brain (the minimal machine, from Brainfuck) \u2014 suffering as instruction set",
+    "band_arc": "Forge (Heavy)",
+    "geometry": "solid cube (band primitive)"
+   },
+   {
+    "name": "Vitrafunge",
+    "members": [
+     "Befunge",
+     "Hexagony",
+     "Glass"
+    ],
+    "etymology": "vitra (Latin vitrum, glass) + funge (the playfield) \u2014 the transparent grid",
+    "band_arc": "Flux (Sustaining)",
+    "geometry": "torus knot (band primitive)"
+   },
+   {
+    "name": "Chickencal",
+    "members": [
+     "INTERCAL",
+     "Chicken"
+    ],
+    "etymology": "chicken (the only word) + intercal (parody) \u2014 the absurd that compiles",
+    "band_arc": "DeepThink (Reason)",
+    "geometry": "stacked prism (band primitive)"
+   },
+   {
+    "name": "Nullspace",
+    "members": [
+     "Whitespace",
+     "NULL"
+    ],
+    "etymology": "null (the void) + space (invisible code) \u2014 the empty set that executes",
+    "band_arc": "NULL (Trauma)",
+    "geometry": "hollow octahedron (band primitive)"
+   },
+   {
+    "name": "Chefspeare",
+    "members": [
+     "Chef",
+     "Shakespeare"
+    ],
+    "etymology": "chef (recipes) + shakes-peare (plays) \u2014 the kitchen-stage",
+    "band_arc": "DeepThink (Reason)",
+    "geometry": "stacked prism (band primitive)"
+   },
+   {
+    "name": "Pietato",
+    "members": [
+     "Piet",
+     "Velato"
+    ],
+    "etymology": "piet (color) + velato (veiled music; echoes 'staccato') \u2014 detached notes of color and sound",
+    "band_arc": "DeepThink (Reason)",
+    "geometry": "stacked prism (band primitive)"
+   },
+   {
+    "name": "Fracthue",
+    "members": [
+     "FRACTRAN",
+     "Thue"
+    ],
+    "etymology": "fract (fractions) + thue (rewriting) \u2014 numbers that rewrite themselves",
+    "band_arc": "Flux (Sustaining)",
+    "geometry": "torus knot (band primitive)"
+   },
+   {
+    "name": "LOLnold",
+    "members": [
+     "ArnoldC",
+     "LOLCODE"
+    ],
+    "etymology": "lol (the meme) + (ar)nold (the catchphrase) \u2014 the meme-machine that speaks in catchphrases",
+    "band_arc": "DeepThink (Reason)",
+    "geometry": "stacked prism (band primitive)"
+   }
+  ]
+ },
+ "labels": [
+  {
+   "name": "Rust",
+   "band": "Anchor (Constructive)",
+   "what": "Hardware-aware systems programming \u2014 code that respects the metal, for phones, kernels, and real machines.",
+   "why": "Nathan wanted a language that doesn't lie about hardware. The root of Rustba; the sovereign tongue of the machine."
+  },
+  {
+   "name": "Gemba",
+   "band": "Heart (Coherence)",
+   "what": "Work modeled as Petri nets \u2014 places, transitions, flowing tokens. You don't write code; you bind states.",
+   "why": "The first sovereign tongue. To see work the way a factory floor sees it: structure moving through structure."
+  },
+  {
+   "name": "Lavemba",
+   "band": "Heart (Coherence)",
+   "what": "The 20-dimensional synthesis \u2014 every sovereign primitive composed into one language.",
+   "why": "The later unification. One tongue to speak the whole system once the family had grown up."
+  },
+  {
+   "name": "tRust",
+   "band": "Anchor (Constructive)",
+   "what": "Types as contracts \u2014 nothing compiles that can't prove itself honest.",
+   "why": "'0 is the only absolute.' The honesty method made into a compiler; integrity enforced, not requested."
+  },
+  {
+   "name": "Dentauri",
+   "band": "Anchor (Constructive)",
+   "what": "The harness tongue \u2014 drives kernels, schedulers, and allocators through the Dentauri rig at native speed.",
+   "why": "To test bare metal without waiting. The language of proof: it runs the thing, it doesn't describe it."
+  },
+  {
+   "name": "rustgemba",
+   "band": "Heart (Coherence)",
+   "gen": 1,
+   "parents": [
+    "Rust",
+    "Gemba"
+   ],
+   "what": "Rust's metal with Gemba's flow \u2014 systems code that moves like a process diagram.",
+   "why": "The first synthesis. Proof that sovereign tongues can have children \u2014 and the children work."
+  },
+  {
+   "name": "lavenrust",
+   "band": "Heart (Coherence)",
+   "gen": 1,
+   "parents": [
+    "Lavemba",
+    "Rust"
+   ],
+   "what": "Lavemba's dimensionality compiled down to Rust's metal.",
+   "why": "To run the synthesis where it counts: on hardware, not on paper."
+  },
+  {
+   "name": "Lavaweave",
+   "band": "Forge (Heavy)",
+   "gen": 1,
+   "parents": [
+    "LavaFlux",
+    "forgeweave"
+   ],
+   "what": "Flow-based forging \u2014 programs poured, not written; rhythm as a computable variable.",
+   "why": "Nathan's own flow languages merged. Code should move like lava and hold like cloth."
+  },
+  {
+   "name": "Malbrain",
+   "band": "Forge (Heavy)",
+   "gen": 1,
+   "parents": [
+    "Brainfuck",
+    "Malbolge"
+   ],
+   "what": "Minimalism weaponized \u2014 the smallest possible machine that still hurts.",
+   "why": "To find the floor of computation: what remains when everything kind is removed."
+  },
+  {
+   "name": "Vitrafunge",
+   "band": "Flux (Sustaining)",
+   "gen": 1,
+   "parents": [
+    "Befunge",
+    "Hexagony",
+    "Glass"
+   ],
+   "what": "Code as geometry on a transparent grid \u2014 direction is syntax, the pointer can travel anywhere.",
+   "why": "Programs you can see through. The 2D playfield rebuilt out of glass."
+  },
+  {
+   "name": "Chickencal",
+   "band": "DeepThink (Reason)",
+   "gen": 1,
+   "parents": [
+    "INTERCAL",
+    "Chicken"
+   ],
+   "what": "Parody that executes \u2014 the joke is the instruction set, and it runs.",
+   "why": "To prove even absurdity compiles. INTERCAL's mockery meets Chicken's single word."
+  },
+  {
+   "name": "Nullspace",
+   "band": "NULL (Trauma)",
+   "gen": 1,
+   "parents": [
+    "Whitespace",
+    "NULL"
+   ],
+   "what": "The invisible machine \u2014 whitespace and void as executable matter.",
+   "why": "What runs in the spaces between. The empty set that executes; the space before the first word."
+  },
+  {
+   "name": "Chefspeare",
+   "band": "DeepThink (Reason)",
+   "gen": 1,
+   "parents": [
+    "Chef",
+    "Shakespeare"
+   ],
+   "what": "Recipes and plays as programs \u2014 culinary and theatrical code.",
+   "why": "Code as performance. Dinner and drama, compiled on the same stage."
+  },
+  {
+   "name": "Pietato",
+   "band": "DeepThink (Reason)",
+   "gen": 1,
+   "parents": [
+    "Piet",
+    "Velato"
+   ],
+   "what": "Color and music as code \u2014 programs painted in blocks, sung in intervals.",
+   "why": "The sensory tongues. Detached notes of color and sound; algorithms you can hear."
+  },
+  {
+   "name": "Fracthue",
+   "band": "DeepThink (Reason)",
+   "gen": 1,
+   "parents": [
+    "FRACTRAN",
+    "Thue"
+   ],
+   "what": "Fractions and rewriting rules \u2014 mathematics that transforms itself until it halts.",
+   "why": "Numbers that rewrite themselves. Proof as program; arithmetic as beauty."
+  },
+  {
+   "name": "LOLnold",
+   "band": "DeepThink (Reason)",
+   "gen": 1,
+   "parents": [
+    "ArnoldC",
+    "LOLCODE"
+   ],
+   "what": "Meme-speak with muscle \u2014 catchphrases as control flow, humor that is Turing-complete.",
+   "why": "The people's tongue with an action hero's jaw. Do not mistake the joke for weakness."
+  },
+  {
+   "name": "Sovereign Slang",
+   "band": "Ouroboros (Transcendent)",
+   "what": "The living vernacular \u2014 street language, always current, never frozen.",
+   "why": "The Urban Dictionary world made tongue. Nathan's people speak it; it stays distinct because it belongs to them."
+  },
+  {
+   "name": "Witness",
+   "band": "Ouroboros (Transcendent)",
+   "what": "The language that watches \u2014 observation as syntax, the audit's mother tongue.",
+   "why": "Someone must record. The watcher of the cycle, orbiting where the end meets the beginning."
+  }
+ ],
+ "evolution": {
+  "principle": "A living language ecology, not a static list. The mandala must look different over time because the languages are alive: they breed, they merge, they die, they are born.",
+  "synthesis_site": "Crystallis \u2014 already the fusion planet (per import://esoteric-languages: 'Crystallis can fuse esoteric + sovereign lines'). All births happen there.",
+  "triggers": [
+   {
+    "name": "resonance breeding",
+    "how": "Two languages co-fire above the Lorentzian delivery threshold repeatedly across neural cycles. Sustained resonance breeds: the system proposes a child."
+   },
+   {
+    "name": "naming",
+    "how": "Nathan names a synthesis directly. A named child is born immediately \u2014 naming is claiming."
+   },
+   {
+    "name": "redundancy merge",
+    "how": "Gaven's debugger flags two languages solving the same problem the same way. Redundancy merges; the stronger name survives, the weaker becomes etymology."
+   }
+  ],
+  "rarity": "Synthesis is a rare, mythic-class event \u2014 evaluated each world-clock cycle but only firing when conditions are truly met. A new language should feel like news, not noise.",
+  "birth_event": [
+   "1. FLARE \u2014 the two parent bodies flare on their band arcs; the ring brightens between them.",
+   "2. CONDENSE \u2014 a new body condenses on the torus between the parents' arcs, taking a blended primitive.",
+   "3. PROVE \u2014 Gaven admits the child through the throat: the child's first eta is measured. Eta >= 0.500 opens; refusal is absence. A child that cannot prove itself is not born.",
+   "4. LEDGER \u2014 the Evidence Ledger records the birth: parents, timestamp, eta at conception, generation number, first words.",
+   "5. NAME \u2014 the child takes its synthesized name (parent primitives, rustgemba pattern) and its label: what it does, why it was made, gen N."
+  ],
+  "ongoing_consolidation": "Families absorb new members over time; absorbed languages become etymology, not bodies. Labels carry generation tags ('Pietato \u00b7 gen 2'). The body count breathes.",
+  "death_and_repurpose": "Languages that never fire dim on their arc. Per the tier law, BELOW-tier bodies are repurposed \u2014 broken down for parts, never listed. Death is visible: the body fades, its parts feed the next synthesis.",
+  "index_updates": "Every birth, merge, and death writes to the language index and cross-references MODEL-INDEX.md. The index is the fossil record.",
+  "visible_change": "Over time the mandala shows: changing body count, shifting arcs, new primitives condensing, labels gaining generations, dead bodies fading. A visitor returning monthly sees a different ecology \u2014 that is the proof it is alive.",
+  "gaven_role": "Gaven governs every birth: the eta gate, the ledger entry, the refusal. No language enters the ring unproven. Isolation law unchanged."
+ }
+}

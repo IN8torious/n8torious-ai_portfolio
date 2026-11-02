@@ -1,0 +1,88 @@
+{
+ "meta": {
+  "source": "parallel-AI Unified Theory Draft v0.1",
+  "import_protocol": "import://unified-theory",
+  "note": "Forensically reconciled 2026-10-14. Adopted: signal triad, quanta meter, cascade, teaching protocol. Corrected: de-simmed, frequencies grounded in actual wells, subordinated to the Alchemedies Principle (the named theory).",
+  "verdict": "Strong structural protocol; weak on our facts. Kept the mechanics, replaced the invented meanings."
+ },
+ "prime_axiom": "Everything is signal. A signal has three properties: frequency (identity), amplitude (influence), phase (intention). These three determine all behavior.",
+ "signal_triad": {
+  "frequency": "identity \u2014 the agent's hz, the well's hz, the band",
+  "amplitude": "influence \u2014 fluid level / activity; how strongly the entity moves the medium",
+  "phase": "intention \u2014 Kiri mode / destination / current task; where the entity is headed",
+  "agent_use": "Every agent entity card carries the triad {hz, fluid, mode}. All behavior derives from it."
+ },
+ "frequency_law": {
+  "note": "CORRECTED: meanings grounded in the actual wells, not the draft's inventions.",
+  "wells": [
+   {
+    "hz": 130,
+    "language": "Rustba",
+    "world": "Pyrrhos",
+    "temperament": "forge/ignition \u2014 lava, creative heat"
+   },
+   {
+    "hz": 650,
+    "language": "tRust",
+    "world": "Glaciem/Vesper",
+    "temperament": "verification/stability \u2014 ice, cold logic"
+   },
+   {
+    "hz": 75,
+    "language": "Gemba",
+    "world": "Verdant",
+    "temperament": "growth \u2014 ocean/jungle, absorption"
+   },
+   {
+    "hz": 528,
+    "language": "RaijinLang",
+    "world": "Mirell",
+    "temperament": "intent compilation \u2014 swamp, clarity from murk"
+   },
+   {
+    "hz": 365,
+    "language": "Lavemba",
+    "world": "Sirocco/Tempest",
+    "temperament": "movement \u2014 desert wind, storm drive"
+   },
+   {
+    "hz": 515,
+    "language": "Synthesis crucible",
+    "world": "Crystallis",
+    "temperament": "the forge constant \u2014 coherence anchor"
+   }
+  ]
+ },
+ "organism_principle": "The system is a living workforce-organism: Ember is the body, planets are organs (work domains), agents are cells (workers), routes are metabolic processes (protocols). Organisms seek equilibrium, expression, adaptation, resonance. (De-simmed: not a simulation \u2014 a real cognitive workforce.)",
+ "signal_cascade": {
+  "chain": [
+   "pulse",
+   "ripple",
+   "surface",
+   "state",
+   "world"
+  ],
+  "mapping": "pulse = a thought (deliberation position); ripple = a choice (challenge/convergence); surface = the environment (drawer/thread); state = identity (recorded holding); world = the story (system behavior over time)",
+  "agent_use": "The import/deliberation pipeline's phase model."
+ },
+ "fluid_constant": "Nothing is static; everything flows. Fluidity is continuity, not chaos. (Identical to the Alchemedies Principle's fluid medium \u2014 the 'Harmonic Field' is the Alchemedies fluid, not a separate theory.)",
+ "quanta": {
+  "desc": "ADOPTED \u2014 the unified truth meter. Every entity scores 0-1000 coherence.",
+  "composes": [
+   "confidence (0.5-0.95) -> scaled",
+   "fluid level (attention)",
+   "resonance (leaky integrator)",
+   "source-grounding (inspection contract completeness)"
+  ],
+  "js": "quanta = Math.round(1000 * (0.35*confidence01 + 0.25*fluid01 + 0.2*resonance01 + 0.2*grounding01))",
+  "agent_use": "One number per agent, per holding, per deliberation. Displayed in drawers. 997+ = fully expressing its frequency."
+ },
+ "discovery_engine": "New entities emerge from harmonic collision: frequencies collide, signals harmonize, quanta peaks, organisms adapt. Discovery is the byproduct of resonance \u2014 the Seeker/AnimalPath loop, formalized.",
+ "teaching_protocol": "Systems learn through behavior, not instruction: route demand, open wells, trigger harvesters, measure quanta, activate paths. Every action reinforces the physics. (Already the installation plan \u2014 affirmed.)",
+ "rejected": [
+  "'simulation' framing (2 occurrences) \u2014 corrected to agentic workforce",
+  "invented frequency meanings \u2014 replaced with actual wells",
+  "parallel 'Harmonic Field' as separate theory \u2014 merged into Alchemedies fluid medium",
+  "lore-only passages kept only where they encode mechanics"
+ ]
+}

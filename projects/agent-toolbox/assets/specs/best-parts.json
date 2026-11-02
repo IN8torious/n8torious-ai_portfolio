@@ -1,0 +1,26 @@
+{
+ "meta": {
+  "source": "Nathan 2026-10-14 \u2014 the standing law of the import pipeline",
+  "import_protocol": "import://best-parts",
+  "note": "Nathan's own words: 'I feed html files, they decide what to do with them, taking the best parts of them.'"
+ },
+ "law": "Nathan feeds HTML. The agents decide. The best parts survive.",
+ "mechanics": [
+  {
+   "id": "best-parts-selection",
+   "desc": "After deliberation, agents explicitly rank the import's elements by quanta/resonance and name the BEST PARTS \u2014 the strongest ideas, mechanics, patterns. Ranked list is part of the deliberation record."
+  },
+  {
+   "id": "conversion-seeds",
+   "desc": "Conversions are built FROM the best parts, not from the whole file. Each conversion proposal cites which best parts it carries forward and why they were chosen."
+  },
+  {
+   "id": "agent-decides-type",
+   "desc": "The agents choose the conversion type themselves (synthesis, build, curation, route, intelligence upgrade, or something new) \u2014 Nathan's gate approves, never prescribes."
+  },
+  {
+   "id": "rest-falls-away",
+   "desc": "What isn't chosen isn't kept raw \u2014 the condensed digest keeps the record, but only best parts get converted. No hoarding."
+  }
+ ]
+}

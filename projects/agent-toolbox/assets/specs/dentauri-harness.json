@@ -1,0 +1,17 @@
+{
+ "meta": {
+  "source": "Nathan 2026-10-14: 'Use tauri like a faster qemu' \u2014 the Dentauri node is the fast kernel harness",
+  "import_protocol": "import://dentauri-harness"
+ },
+ "dentauri_harness": {
+  "law": "Tauri is the faster QEMU: native-speed execution of Kido's hosted path with a real UI, instead of full hardware emulation.",
+  "architecture": {
+   "backend": "Tauri's Rust side drives kido_boot() through the hosted build path, providing virtual UART and timer at native speed \u2014 no emulation overhead.",
+   "frontend": "Deno-powered UI: live console, boot-stage visualization (early \u2192 probe \u2192 adapt \u2192 breath), test results, task-switching view.",
+   "name": "Dentauri \u2014 Deno + Tauri, one node, one harness."
+  },
+  "relationship_to_qemu": "QEMU proves the bare-metal ARM64 path (still required \u2014 emulation is the honest hardware proof). The Dentauri harness proves LOGIC at native speed for fast iteration. Both, not either/or: QEMU for the metal, Dentauri for the mind.",
+  "mandala": "The Dentauri language node represents this harness \u2014 its element shows the harness state, and it is the launch surface for fast kernel runs.",
+  "queue": "Harness build starts after the QEMU proof lands \u2014 no overlapping builders on the kernel tree."
+ }
+}
