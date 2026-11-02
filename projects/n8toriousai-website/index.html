@@ -2,201 +2,223 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>N8torious AI — Sovereign software, built solo</title>
-<meta name="description" content="N8torious AI is an independent software studio building sovereign systems: kernels, programming languages, and apps that run on your hardware and answer to you.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>N8torious AI — Enter</title>
+<meta name="description" content="Agent-native operating systems, sovereign programming languages, and world engines — built from the kernel up. Wonder first. Proof second.">
 <style>
   :root{
-    --bg:#0a0a0c; --panel:#121215; --panel2:#17171b; --line:#26262c;
-    --ink:#ececec; --dim:#a7a7b0; --faint:#71717c;
-    --crimson:#c8102e; --gold:#c9a227; --green:#3fae6a;
-    --sans:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --bg:#050505; --panel:#0b0b0d; --line:#26262b; --ink:#f2f0eb; --dim:#a7a49b;
+    --crimson:#e5484d; --crimson-deep:#8f1d22; --gold:#d8b46a;
   }
-  *{ box-sizing:border-box; }
-  html{ scroll-behavior:smooth; }
-  body{ margin:0; background:var(--bg); color:var(--ink); font-family:var(--sans); line-height:1.6; }
-  a{ color:inherit; }
-  .bar{
-    position:sticky; top:0; z-index:50;
-    background:rgba(10,10,12,.86); -webkit-backdrop-filter:blur(14px); backdrop-filter:blur(14px);
-    border-bottom:1px solid var(--line);
-  }
-  .bar-in{ max-width:1120px; margin:0 auto; padding:0 20px; height:62px; display:flex; align-items:center; gap:26px; }
-  .brand{ font-weight:800; letter-spacing:.14em; font-size:16px; text-decoration:none; white-space:nowrap; }
-  .brand em{ font-style:normal; color:var(--crimson); }
-  nav{ margin-left:auto; display:flex; gap:22px; }
-  nav a{ color:var(--dim); text-decoration:none; font-size:14.5px; font-weight:550; }
-  nav a:hover{ color:var(--ink); }
-  .spectrum{ height:3px; background:linear-gradient(90deg,#c9a227,#7a4fa0,#b45f2d,#4a6b8a,#a31621,#a67c44,#3d7ea6,#8a8474,#5f7d4f,#b0526b,#c9a227); }
-  .wrap{ max-width:1120px; margin:0 auto; padding:0 20px; }
-  .hero{ padding:74px 0 30px; }
-  .kicker{ color:var(--gold); letter-spacing:.24em; font-size:12px; font-weight:700; text-transform:uppercase; margin:0 0 14px; }
-  h1{ font-size:clamp(34px, 5.4vw, 56px); line-height:1.12; margin:0 0 16px; font-weight:800; letter-spacing:-.01em; }
-  h1 .thin{ color:var(--dim); font-weight:650; }
-  .lede{ color:var(--dim); font-size:18px; max-width:640px; margin:0 0 28px; }
-  .cta{ display:flex; gap:12px; flex-wrap:wrap; }
-  .btn{
-    display:inline-block; text-decoration:none; font-weight:650; font-size:15px;
-    padding:11px 20px; border-radius:10px; border:1px solid var(--line); background:var(--panel2);
-  }
-  .btn:hover{ border-color:#3a3a44; }
-  .btn.primary{ background:var(--crimson); border-color:var(--crimson); color:#fff; }
-  .btn.primary:hover{ background:#a50d27; }
-  .stats{ display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin:44px 0 8px; }
-  .stat{ background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:16px 18px; }
-  .stat b{ display:block; font-size:26px; font-weight:800; }
-  .stat span{ color:var(--faint); font-size:13.5px; }
-  section{ padding:44px 0 6px; }
-  .sec-head{ display:flex; align-items:baseline; gap:14px; margin-bottom:18px; }
-  h2{ font-size:23px; margin:0; font-weight:750; }
-  .sec-head p{ color:var(--faint); margin:0; font-size:14.5px; }
-  .grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
-  .tile{
-    background:var(--panel); border:1px solid var(--line); border-radius:16px; padding:20px;
-    display:flex; flex-direction:column; gap:8px; text-decoration:none;
-    transition:border-color .15s ease, transform .15s ease;
-  }
-  a.tile:hover{ border-color:#3d3d47; transform:translateY(-2px); }
-  .tile .row{ display:flex; align-items:center; gap:8px; }
-  .tile h3{ margin:0; font-size:17.5px; font-weight:700; }
-  .tile p{ margin:0; color:var(--dim); font-size:14.5px; flex:1; }
-  .dot{ width:8px; height:8px; border-radius:50%; flex:0 0 auto; }
-  .dot.live{ background:var(--green); box-shadow:0 0 8px rgba(63,174,106,.7); }
-  .dot.new{ background:var(--gold); box-shadow:0 0 8px rgba(201,162,39,.7); }
-  .dot.dev{ background:#5b7fa6; box-shadow:0 0 8px rgba(91,127,166,.7); }
-  .meta{ display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
-  .tag{ font-size:12px; color:var(--dim); border:1px solid var(--line); border-radius:999px; padding:2px 9px; }
-  .go{ font-size:13.5px; font-weight:650; color:var(--gold); }
-  a.tile .go::after{ content:" →"; }
-  .about{ background:var(--panel); border:1px solid var(--line); border-radius:16px; padding:24px; }
-  .about p{ margin:0 0 12px; color:var(--dim); font-size:15.5px; max-width:820px; }
-  .about p:last-child{ margin-bottom:0; }
-  .about strong{ color:var(--ink); }
-  footer{ border-top:1px solid var(--line); margin-top:52px; }
-  .foot{ max-width:1120px; margin:0 auto; padding:26px 20px 38px; display:flex; gap:20px; flex-wrap:wrap; align-items:center; color:var(--faint); font-size:14px; }
-  .foot nav{ margin-left:auto; }
-  .foot a{ color:var(--dim); }
-  @media (max-width: 900px){ .grid{ grid-template-columns:repeat(2,1fr); } .stats{ grid-template-columns:repeat(2,1fr); } }
-  @media (max-width: 580px){
-    .grid{ grid-template-columns:1fr; }
-    nav a.hideS{ display:none; }
-    .hero{ padding-top:52px; }
-  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:Georgia,'Times New Roman',serif;-webkit-font-smoothing:antialiased}
+  a{color:var(--ink)}
+
+  /* ---------- ACT 1 : THE WORLD ---------- */
+  .world{position:relative;height:100vh;height:100svh;overflow:hidden;background:#000}
+  .world iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+  .veil{position:absolute;inset:0;pointer-events:none;display:flex;flex-direction:column;justify-content:space-between;
+    background:linear-gradient(180deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,0) 18%,rgba(0,0,0,0) 62%,rgba(0,0,0,.78) 100%)}
+  .brandbar{display:flex;justify-content:space-between;align-items:center;padding:18px 22px}
+  .brand{font-family:Verdana,Geneva,sans-serif;font-size:12px;letter-spacing:.42em;color:var(--ink)}
+  .brand b{color:var(--crimson)}
+  .brandbar a{font-family:Verdana,Geneva,sans-serif;font-size:11px;letter-spacing:.18em;color:var(--dim);text-decoration:none}
+  .brandbar a:hover{color:var(--ink)}
+  .enter-zone{display:flex;flex-direction:column;align-items:center;gap:14px;padding:0 16px 34px;text-align:center}
+  .names{font-family:Verdana,Geneva,sans-serif;font-size:clamp(10px,2.6vw,13px);letter-spacing:.34em;line-height:2.1;color:rgba(242,240,235,.85);text-transform:uppercase}
+  .names span{white-space:nowrap}
+  .names i{color:var(--crimson);font-style:normal;padding:0 .4em}
+  .enter{pointer-events:auto;display:inline-block;margin-top:6px;padding:16px 42px;border:1px solid var(--crimson);
+    color:var(--ink);text-decoration:none;font-family:Verdana,Geneva,sans-serif;font-size:13px;letter-spacing:.38em;
+    background:rgba(5,5,5,.55);backdrop-filter:blur(3px);transition:background .2s,border-color .2s}
+  .enter:hover{background:var(--crimson-deep);border-color:var(--ink)}
+  .warn{font-family:Verdana,Geneva,sans-serif;font-size:10px;letter-spacing:.14em;line-height:1.9;color:var(--dim);max-width:520px}
+  .warn b{color:var(--gold);font-weight:normal}
+
+  /* ---------- ACT 2 : THE PROOF ---------- */
+  .proof{max-width:1060px;margin:0 auto;padding:72px 22px 30px}
+  .kicker{font-family:Verdana,Geneva,sans-serif;font-size:11px;letter-spacing:.34em;color:var(--crimson);text-transform:uppercase}
+  h1{font-size:clamp(30px,5.4vw,50px);font-weight:normal;line-height:1.12;margin:14px 0 10px}
+  .lede{color:var(--dim);font-size:clamp(16px,2.4vw,19px);line-height:1.65;max-width:720px}
+  .receipts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin:38px 0 8px}
+  .receipts div{background:var(--panel);padding:18px 16px}
+  .receipts .n{display:block;font-size:26px;color:var(--ink)}
+  .receipts .l{display:block;margin-top:6px;font-family:Verdana,Geneva,sans-serif;font-size:10px;letter-spacing:.16em;color:var(--dim);text-transform:uppercase;line-height:1.7}
+  .mapwrap{margin:44px 0 6px;border:1px solid var(--line);background:radial-gradient(ellipse at 50% 40%,#101014 0%,#070708 70%);padding:26px 10px 10px}
+  .mapwrap svg{width:100%;height:auto;display:block}
+  .mapnote{text-align:center;color:var(--dim);font-size:14px;padding:10px 16px 18px;line-height:1.6}
+
+  .project{border:1px solid var(--line);background:var(--panel);margin:34px 0;padding:28px 26px}
+  .project h2{font-size:clamp(24px,4vw,34px);font-weight:normal}
+  .project h2 .tag{font-family:Verdana,Geneva,sans-serif;font-size:10px;letter-spacing:.24em;color:var(--crimson);vertical-align:super;margin-left:10px}
+  .cols{display:grid;grid-template-columns:1fr;gap:18px;margin-top:14px}
+  @media(min-width:820px){.cols{grid-template-columns:1.15fr .85fr}}
+  .cols p,.wide p{color:var(--dim);line-height:1.7;font-size:16px;margin-bottom:12px}
+  .cols p b,.wide p b{color:var(--ink);font-weight:normal}
+  .wide{margin-top:14px}
+  .arch{font-family:Verdana,Geneva,sans-serif;font-size:11.5px;line-height:2;color:var(--dim);border-left:2px solid var(--crimson-deep);padding-left:14px}
+  .arch b{color:var(--ink);font-weight:normal;letter-spacing:.08em}
+  .shot{width:100%;border:1px solid var(--line);display:block}
+  .links{margin-top:16px;display:flex;flex-wrap:wrap;gap:10px}
+  .links a{font-family:Verdana,Geneva,sans-serif;font-size:11px;letter-spacing:.16em;text-decoration:none;border:1px solid var(--line);padding:10px 16px;color:var(--ink)}
+  .links a:hover{border-color:var(--crimson);color:var(--crimson)}
+  .links a.primary{border-color:var(--crimson);background:var(--crimson-deep);color:#fff}
+  footer{border-top:1px solid var(--line);margin-top:60px;padding:28px 22px 44px;text-align:center;color:var(--dim);font-size:14px;line-height:2}
+  footer a{color:var(--dim);text-decoration:none;border-bottom:1px dotted var(--line)}
+  footer a:hover{color:var(--ink)}
 </style>
 </head>
 <body>
 
-<header class="bar">
-  <div class="bar-in">
-    <a class="brand" href="index.html">N8TORIOUS <em>AI</em></a>
-    <nav>
-      <a href="#dashboard">Dashboard</a>
-      <a href="#work" class="hideS">Work</a>
-      <a href="#about" class="hideS">About</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="https://github.com/IN8torious" rel="noopener">GitHub</a>
-    </nav>
-  </div>
-  <div class="spectrum"></div>
-</header>
-
-<div class="wrap">
-  <div class="hero">
-    <p class="kicker">Independent software studio</p>
-    <h1>Sovereign software.<br><span class="thin">Built solo, owned by its users.</span></h1>
-    <p class="lede">N8torious AI builds kernels, programming languages, and apps that run on your hardware and answer to you — offline-first, no accounts, no trackers, no landlord.</p>
-    <div class="cta">
-      <a class="btn primary" href="temple-1.0.apk" download>Download Temple 1.0 (APK)</a>
-      <a class="btn" href="#dashboard">See the dashboard</a>
+<!-- ACT 1 — THE WORLD. No explanation. -->
+<section class="world">
+  <iframe src="world.html" title="The N8torious world — a living 3D galaxy of kernels and languages" loading="eager"></iframe>
+  <div class="veil">
+    <div class="brandbar">
+      <div class="brand">N8TORIOUS <b>AI</b></div>
+      <a href="#proof">SKIP TO PROOF ↓</a>
     </div>
-    <div class="stats">
-      <div class="stat"><b>9</b><span>kernel projects</span></div>
-      <div class="stat"><b>29</b><span>sovereign languages</span></div>
-      <div class="stat"><b>66</b><span>books inside Temple, offline</span></div>
-      <div class="stat"><b>0</b><span>trackers in anything we ship</span></div>
+    <div class="enter-zone">
+      <div class="names">
+        <span>Harakiri OS</span><i>·</i><span>Capsule</span><i>·</i><span>PoeTchi</span><i>·</i><span>Raijin</span><br>
+        <span>Sovereign Languages</span><i>·</i><span>Agent-Native Kernels</span><i>·</i><span>World Engines</span>
+      </div>
+      <a class="enter" href="#proof">ENTER THE TOOLBOX</a>
+      <div class="warn"><b>WARNING:</b> Contains experimental operating systems, agent kernels, world engines, and sovereign language research.</div>
     </div>
   </div>
+</section>
 
-  <section id="dashboard">
-    <div class="sec-head"><h2>Dashboard</h2><p>Everything public, in one place.</p></div>
-    <div class="grid">
-      <div class="tile">
-        <div class="row"><span class="dot new"></span><h3>Temple</h3></div>
-        <p>The whole Bible in one offline Android app — all 66 books, reading plans, prayer, highlights. Everything stays on the device.</p>
-        <div class="meta">
-          <span class="tag">Android</span><span class="tag">v1.0</span>
-          <a class="go" href="temple-1.0.apk" download>APK</a>
-          <a class="go" href="privacy.html">Privacy</a>
+<!-- ACT 2 — THE PROOF. No mystery. -->
+<main class="proof" id="proof">
+  <div class="kicker">The Proof</div>
+  <h1>It isn't a demo. It's an ecosystem — and it ships.</h1>
+  <p class="lede">Every system below is built, tested, and released by one person in Akron, Ohio.
+  The numbers are counted, not rounded. The code is public. The receipts are in the release.</p>
+
+  <div class="receipts">
+    <div><span class="n">27,811</span><span class="l">Lines in the v2.0.0 release snapshot alone</span></div>
+    <div><span class="n">19,652</span><span class="l">PoeTchi parity checks — 0 failures</span></div>
+    <div><span class="n">9</span><span class="l">Kernels built — seven theses on what an OS can be</span></div>
+    <div><span class="n">29</span><span class="l">Sovereign programming languages</span></div>
+    <div><span class="n">66</span><span class="l">Books of the Bible, fully offline, in one app</span></div>
+    <div><span class="n">0</span><span class="l">Trackers, ads, or accounts in anything shipped</span></div>
+  </div>
+
+  <div class="mapwrap">
+    <svg viewBox="0 0 900 330" role="img" aria-label="Map of the N8torious ecosystem">
+      <g stroke="#3a3a41" stroke-width="1.5">
+        <line x1="450" y1="86" x2="450" y2="140"/>
+        <line x1="450" y1="140" x2="170" y2="140"/><line x1="170" y1="140" x2="170" y2="196"/>
+        <line x1="450" y1="140" x2="450" y2="196"/>
+        <line x1="450" y1="140" x2="730" y2="140"/><line x1="730" y1="140" x2="730" y2="196"/>
+        <line x1="170" y1="252" x2="450" y2="292"/><line x1="450" y1="252" x2="450" y2="292"/><line x1="730" y1="252" x2="450" y2="292"/>
+      </g>
+      <g font-family="Verdana,Geneva,sans-serif" text-anchor="middle">
+        <rect x="330" y="30" width="240" height="56" fill="#0b0b0d" stroke="#e5484d"/>
+        <text x="450" y="55" fill="#f2f0eb" font-size="15" letter-spacing="3">HARAKIRI OS</text>
+        <text x="450" y="74" fill="#a7a49b" font-size="10" letter-spacing="2">THE OPERATING SYSTEM</text>
+        <rect x="60" y="196" width="220" height="56" fill="#0b0b0d" stroke="#26262b"/>
+        <text x="170" y="221" fill="#f2f0eb" font-size="13" letter-spacing="2">CAPSULE</text>
+        <text x="170" y="239" fill="#a7a49b" font-size="10" letter-spacing="1">SEALED 3D SCENE WORLDS</text>
+        <rect x="340" y="196" width="220" height="56" fill="#0b0b0d" stroke="#26262b"/>
+        <text x="450" y="221" fill="#f2f0eb" font-size="13" letter-spacing="2">THE CREW</text>
+        <text x="450" y="239" fill="#a7a49b" font-size="10" letter-spacing="1">GOVERNED AGENT SYSTEMS</text>
+        <rect x="620" y="196" width="220" height="56" fill="#0b0b0d" stroke="#26262b"/>
+        <text x="730" y="221" fill="#f2f0eb" font-size="13" letter-spacing="2">WORLD ENGINE</text>
+        <text x="730" y="239" fill="#a7a49b" font-size="10" letter-spacing="1">RAIGINE · PAINTR · RAVENEYE</text>
+        <rect x="320" y="292" width="260" height="34" fill="#0b0b0d" stroke="#d8b46a"/>
+        <text x="450" y="314" fill="#f2f0eb" font-size="12" letter-spacing="2">POETCHI KERNEL</text>
+      </g>
+    </svg>
+    <div class="mapnote">These are not separate repos. They are pieces of the same machine — the kernel at the bottom, the OS on top, worlds and agents running on both.</div>
+  </div>
+
+  <article class="project">
+    <h2>Temple — Daily Bible<span class="tag">SHIPPED · ANDROID</span></h2>
+    <div class="wide">
+      <p><b>What it is.</b> The complete Bible — 66 books, 1,189 chapters, 31,098 verses — in one offline Android app. Daily verse and prayer, verse tools, prayer lists, reading plans.</p>
+      <p><b>Why it exists.</b> A church app that answers to no server: no account, no ads, no analytics. Your scripture and your prayers never leave the phone.</p>
+      <div class="arch"><b>ARCHITECTURE</b><br>One-file application core in a native Kotlin shell · confined share provider · opt-in weather is the only network feature, and only on your tap · release build verified: package, DEX, target API 36, signature.</div>
+      <div class="links">
+        <a class="primary" href="temple-1.0.apk">DOWNLOAD THE APK</a>
+        <a href="https://github.com/IN8torious/n8torious-ai_portfolio/tree/main/projects/temple">SOURCE</a>
+        <a href="privacy.html">PRIVACY</a>
+      </div>
+    </div>
+  </article>
+
+  <article class="project">
+    <h2>The SI Core<span class="tag">CONSTITUTIONAL RUNTIME</span></h2>
+    <div class="cols">
+      <div>
+        <p><b>What it is.</b> An authored intelligence core: one kernel of law — Actor · Capability · Proposal · Receipt · State — seen through many lenses. The Ball. The Onion. The Complete Prototype.</p>
+        <p><b>Why it exists.</b> Because agent systems need a constitution, not a vibe. Humans are sources of authority; systems never are. Every action leaves a receipt.</p>
+        <div class="arch"><b>ARCHITECTURE</b><br>Shared kernel, hash-chained ledger, five services · field notes whose mass is counted from receipts and whose force is formula-computed · forces move trajectory, law decides outcome.</div>
+        <div class="links">
+          <a class="primary" href="https://github.com/IN8torious/n8torious-ai_portfolio/tree/main/projects/si-core">THE BUILDS</a>
+          <a href="https://github.com/IN8torious/n8torious-ai_portfolio/tree/main/projects/si-constitutional-kernel">THE KERNEL</a>
         </div>
       </div>
-      <a class="tile" href="https://github.com/IN8torious/n8torious-ai_portfolio" rel="noopener">
-        <div class="row"><span class="dot live"></span><h3>Portfolio</h3></div>
-        <p>The full body of work on GitHub — Harakiri OS, the kernel collection, the languages, the resume.</p>
-        <div class="meta"><span class="tag">GitHub</span><span class="go">Open</span></div>
-      </a>
-      <a class="tile" href="https://github.com/IN8torious" rel="noopener">
-        <div class="row"><span class="dot live"></span><h3>GitHub — IN8torious</h3></div>
-        <p>Source, staging, and the build lines behind everything on this page.</p>
-        <div class="meta"><span class="tag">Code</span><span class="go">Open</span></div>
-      </a>
-      <a class="tile" href="https://raijinsocial.com" rel="noopener">
-        <div class="row"><span class="dot live"></span><h3>Raijin Social</h3></div>
-        <p>The Resonance world mandala — the knowledge graph the SI Core grew out of.</p>
-        <div class="meta"><span class="tag">Web</span><span class="go">Visit</span></div>
-      </a>
-      <a class="tile" href="https://deepalchemy.ai" rel="noopener">
-        <div class="row"><span class="dot live"></span><h3>Deep Alchemy</h3></div>
-        <p>Product site and storefront for the 3D model and script catalog.</p>
-        <div class="meta"><span class="tag">Web</span><span class="tag">Store</span><span class="go">Visit</span></div>
-      </a>
-      <a class="tile" href="https://pb4hps-47.myshopify.com" rel="noopener">
-        <div class="row"><span class="dot live"></span><h3>Raijin Store</h3></div>
-        <p>Models, navigation packs, and engine cores for sale — digital goods, delivered as files.</p>
-        <div class="meta"><span class="tag">Shopify</span><span class="go">Shop</span></div>
-      </a>
+      <div><img class="shot" src="img/ball.png" alt="The Ball — the SI Core as a geodesic lattice sphere" loading="lazy"></div>
     </div>
-  </section>
+  </article>
 
-  <section id="work">
-    <div class="sec-head"><h2>The work</h2><p>Three lines, one rule: the user is the authority.</p></div>
-    <div class="grid">
-      <div class="tile">
-        <div class="row"><span class="dot dev"></span><h3>Kernels</h3></div>
-        <p>Harakiri, PoeTchi, BUBO, the Ohio kernel and five more — agent-native kernels with a constitutional core: systems may exercise delegated capabilities, but only a human is a source of authority.</p>
-        <div class="meta"><span class="tag">Zig</span><span class="tag">C</span><span class="tag">Rust</span></div>
+  <article class="project">
+    <h2>PoeTchi Kernel<span class="tag">ZIG · v1.1</span></h2>
+    <div class="cols">
+      <div>
+        <p><b>What it is.</b> A freestanding Zig kernel where agents are first-class: the SI Core, metaphorical reasoning, neural dynamics, gates, a desktop, and two hands.</p>
+        <p><b>Why it exists.</b> To prove the agent-native OS thesis in bare metal — decisions made by readable equations, every one of them testable.</p>
+        <div class="arch"><b>ARCHITECTURE</b><br>Real-trigonometry orbit projection, one shared path · parity harness 19,652 checks / 0 failures · reasoning 24/24 · bell 13/13 · what isn't proven is written down as owed, not passed.</div>
+        <div class="links">
+          <a class="primary" href="https://github.com/IN8torious/n8torious-ai_portfolio/tree/main/projects/poetchi-zig">SOURCE + PROOF CARDS</a>
+        </div>
       </div>
-      <div class="tile">
-        <div class="row"><span class="dot dev"></span><h3>Languages</h3></div>
-        <p>Gemba, Rustba, Lavemba, tRust and the wider family — programming languages designed gesture-first and constraint-typed for sovereign mobile development.</p>
-        <div class="meta"><span class="tag">Language design</span><span class="tag">Mobile</span></div>
-      </div>
-      <div class="tile">
-        <div class="row"><span class="dot new"></span><h3>Apps</h3></div>
-        <p>Temple is the first public release. More follow the same law it ships under: offline-first, on-device storage, and nothing leaves except by the user's own hand.</p>
-        <div class="meta"><span class="tag">Android</span><span class="tag">Offline-first</span></div>
-      </div>
+      <div><img class="shot" src="img/prototype.png" alt="The Complete Prototype — the SI Core assembled" loading="lazy"></div>
     </div>
-  </section>
+  </article>
 
-  <section id="about">
-    <div class="sec-head"><h2>About</h2></div>
-    <div class="about">
-      <p><strong>N8torious AI</strong> is the studio of Nathan Brown — one builder, working end to end: kernel to interface, language to storefront. The through-line is sovereignty. Software should run on the owner's hardware, keep the owner's data on the owner's device, and take its orders from the owner.</p>
-      <p>That is not a slogan here; it is an engineering rule, written into the kernel constitution the systems run on: <strong>humans are sources of authority; systems never are.</strong></p>
+  <article class="project">
+    <h2>N8torious Agent Toolbox<span class="tag">PUBLIC KIT</span></h2>
+    <div class="wide">
+      <p><b>What it is.</b> The whole agent factory, packaged for other builders: 15 agent detail sheets, the wider roster, a constitution, a Gate protocol, blueprints, templates, and the working kernel.</p>
+      <p><b>Why it exists.</b> Governed agents shouldn't be a secret. Take the kit, build your own crew — the law travels with it.</p>
+      <div class="arch"><b>ARCHITECTURE</b><br>Independent agents, simple contracts, no central orchestrator · proposals queue at a human gate · the packaged kernel's own test suite passes from the copy.</div>
+      <div class="links">
+        <a class="primary" href="https://github.com/IN8torious/n8torious-ai_portfolio/tree/main/projects/agent-toolbox">OPEN THE TOOLBOX</a>
+      </div>
     </div>
-  </section>
-</div>
+  </article>
+
+  <article class="project">
+    <h2>Alchemedies + ALTIMINAC<span class="tag">THEORY, RUNNING</span></h2>
+    <div class="cols">
+      <div>
+        <p><b>What it is.</b> A theory of cognition — the physics IS the thinking — compiled into a law book, and ALTIMINAC: a living fluid instrument that runs it. Real stable-fluid solver, buoyancy, resonance, phase-locking.</p>
+        <p><b>Why it exists.</b> Weights burn tokens linearly. Physics recurses for free.</p>
+        <div class="arch"><b>ARCHITECTURE</b><br>Six language wells as signal frequencies · Lorentzian receptor response · Kuramoto coherence · the seven operations as working mechanics · verified 14/14, including measured stratification.</div>
+        <div class="links">
+          <a class="primary" href="https://github.com/IN8torious/n8torious-ai_portfolio/blob/main/projects/alchemedies/ALCHEMEDIES-THEORY-OF-LAWS.md">THE LAW BOOK</a>
+          <a href="https://github.com/IN8torious/n8torious-ai_portfolio/tree/main/projects/altiminac">THE INSTRUMENT</a>
+        </div>
+      </div>
+      <div><img class="shot" src="img/altiminac.png" alt="ALTIMINAC running — motes stratifying in the fluid tank" loading="lazy"></div>
+    </div>
+  </article>
+
+  <div class="links" style="justify-content:center;margin-top:44px">
+    <a class="primary" href="https://github.com/IN8torious/n8torious-ai_portfolio/releases/tag/v2.0.0">THE FULL RELEASE — v2.0.0</a>
+    <a href="https://github.com/IN8torious/n8torious-ai_portfolio">THE REPOSITORY</a>
+  </div>
+</main>
 
 <footer>
-  <div class="foot">
-    <span>© 2026 N8torious AI</span>
-    <span>Built solo. No trackers on this page either.</span>
-    <nav>
-      <a href="privacy.html">Privacy Policy</a>
-      <a href="https://github.com/IN8torious" rel="noopener">GitHub</a>
-      <a href="https://raijinsocial.com" rel="noopener">Raijin Social</a>
-    </nav>
-  </div>
+  N8TORIOUS AI · Nathan Brown · Akron, Ohio<br>
+  <a href="privacy.html">Privacy</a> · <a href="https://github.com/IN8torious/n8torious-ai_portfolio">GitHub</a> ·
+  <a href="https://raijinsocial.com">Raijin Social</a> · <a href="https://deepalchemy.ai">Deep Alchemy</a><br>
+  Sovereign software. Built solo. Owned by its users.
 </footer>
 
 </body>

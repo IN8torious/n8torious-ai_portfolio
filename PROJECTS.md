@@ -47,7 +47,7 @@ chopping-block core, and Harakiri Unified.
 [`projects/si-constitutional-kernel/`](projects/si-constitutional-kernel/).
 
 ### N8toriousAI.com
-The company homepage, dashboard, and privacy hub.
+The company site as an experience: a living 3D world for a landing, then the proof — receipts, the ecosystem map, and per-project architecture. Privacy hub for Temple.
 [`projects/n8toriousai-website/`](projects/n8toriousai-website/).
 
 ## Foundations already in this portfolio
