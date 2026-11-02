@@ -38,6 +38,14 @@ Freestanding Zig kernel work with the transforms-unification release:
 19,652 parity checks with zero failures, plus reasoning and bell
 harnesses green. [`projects/poetchi-zig/`](projects/poetchi-zig/).
 
+### SI Core Builds
+The Core line itself — one constitutional kernel under every lens:
+the Ball (geodesic Core machine), the Onion/Unified schematic, the
+Complete Prototype assembly, the Rose (frozen), the Black-Hole
+chopping-block core, and Harakiri Unified.
+[`projects/si-core/`](projects/si-core/), with the runnable kernel in
+[`projects/si-constitutional-kernel/`](projects/si-constitutional-kernel/).
+
 ### N8toriousAI.com
 The company homepage, dashboard, and privacy hub.
 [`projects/n8toriousai-website/`](projects/n8toriousai-website/).

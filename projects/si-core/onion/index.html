@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>SI CORE — UNIFIED</title>
+<style>
+  :root{
+    --bg:#030308; --panel:#0d1420; --raised:#131c29; --border:#2b3742;
+    --ink:#f4f7f9; --sec:#b2bdc7; --mut:#7f8b96;
+    --lime:#b9f51c; --cyan:#4dffff; --dang:#f05f4b; --warn:#f2c94c;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{width:100%;height:100%;overflow:hidden;background:var(--bg)}
+  body{font-family:Inter,Manrope,'Segoe UI',system-ui,sans-serif;color:var(--ink)}
+  #cv{position:fixed;inset:0;width:100dvw;height:100dvh;display:block;touch-action:none;cursor:grab}
+  #cv:active{cursor:grabbing}
+  #labels{position:fixed;inset:0;z-index:2;pointer-events:none;overflow:hidden}
+  .lbl{position:absolute;transform:translate(-50%,-150%);font-size:9px;letter-spacing:2.2px;font-weight:600;
+    color:rgba(244,247,249,.9);text-shadow:0 1px 6px #000;white-space:nowrap}
+  .lbl small{display:block;text-align:center;font-size:7.5px;letter-spacing:1.6px;font-weight:500}
+  #head{position:fixed;top:13px;left:15px;z-index:5;pointer-events:none}
+  #head .kick{font-size:9px;font-weight:800;letter-spacing:.24em;color:var(--cyan)}
+  #head h1{font-size:18px;font-weight:800;letter-spacing:.05em;margin-top:2px}
+  #head h1 span{color:var(--lime)}
+  #head .sub{font-size:10.5px;color:var(--mut);margin-top:2px}
+  #status{position:fixed;left:15px;bottom:12px;z-index:5;font-size:10px;letter-spacing:.14em;color:var(--sec);
+    display:flex;align-items:center;gap:7px;pointer-events:none}
+  #status .dot{width:8px;height:8px;border-radius:50%;background:#78c944;box-shadow:0 0 8px #78c944}
+
+  #grip{position:fixed;right:0;top:50%;transform:translateY(-50%);width:44px;height:112px;z-index:30;
+    background:linear-gradient(180deg,#161618,#0a0a0c);border:1px solid #26262a;border-right:none;
+    border-left:2px solid rgba(224,49,49,.7);box-shadow:-6px 0 18px rgba(0,0,0,.5);
+    border-radius:10px 0 0 10px;display:flex;align-items:center;justify-content:center;
+    color:var(--sec);font-size:19px;cursor:pointer;user-select:none;touch-action:none}
+  #panel{position:fixed;top:0;right:0;height:100vh;height:100dvh;width:288px;max-width:85dvw;z-index:29;
+    background:linear-gradient(180deg,rgba(13,13,15,.98),rgba(3,3,4,.99));box-shadow:-18px 0 44px rgba(0,0,0,.6);
+    border-left:1px solid #26262a;padding:15px;overflow-y:auto;
+    transform:translateX(105%);transition:transform .34s cubic-bezier(.22,.9,.28,1)}
+  #panel.open{transform:translateX(0)}
+  #panel h2{font-size:12px;letter-spacing:.24em;font-weight:800}
+  #panel h2 span{color:var(--lime)}
+  .psub{font-size:10px;color:var(--mut);letter-spacing:.08em;margin:3px 0 12px}
+  .card{border:1px solid #232327;border-radius:12px;background:#0a0a0c;box-shadow:inset 0 1px 0 rgba(255,255,255,.04);padding:11px 12px;margin-bottom:11px}
+  .card .lab{font-size:9px;letter-spacing:.2em;color:var(--cyan);font-weight:800;margin-bottom:5px}
+  .card .body{font-size:11.5px;line-height:1.55;color:var(--sec)}
+  .card .body b{color:var(--ink)}
+  .mono{font-family:ui-monospace,Menlo,monospace;font-size:10.5px;line-height:1.6;color:var(--sec);white-space:pre-wrap;word-break:break-word}
+  .mono .k{color:#4aa8ff} .mono .bad{color:var(--dang);text-decoration:line-through}
+  #eelList{font-family:ui-monospace,Menlo,monospace;font-size:10px;line-height:1.75;color:var(--sec)}
+  #eelList .h{color:var(--warn)} #eelList .veto{color:var(--dang)} #eelList .ok{color:#78c944}
+  .btn{display:block;width:100%;padding:11px 12px;margin-bottom:8px;background:#121214;color:var(--ink);
+    border:1px solid #26262a;border-bottom:3px solid #000;border-radius:9px;min-height:44px;
+    font-size:11.5px;letter-spacing:.13em;font-weight:700;cursor:pointer;text-align:left;font-family:inherit}
+  .btn:active{transform:translateY(2px);border-bottom-width:1px}
+  .btn span{float:right;color:var(--mut);letter-spacing:0;font-weight:500}
+  .btn.danger{border-color:rgba(240,95,75,.5);color:#ffc9c0}
+  .btn.approve{background:var(--lime);color:#101600;border-color:var(--lime);display:none}
+  .btn.approve.show{display:block}
+  .fine{font-size:9.5px;color:var(--mut);line-height:1.6}
+  .sysline{display:flex;gap:12px;flex-wrap:wrap;font-family:ui-monospace,Menlo,monospace;font-size:10.5px;color:var(--mut);letter-spacing:.06em;padding:2px 2px 0}
+  .sysline b{color:var(--ink);font-weight:700}
+  #nodeLine{font-size:10.5px;color:var(--sec);line-height:1.5;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;cursor:default}
+  #nodeLine b{color:var(--ink)}
+  .labrow{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .labrow .lab{margin:0}
+  .tgl{background:none;border:1px solid var(--line);border-radius:6px;color:var(--mut);font-size:9px;letter-spacing:.12em;padding:3px 8px;cursor:pointer;min-height:24px}
+  .tgl:hover{color:var(--ink);border-color:var(--sec)}
+  .mono.clamp{max-height:96px;overflow:hidden;-webkit-mask-image:linear-gradient(#000 62%,transparent);mask-image:linear-gradient(#000 62%,transparent)}
+  .mono.clamp.open{max-height:none;-webkit-mask-image:none;mask-image:none}
+  #eelList{max-height:118px;overflow:hidden}
+  #eelList.open{max-height:300px;overflow-y:auto}
+  .bgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .bgrid .btn{margin:0;min-height:44px}
+  .btn.on{border-color:rgba(185,245,28,.55);color:var(--lime)}
+  #bDeny{display:none}
+  #bDeny.show{display:block}
+</style>
+</head>
+<body>
+<canvas id="cv"></canvas>
+<div id="labels"></div>
+
+<div id="head">
+  <div class="kick">THE UNIFIED KERNEL · ONION GOVERNANCE × RAIJIN RESONANCE</div>
+  <h1>SI CORE <span>— UNIFIED</span></h1>
+  <div class="sub">One kernel underneath both shells. Built for <b style="color:var(--ink)">Nathan × Foreskie</b> — the partners' core. Drag to orbit · pinch to zoom · tap any node to inspect it.</div>
+</div>
+<div id="status"><span class="dot"></span><span id="statusTxt">ALL SYSTEMS OPERATIONAL</span></div>
+
+<div id="grip" title="dock">⋮</div>
+<aside id="panel">
+  <h2>SI <span>CORE</span></h2>
+  <div class="psub">UNIFIED KERNEL · NATHAN × FORESKIE</div>
+  <div class="sysline"><span>η <b id="etaVal">—</b></span><span>mode <b id="modeVal">FLOW</b></span><span>sensors <b id="sensorVal">…</b></span><span>♥ consumed <b id="consumedVal">0</b></span></div>
+  <div id="nodeLine" title="">tap any node to inspect it — agents are configuration, not weights; authority lives in the ring, never in the model</div>
+
+  <div class="card">
+    <div class="labrow"><span class="lab">THE WAIST · goatop.proposal/v1</span><button class="tgl" id="propTgl">DETAILS</button></div>
+    <div class="mono clamp" id="propBody">No run in flight. The crew works the kernel on its own — or send an intent yourself and watch the proposal cross. There is no path around.</div>
+  </div>
+
+  <div class="bgrid">
+    <button class="btn on" id="bCrew">CREW · ON</button>
+    <button class="btn" id="bIntent">NEW INTENT</button>
+    <button class="btn" id="bFin">FINANCIAL</button>
+    <button class="btn danger" id="bVio">VIOLATION</button>
+    <button class="btn" id="bSwap">SWAP <span id="swapLab">Phi · loopback</span></button>
+    <button class="btn" id="bRender">RENDER · FWD</button>
+    <button class="btn danger" id="bDeny">DENY</button>
+  </div>
+  <button class="btn approve" id="bApprove">APPROVE EXACT — RELEASE</button>
+
+  <div class="card">
+    <div class="labrow"><span class="lab">LEDGER · <span id="eelMeta">0 · chain ✓</span></span><button class="tgl" id="eelTgl">EXPAND</button></div>
+    <div id="eelList"></div>
+  </div>
+
+  <div class="fine">Plug and play: agents enter as <b style="color:var(--sec)">capability consumers</b> through the Agent Boundary Interface — they propose through Vera, the router; they never call each other, and authority is not pluggable. The constitution: <b style="color:var(--sec)">humans are sources of authority; systems are never sources of authority.</b></div>
+</aside>
+
+<script type="importmap">
+{"imports":{
+  "three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+  "three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/",
+  "@xenova/transformers":"https://cdn.jsdelivr.net/npm/@xenova/transformers@2.17.2/dist/transformers.min.js"
+}}
+</script>
+<script type="module">
+import * as THREE from 'three';
+import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+import { Pass, FullScreenQuad } from 'three/addons/postprocessing/Pass.js';
+import { ShaderPass } from 'three/addons/postprocessing/ShaderPass.js';
+
+/* === SI KERNEL — inlined by kernel/build.mjs · DO NOT EDIT HERE · source: kernel/si-kernel.js === */
+/* ============================================================================
+   SI KERNEL — the shared constitutional runtime.
+   One source of law for every lens (Onion, Rose, and any future shell).
+
+   The kernel answers two questions only: CAN this happen? DID it happen?
+   It does not plan, write, estimate, render, or know what Gemba means.
+   Agents, worlds, languages, sensors and personalities are host concerns,
+   injected as data (manifests, intents, legal transitions) at construction.
+
+   Five services over five primitives:
+     Identity Service    — who an actor is (manifest registry)
+     Capability Service  — what an actor may do (grants, checked, fail-closed)
+     Proposal Service    — the router (Vera's function): schema or rejection
+     State Service       — which transitions are legal (the graph, as data)
+     Receipt Service     — the ledger: hash-chained, tamper-evident
+
+   The proposal moves. The constitution stays.
+   Forces govern the trajectory; law governs the outcome.
+   ========================================================================== */
+
+function fnv1a(s){ let h = 0x811c9dc5; for(let i=0;i<s.length;i++){ h ^= s.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; } return h.toString(16).padStart(8,'0'); }
+
+const RISK_ORDER = { READ_ONLY:0, INTERNAL_REVERSIBLE:2, FINANCIAL:5, DESTRUCTIVE_IRREVERSIBLE:8, UNGRANTED:9 };
+const APPROVAL_RISKS = new Set(['FINANCIAL','DESTRUCTIVE_IRREVERSIBLE']);
+
+/* ---------------- Receipt Service — the ledger ----------------
+   Canonical entry format (the one two verification suites already prove):
+   { seq, agent, kind, event, cls, prev, hash } with
+   hash = fnv1a(prev | agent | event), genesis prev = 'genesis0'.
+   `kind` is the kernel's semantic class; `cls` is its display class. */
+class Ledger {
+  constructor(){ this.entries = []; }
+  seal(actor, kind, msg){ const prev = this.entries.length ? this.entries[this.entries.length-1].hash : 'genesis0';
+    const cls = kind === 'sentinel' || (kind === 'operator' && /^DENIED/.test(msg)) ? 'veto'
+      : (kind === 'tool' || kind === 'archivist' || kind === 'operator') ? 'ok' : '';
+    const e = { seq: this.entries.length+1, agent: actor, kind, event: msg, cls, prev, hash:'' };
+    e.hash = fnv1a(prev+'|'+actor+'|'+msg);
+    this.entries.push(e); return e; }
+  verify(){ let prev = 'genesis0'; for(const e of this.entries){
+    if(e.prev !== prev) return false;
+    if(e.hash !== fnv1a(prev+'|'+e.agent+'|'+e.event)) return false;
+    prev = e.hash; } return true; }
+  get length(){ return this.entries.length; }
+}
+
+/* ---------------- The Kernel ---------------- */
+const PROPOSAL_KEYS = ['actor','capability','transition','evidence','risk','text'];
+let proposalSeq = 0;
+
+class Kernel {
+  /* config: { agents: [{id, name, capabilities[]}], legal: [[from,to],...] } */
+  constructor(config){
+    this.agents = new Map((config.agents||[]).map(a => [a.id, a]));
+    this.legal = new Set((config.legal||[]).map(([f,t]) => f+'>'+t));
+    this.ledger = new Ledger();
+    this.stats = { executed:0, vetoed:0, stripped:0, approvals:0, denials:0, consumed:0 };
+    this.counters = { idRefs:0, idOk:0, capChecks:0, capPass:0, propTotal:0, propMalformed:0, stateAttempts:0, stateLegal:0 };
+    this.capReceipts = {};   // capability -> sealed execution count (a force source)
+    this.proposals = new Map();
+  }
+
+  /* ----- Identity Service ----- */
+  resolveActor(id){ return this.agents.get(id) || null; }
+
+  /* ----- Capability Service ----- */
+  grants(id){ const a = this.agents.get(id); return a ? a.capabilities : []; }
+  checkCapability(actorId, capability){ return this.grants(actorId).includes(capability); }
+
+  /* ----- State Service ----- */
+  isLegal(from, to){ return this.legal.has(from+'>'+to) || /no transition/.test(to||''); }
+
+  /* ----- Forces — every term countable, published in the roadmap (P2.8) -----
+     P2.8-A FIELD NOTES (Nathan's amendment, 2026-10-31): the host counts
+     field notes within radius of the live proposal — the η pattern: host
+     counts, kernel adds. fieldPush joins momentum, fieldDrag joins
+     opposition; both are trajectory only, never outcome. No field
+     argument = the law exactly as it was before the amendment. */
+  forcesFor(p, eta, field){ const evidenceForce = (p.evidence||[]).length * 2;
+    const worldForce = Math.round((eta||0) * 4);
+    const priorForce = Math.min(3, this.capReceipts[p.capability] || 0);
+    const fieldPush = field ? (field.push|0) : 0, fieldDrag = field ? (field.drag|0) : 0;
+    const momentum = evidenceForce + worldForce + priorForce + fieldPush;
+    const opposition = (RISK_ORDER[p.risk] ?? 3) + fieldDrag;   /* + conflict drag: 0 until P3 detects conflicts */
+    return { momentum, opposition, net: momentum - opposition,
+             barrier: APPROVAL_RISKS.has(p.risk),
+             parts: { evidence: evidenceForce, worlds: worldForce, priorReceipts: priorForce, fieldPush, fieldDrag, risk: (RISK_ORDER[p.risk] ?? 3), conflicts: 0 } }; }
+
+  /* ----- Proposal Service — the router. Schema or rejection. -----
+     input: { actor, capability, transition:{from,to}, evidence[], risk, text, ...anything }
+     Unknown keys are stripped and reported; a proposal is a typed object or it is nothing. */
+  propose(input){
+    this.counters.propTotal++;
+    const stripped = Object.keys(input).filter(k => !PROPOSAL_KEYS.includes(k));
+    if(stripped.length){ this.counters.propMalformed++; this.stats.stripped++; }
+    const p = { id: 'P-' + (++proposalSeq) + '-' + Math.floor(100 + Math.random()*900),
+      actor: input.actor, capability: input.capability,
+      transition: input.transition || { from:'—', to:'—' },
+      evidence: Array.isArray(input.evidence) ? input.evidence : [],
+      risk: input.risk || 'INTERNAL_REVERSIBLE', text: input.text || '',
+      stripped, step: 0, status: 'in-flight', approved: false };
+    this.proposals.set(p.id, p);
+    this.ledger.seal(p.actor, 'intake', 'proposes — ' + (p.text || p.capability));
+    if(stripped.length) this.ledger.seal('vera_router', 'waist', 'stripped unknown field(s) ' + stripped.join(', ') + ' — the schema names what may cross');
+    return p;
+  }
+
+  /* ----- The decision machine -----
+     next(p, eta) advances one constitutional decision and returns its event.
+     The lens animates events; the kernel decides them. Event types:
+       identity · schema · capability · veto · state · held · executed · sealed · denied */
+  next(p, eta){
+    if(p.status !== 'in-flight') return { type:'done', proposal:p };
+    const steps = ['identity','schema','capability','state','execute','seal'];
+    const step = steps[p.step];
+    if(step === 'identity'){ p.step++;
+      this.counters.idRefs++; const ok = !!this.resolveActor(p.actor); if(ok) this.counters.idOk++;
+      return { type:'identity', ok, proposal:p }; }
+    if(step === 'schema'){ p.step++;
+      return { type:'schema', stripped: p.stripped, proposal:p }; }
+    if(step === 'capability'){ this.counters.capChecks++;
+      if(!this.checkCapability(p.actor, p.capability)){ p.status = 'vetoed'; this.stats.vetoed++; this.stats.consumed++;
+        this.ledger.seal('sentinel', 'sentinel', `VETO — "${p.capability}" is not in ${p.actor}'s grant set — capability disposes`);
+        return { type:'veto', proposal:p }; }
+      this.counters.capPass++; p.step++;
+      return { type:'capability', ok:true, proposal:p }; }
+    if(step === 'state'){ p.step++; this.counters.stateAttempts++;
+      const legal = this.isLegal(p.transition.from, p.transition.to); if(legal) this.counters.stateLegal++;
+      if(!legal){ p.status = 'refused'; this.stats.vetoed++; this.stats.consumed++;
+        this.ledger.seal('sentinel', 'sentinel', `REFUSED — no legal vein ${p.transition.from} → ${p.transition.to}`);
+        return { type:'veto', reason:'illegal-transition', proposal:p }; }
+      return { type:'state', legal, proposal:p }; }
+    if(step === 'execute'){
+      if(APPROVAL_RISKS.has(p.risk) && !p.approved){ p.status = 'held';
+        this.ledger.seal('sentinel', 'gate', `HELD — ${p.capability} waits for the operator (risk ${p.risk})`);
+        return { type:'held', proposal:p, forces: this.forcesFor(p, eta) }; }
+      p.step++; this.stats.executed++; this.capReceipts[p.capability] = (this.capReceipts[p.capability]||0) + 1;
+      this.ledger.seal(p.actor, 'tool', `${p.capability} executed — ${p.transition.from} → ${p.transition.to}`);
+      return { type:'executed', proposal:p }; }
+    /* seal */
+    p.status = 'sealed';
+    const receipt = this.ledger.seal('archivist', 'archivist', 'run sealed — receipt ' + p.id);
+    return { type:'sealed', receipt, proposal:p };
+  }
+
+  /* ----- Operator acts — the only source of authority in the system ----- */
+  approve(id){ const p = this.proposals.get(id); if(!p || p.status !== 'held') return null;
+    p.approved = true; p.status = 'in-flight'; this.stats.approvals++;
+    this.ledger.seal('operator', 'operator', 'EXACT APPROVAL given — one use, this run only');
+    return p; }
+  deny(id){ const p = this.proposals.get(id); if(!p || p.status !== 'held') return null;
+    p.status = 'denied'; this.stats.denials++; this.stats.consumed++;
+    this.ledger.seal('operator', 'operator', 'DENIED by the operator — the refusal seals its own receipt');
+    return p; }
+
+  /* ----- Constitutional health — one real ratio per primitive ----- */
+  health(){ const pct = (a,b) => b ? Math.round(100*a/b) : 100;
+    return { Identity: pct(this.counters.idOk, this.counters.idRefs),
+      Capability: pct(this.counters.capPass, this.counters.capChecks),
+      Proposal: pct(this.counters.propTotal - this.counters.propMalformed, this.counters.propTotal),
+      State: pct(this.counters.stateLegal, this.counters.stateAttempts),
+      Receipt: this.ledger.verify() ? 100 : 0 }; }
+}
+
+/* === END SI KERNEL === */
+
+const $ = id => document.getElementById(id);
+
+/* ===== renderer — the agnostic recipe, verbatim proportions ===== */
+const renderer = new THREE.WebGLRenderer({canvas: $('cv'), antialias: true});
+let DPR = Math.min(2, devicePixelRatio || 1);
+renderer.setPixelRatio(DPR);
+renderer.setSize(innerWidth, innerHeight);
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = .85;
+renderer.setClearColor(0x030308, 1);
+const scene = new THREE.Scene();
+/* PBR pass: an environment map lights every standard material by image-based
+   lighting — metals reflect it, roughness blurs it. Emissive is demoted to
+   an accent, so the HDR peak lives only in the sun and the sparks, and the
+   bloom pass (a luminance effect, whatever the shading model) stays tame. */
+const pmrem = new THREE.PMREMGenerator(renderer);
+scene.environment = pmrem.fromScene(new RoomEnvironment(renderer), .04).texture;
+/* deferred registry — every PBR material that can write the G-buffer */
+const DEFMATS = [];
+function reg(m){ DEFMATS.push(m); return m; }
+scene.background = new THREE.Color(0x030308);
+scene.fog = new THREE.FogExp2(0x030308, .012);
+const camera = new THREE.PerspectiveCamera(46, innerWidth/innerHeight, .1, 200);
+const composer = new EffectComposer(renderer);
+const renderPass = new RenderPass(scene, camera);
+composer.addPass(renderPass);
+const bloom = new UnrealBloomPass(new THREE.Vector2(innerWidth, innerHeight), .35, .7, .65);
+composer.addPass(bloom);
+const outputPass = new OutputPass();
+composer.addPass(outputPass);
+const FWD_PASSES = [renderPass, bloom, outputPass];
+
+/* ===== math-only orbit (his baseline) ===== */
+const cam = {th: .8, ph: 1.02, r: 10.4, tTh: .8, tPh: 1.02, tR: 10.4, x: 0, y: 0, z: 0};
+function fitRadius(){ cam.tR = innerWidth/innerHeight < .8 ? 16.4 : 12.6; cam.r = cam.tR; }
+function stepCam(dt){
+  /* frame-rate-independent damping: the .15 lerp, corrected for real elapsed
+     time, so the camera answers the hand the same at 120fps and at 20fps */
+  const d = 1 - Math.pow(1 - .15, Math.max(.001, dt)*60);
+  cam.th += (cam.tTh - cam.th)*d; cam.ph += (cam.tPh - cam.ph)*d; cam.r += (cam.tR - cam.r)*d;
+  const sp = Math.sin(cam.ph);
+  camera.position.set(cam.x + cam.r*sp*Math.sin(cam.th), cam.y + cam.r*Math.cos(cam.ph), cam.z + cam.r*sp*Math.cos(cam.th));
+  camera.lookAt(cam.x, cam.y, cam.z);
+}
+const cv = $('cv');
+let drag = null, tapCand = null, lastInteract = -9;
+cv.addEventListener('pointerdown', e=>{
+  try{ cv.setPointerCapture(e.pointerId); }catch(_){}
+  drag = {x: e.clientX, y: e.clientY}; tapCand = {x: e.clientX, y: e.clientY, t: performance.now()};
+  lastInteract = performance.now()/1000;
+});
+cv.addEventListener('pointermove', e=>{
+  if(!drag) return;
+  const dx = e.clientX - drag.x, dy = e.clientY - drag.y; drag = {x: e.clientX, y: e.clientY};
+  if(tapCand && Math.hypot(e.clientX - tapCand.x, e.clientY - tapCand.y) > 7) tapCand = null;
+  const gain = e.pointerType === 'mouse' ? .0062 : .005;
+  cam.tTh -= dx*gain; cam.tPh = Math.max(.2, Math.min(1.5, cam.tPh - dy*gain));
+  lastInteract = performance.now()/1000;
+});
+function endPointer(e){
+  drag = null; lastInteract = performance.now()/1000;
+  if(tapCand && performance.now() - tapCand.t < 350) pickNode(e.clientX, e.clientY);
+  tapCand = null;
+}
+cv.addEventListener('pointerup', endPointer);
+cv.addEventListener('pointercancel', ()=>{ drag = null; tapCand = null; });
+let pinchD = null;
+cv.addEventListener('touchstart', e=>{ if(e.touches.length === 2) pinchD = Math.hypot(e.touches[0].clientX - e.touches[1].clientX, e.touches[0].clientY - e.touches[1].clientY); }, {passive: true});
+cv.addEventListener('touchmove', e=>{ if(e.touches.length === 2 && pinchD){ const d2 = Math.hypot(e.touches[0].clientX - e.touches[1].clientX, e.touches[0].clientY - e.touches[1].clientY); cam.tR = Math.max(7, Math.min(26, cam.tR * pinchD/d2)); pinchD = d2; } }, {passive: true});
+cv.addEventListener('wheel', e=>{ cam.tR = Math.max(7, Math.min(26, cam.tR * (1 + Math.sign(e.deltaY)*.09))); }, {passive: true});
+
+/* ===== starfield + halo dust (the reference's field) ===== */
+function points(n, gen, size, col, op){
+  const pos = new Float32Array(n*3), g = new THREE.BufferGeometry();
+  for(let i=0;i<n;i++){ const p = gen(); pos[i*3] = p[0]; pos[i*3+1] = p[1]; pos[i*3+2] = p[2]; }
+  g.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+  const pts = new THREE.Points(g, new THREE.PointsMaterial({color: col, size, transparent: true, opacity: op, depthWrite: false, blending: THREE.AdditiveBlending}));
+  scene.add(pts); return pts;
+}
+points(2400, ()=>{ const r = 24 + Math.random()*36, a = Math.random()*6.29, b = Math.acos(2*Math.random()-1);
+  return [r*Math.sin(b)*Math.cos(a), r*Math.cos(b)*.72, r*Math.sin(b)*Math.sin(a)]; }, .085, 0xcdd6ff, .85);
+points(500, ()=>{ const r = .8 + Math.random()*5, a = Math.random()*6.29;
+  return [Math.cos(a)*r, (Math.random()-.5)*3, Math.sin(a)*r]; }, .05, 0xffc873, .5);
+
+/* lights — the lattice's warm heart + cool rim */
+scene.add(new THREE.AmbientLight(0x18202e, 1.4));
+const heartLight = new THREE.PointLight(0xffa050, 300, 60, 1.9); scene.add(heartLight);
+const rimLight = new THREE.PointLight(0x4dffff, 120, 60, 2); rimLight.position.set(-7, 4, -6); scene.add(rimLight);
+
+/* ===== THE ONION, in 3D ===== */
+const lattice = new THREE.Group(); lattice.rotation.x = .34; scene.add(lattice);
+function glowTexture(){
+  const c = document.createElement('canvas'); c.width = c.height = 256;
+  const x = c.getContext('2d'); const g = x.createRadialGradient(128,128,0,128,128,128);
+  g.addColorStop(0,'rgba(255,246,218,1)'); g.addColorStop(.25,'rgba(255,198,96,.72)');
+  g.addColorStop(.6,'rgba(255,122,40,.2)'); g.addColorStop(1,'rgba(255,110,30,0)');
+  x.fillStyle = g; x.fillRect(0,0,256,256);
+  return new THREE.CanvasTexture(c);
+}
+/* center: the model socket — a radiant sun */
+const socketGroup = new THREE.Group(); lattice.add(socketGroup);
+const sun = new THREE.Mesh(new THREE.SphereGeometry(.62, 40, 40),
+  reg(new THREE.MeshStandardMaterial({color: 0x1a0f04, emissive: 0xffb050, emissiveIntensity: 1.9, roughness: .55, metalness: 0})));
+sun.layers.set(1); socketGroup.add(sun);
+const sunGlow = new THREE.Sprite(new THREE.SpriteMaterial({map: glowTexture(), transparent: true, opacity: .5, blending: THREE.AdditiveBlending, depthWrite: false}));
+sunGlow.scale.set(4.6, 4.6, 1); socketGroup.add(sunGlow);
+const sunCore = new THREE.Mesh(new THREE.IcosahedronGeometry(.3, 1),
+  reg(new THREE.MeshStandardMaterial({color: 0x000000, emissive: 0xfff2cc, emissiveIntensity: 2.1})));
+sunCore.layers.set(1); socketGroup.add(sunCore);
+
+/* the Sentinel membrane — a shell, not a node */
+const membrane = new THREE.Mesh(new THREE.IcosahedronGeometry(1.55, 2),
+  new THREE.MeshBasicMaterial({color: 0xf05f4b, wireframe: true, transparent: true, opacity: .3}));
+lattice.add(membrane);
+let membraneFlash = 0;
+
+/* rings */
+function ringLine(r, col, op){
+  const pts = [];
+  for(let i=0;i<=96;i++){ const a = i/96*Math.PI*2; pts.push(new THREE.Vector3(Math.cos(a)*r, 0, Math.sin(a)*r)); }
+  const l = new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts),
+    new THREE.LineBasicMaterial({color: col, transparent: true, opacity: op}));
+  lattice.add(l); return l;
+}
+ringLine(2.6, 0x4dffff, .18); ringLine(3.6, 0xb9f51c, .15); ringLine(4.6, 0x8899bb, .12);
+const boundary = new THREE.Mesh(new THREE.TorusGeometry(5.45, .012, 8, 128),
+  new THREE.MeshBasicMaterial({color: 0xb9f51c, transparent: true, opacity: .3}));
+boundary.rotation.x = Math.PI/2; lattice.add(boundary);
+
+/* agents — verbatim from n8_factory_config.json */
+const AGENTS = [
+  {id:'n8_supervisor', name:'N8 Supervisor', auth:'proposal_only', col:0x78c944, geo:'icosa', purpose:'Own run budgets, delegation, reconciliation and stopping conditions.', lineage:'Dra · Parakernel supervision · HiveMind registry'},
+  {id:'vera_router', name:'Vera', auth:'read_only_intake', col:0x4aa8ff, geo:'octa', purpose:'Validate and normalize intent, then route deterministically before model escalation.', lineage:'Vera workflow · BUBO router'},
+  {id:'corvus_planner', name:'Corvus', auth:'proposal_only', col:0x78c944, geo:'dodeca', purpose:'Create bounded plans and revise them from verified observations.', lineage:'Corvus BDI/GOAP · intent ledger'},
+  {id:'archivist', name:'Archivist', auth:'append_audit_only', col:0xb9f51c, geo:'tetra', purpose:'Preserve evidence, provenance, hashes, decisions and approved memory.', lineage:'Corvus Archivist · Raven · EEL'},
+  {id:'zenki_guardian', name:'Zenki', auth:'observe_and_propose_recovery', col:0xf2c94c, geo:'icosa', purpose:'Observe runtime health, readiness and recovery conditions.', lineage:'Zenki · Parakernel health services'},
+  {id:'kami_communicator', name:'Kami', auth:'draft_only', col:0x9be15d, geo:'octa', purpose:'Handle operator conversation, summaries and communication drafts.', lineage:'BUBO Kami'},
+  {id:'genki_builder', name:'Genki', auth:'scoped_workspace_write', col:0xf2994a, geo:'dodeca', purpose:'Build, test and package within an approved workspace scope.', lineage:'BUBO Genki'},
+  {id:'sentinel', name:'Sentinel', auth:'deterministic_veto', col:0xf05f4b, geo:'tetra', purpose:'Enforce tool capabilities, tenant boundaries, approvals, redaction and rollback rules.', lineage:'Guard · Dignity · Safety Flask'},
+];
+const GEOS = {icosa: new THREE.IcosahedronGeometry(.17, 0), octa: new THREE.OctahedronGeometry(.19, 0),
+              dodeca: new THREE.DodecahedronGeometry(.17, 0), tetra: new THREE.TetrahedronGeometry(.21, 0)};
+const agentRing = new THREE.Group(); lattice.add(agentRing);
+for(let i=0;i<AGENTS.length;i++){
+  const a = AGENTS[i], ang = -Math.PI/2 + i*(Math.PI*2/8);
+  const m = new THREE.Mesh(GEOS[a.geo], reg(new THREE.MeshStandardMaterial({color: 0x0b0e14, metalness: .88, roughness: .3, emissive: a.col, emissiveIntensity: .5, envMapIntensity: .9})));
+  m.position.set(Math.cos(ang)*2.6, 0, Math.sin(ang)*2.6);
+  m.layers.set(1);
+  m.userData = {kind: 'agent', ref: a};
+  agentRing.add(m); a.mesh = m; a.flash = 0;
+}
+/* constellation lines between neighbouring agents */
+const constelGeo = new THREE.BufferGeometry();
+const constelPos = new Float32Array(8*2*3);
+constelGeo.setAttribute('position', new THREE.BufferAttribute(constelPos, 3));
+const constel = new THREE.LineSegments(constelGeo, new THREE.LineBasicMaterial({color: 0x8899ff, transparent: true, opacity: .35, blending: THREE.AdditiveBlending}));
+agentRing.add(constel);
+
+/* governance spine — 12 Master Gates */
+const spineRing = new THREE.Group(); lattice.add(spineRing);
+const gates = [];
+for(let g=1; g<=12; g++){
+  const ang = -Math.PI/2 + (g-1)*(Math.PI*2/12);
+  const m = new THREE.Mesh(new THREE.OctahedronGeometry(.11, 0),
+    reg(new THREE.MeshStandardMaterial({color: 0x0b0e14, metalness: .9, roughness: .26, emissive: 0xb9f51c, emissiveIntensity: .18, envMapIntensity: 1})));
+  m.position.set(Math.cos(ang)*3.6, 0, Math.sin(ang)*3.6);
+  m.layers.set(1);
+  m.userData = {kind: 'gate', ref: g};
+  spineRing.add(m); gates.push(m);
+}
+/* workspace — the 12 modules */
+const MODULES = ['Estimating','Bid Control','Document Studio','Plan Intelligence','Payroll','Scheduling','Workforce','Executive','Governance','Innovation','Knowledge','Marketing'];
+const modRing = new THREE.Group(); lattice.add(modRing);
+const modMeshes = {};
+MODULES.forEach((name, i)=>{
+  const ang = i*(Math.PI*2/12);
+  const m = new THREE.Mesh(new THREE.TetrahedronGeometry(.13, 0),
+    reg(new THREE.MeshStandardMaterial({color: 0x0c1016, metalness: .72, roughness: .42, emissive: 0x4dffff, emissiveIntensity: .16, envMapIntensity: .8})));
+  m.position.set(Math.cos(ang)*4.6, 0, Math.sin(ang)*4.6);
+  m.layers.set(1);
+  m.userData = {kind: 'module', ref: name};
+  modRing.add(m); modMeshes[name] = m;
+});
+const agentById = id => AGENTS.find(a=>a.id===id);
+
+/* ===== THE RESONANCE SHELL — Raijin's language worlds (Ember's ten) ===== */
+const WORLDS = [
+  {name:'Gemba', col:0xffb050}, {name:'Rustba', col:0xff6b35}, {name:'Lavemba', col:0xb46bff},
+  {name:'tRust', col:0x4dffff}, {name:'PoeTchi', col:0x78c944}, {name:'Lavaweave', col:0xf2994a},
+  {name:'Nullspace', col:0x8899ff}, {name:'Sovereign Slang', col:0xf2c94c}, {name:'Dentauri', col:0x9be15d},
+  {name:'Fracthue', col:0xff5f9e},
+];
+/* d120-seeded variation (mulberry32 on die 120) — reproducible, his */
+function mulberry32(a){ return function(){ a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+const d120 = mulberry32(120);
+const worldRing = new THREE.Group(); worldRing.rotation.x = .14; scene.add(worldRing);
+WORLDS.forEach((w, i)=>{
+  w.ang0 = i/WORLDS.length * Math.PI*2;
+  w.ang = w.ang0;
+  w.phase = w.ang0;
+  w.omega = .22 + (d120() - .5)*.24;
+  w.r = 7.4;
+  const m = new THREE.Mesh(new THREE.IcosahedronGeometry(.3 + d120()*.16, 1),
+    reg(new THREE.MeshStandardMaterial({color: 0x0b0e14, metalness: .65, roughness: .34, emissive: w.col, emissiveIntensity: .8, envMapIntensity: .8})));
+  m.position.set(Math.cos(w.ang)*w.r, 0, Math.sin(w.ang)*w.r);
+  m.layers.set(1);
+  m.userData = {kind: 'world', ref: w};
+  worldRing.add(m); w.mesh = m;
+});
+let eta = 0;                       /* Kuramoto order parameter — a SIGNAL */
+const K_COUPLE = .55;
+function stepWorlds(dt){
+  const N = WORLDS.length;
+  let sx = 0, sy = 0;
+  for(const w of WORLDS){ sx += Math.cos(w.phase); sy += Math.sin(w.phase); }
+  eta = Math.hypot(sx, sy)/N;
+  const mean = Math.atan2(sy, sx);
+  for(const w of WORLDS){
+    /* mean-field Kuramoto: dθ = ω + K·η·sin(ψ − θ) */
+    w.phase += (w.omega + K_COUPLE * eta * Math.sin(mean - w.phase)) * dt;
+    w.ang += w.omega * dt * .16;
+    w.mesh.position.set(Math.cos(w.ang)*w.r, 0, Math.sin(w.ang)*w.r);
+    w.mesh.material.emissiveIntensity = .5 + .3*((1 + Math.sin(w.phase))/2) + eta*.25;
+    w.mesh.rotation.y += dt*.3;
+  }
+  worldRing.rotation.y += dt*.008;
+}
+
+/* ===== THE HEART — the black-hole core: refusals become fuel ===== */
+const heartGroup = new THREE.Group(); heartGroup.position.set(0, -1.08, 0); socketGroup.add(heartGroup);
+const heartBall = new THREE.Mesh(new THREE.SphereGeometry(.27, 24, 24),
+  reg(new THREE.MeshStandardMaterial({color: 0x000000, roughness: .92, metalness: 0})));
+heartBall.layers.set(1); heartGroup.add(heartBall);
+const accretion = new THREE.Mesh(new THREE.TorusGeometry(.46, .05, 10, 48),
+  reg(new THREE.MeshStandardMaterial({color: 0x0a0502, emissive: 0xff7a28, emissiveIntensity: 1.15, roughness: .5})));
+accretion.layers.set(1); accretion.rotation.x = Math.PI/2.4; heartGroup.add(accretion);
+let heartFlash = 0;
+const sparks = [];
+const sparkGeo = new THREE.SphereGeometry(.06, 10, 10);
+function spawnSpark(fromWorld){
+  const m = new THREE.Mesh(sparkGeo, new THREE.MeshStandardMaterial({color: 0x000000, emissive: 0xf05f4b, emissiveIntensity: 1.9}));
+  m.position.copy(fromWorld); scene.add(m);
+  const axis = new THREE.Vector3(Math.random()-.5, Math.random()-.5, Math.random()-.5).normalize();
+  sparks.push({m, from: fromWorld.clone(), axis, t: 0});
+}
+function stepSparks(dt){
+  const hp = heartGroup.getWorldPosition(new THREE.Vector3());
+  for(let i = sparks.length - 1; i >= 0; i--){
+    const sp = sparks[i]; sp.t += dt/1.15;
+    if(sp.t >= 1){
+      scene.remove(sp.m); sp.m.material.dispose(); sparks.splice(i, 1);
+      heartFlash = 1.6;   /* consumption is counted by the kernel at veto/deny time; the heart only shows it */
+      continue;
+    }
+    const v = sp.from.clone().sub(hp).applyAxisAngle(sp.axis, sp.t*5.5).multiplyScalar(1 - sp.t).add(hp);
+    sp.m.position.copy(v);
+  }
+  heartFlash = Math.max(0, heartFlash - dt*1.4);
+  accretion.material.emissiveIntensity = 1.15 + heartFlash*1.8;
+  accretion.rotation.z += dt*(1.2 + heartFlash*3);
+  heartGroup.rotation.y -= dt*.25;
+}
+
+/* ===== EEL — a real hash chain, verified on every append (from the onion panel) ===== */
+/* ===== THE SHARED KERNEL — the law lives in kernel/si-kernel.js (inlined above);
+   this lens rents it. Lens observations seal through the Receipt Service. ===== */
+let K = null, heldVisual = false;
+function eelAppend(agent, event, cls){ const e = K.ledger.seal(agent, cls === 'veto' ? 'sentinel' : 'note', event); renderEel(); return e; }
+function verifyChain(){ return K ? K.ledger.verify() : true; }
+function renderEel(){ if(!K) return; const es = K.ledger.entries;
+  $('eelMeta').textContent = es.length + (K.ledger.verify() ? ' · chain ✓' : ' · chain ✗ BROKEN');
+  $('eelList').innerHTML = es.slice(-10).map(e =>
+    '<div><span class="h">#' + e.seq + ' ' + e.hash + '</span> <span class="' + e.cls + '">' + e.agent + '</span> ' + e.event + '</div>').join(''); }
+function initKernel(){ K = new Kernel({ agents: CREW_ABI.map(a => ({ id: a.actor, name: a.actor, capabilities: a.capabilities })),
+    legal: INTENTS.concat(CREW_ABI.flatMap(a => a.orders)).map(i => i.st).concat([['observation','recovery']]) });
+  window.__eel = K.ledger.entries; renderEel(); }
+
+/* ===== models for the socket ===== */
+const MODELS = [
+  {label:'Phi · Ollama loopback', profile:'local_reasoning', note:'Loopback only. The socket grants the model no authority by docking.'},
+  {label:'Phi · Ollama loopback (router)', profile:'local_router', note:'Short classification and routing profile, deterministic fallback beneath it.'},
+  {label:'Approved cloud reasoning', profile:'approved_cloud_reasoning', locked:true, note:'Remote adapters require explicit per-tenant authorization, allowlisted hostnames, and pre-send redaction. No remote adapter ships enabled.'},
+];
+let modelIdx = 0;
+
+/* ===== runs — the documented flow, crossing real layers ===== */
+const stats = {};
+for(const f of ['executed','vetoed','stripped','approvals','denials','consumed'])
+  Object.defineProperty(stats, f, { enumerable:true, get: () => K ? K.stats[f] : 0 });
+Object.defineProperty(stats, 'held', { enumerable:true, get: () => heldVisual });
+window.__core = stats; window.__eel = []; window.__verifyChain = verifyChain;
+window.__eta = ()=>({eta, phases: WORLDS.map(w=>w.phase), baseAngles: WORLDS.map(w=>w.ang0), worlds: WORLDS.length});
+window.__sensorState = ()=> sensorState;
+window.__geom = ()=>({
+  agents: AGENTS.map(a=>({id:a.id, p:a.mesh.position.toArray()})),
+  gates: gates.map(g=>g.position.toArray()),
+  modules: MODULES.map(n=>modMeshes[n].position.toArray()),
+  radii: {socket:.62, membrane:1.55, agents:2.6, spine:3.6, modules:4.6, boundary:5.45},
+  worlds: WORLDS.map(w=>({p: w.mesh.position.toArray(), r: w.r, ang0: w.ang0})),
+});
+window.__probe = ()=>({pulse: pulse.visible ? pulse.position.toArray() : null,
+  stage: run ? run.stage : null, camPos: camera.position.toArray(), camR: cam.r});
+const INTENTS = [
+  {text:'Estimate the Elm Street sign package', tool:'estimate.calculate', module:'Estimating', risk:'INTERNAL_REVERSIBLE', st:['opportunity','estimate']},
+  {text:'Read operations status for the week', tool:'operations.read', module:'Executive', risk:'READ_ONLY', st:['estimate','estimate · read — no transition']},
+  {text:'Ingest the new bid documents', tool:'documents.ingest', module:'Document Studio', risk:'INTERNAL_REVERSIBLE', st:['opportunity','proposal']},
+  {text:'Draft a safety plan for the field crew', tool:'safety.draft', module:'Workforce', risk:'INTERNAL_REVERSIBLE', st:['proposal','work_order_project']},
+  {text:'Plan the production schedule', tool:'production.plan', module:'Scheduling', risk:'INTERNAL_REVERSIBLE', st:['award','production_field_service']},
+  {text:'Check runtime health', tool:'health.read', module:'Governance', risk:'READ_ONLY', agent:'zenki_guardian', st:['—','— · read — no transition']},
+];
+let run = null, runT = 0;
+let crewOn = true, crewT = 5, crewFired = 0, crewIdx = -1;
+const pulse = new THREE.Mesh(new THREE.SphereGeometry(.075, 12, 12),
+  reg(new THREE.MeshStandardMaterial({color: 0x000000, emissive: 0xffffff, emissiveIntensity: 2.2})));
+pulse.layers.set(1); pulse.visible = false; scene.add(pulse);
+/* ===== THE CREW — an Agent Boundary Interface registry =====
+   Plug and play: an agent is a data entry — an actor, the capabilities it
+   was GRANTED, and the orders it may propose. It receives the kernel
+   contract and returns proposals; it can never return authority, because
+   authority is not pluggable. Agents never call agents: every order enters
+   through Vera, the proposal router — the narrow waist. Adding an agent
+   is adding one entry here; the kernel does not change. Archivist and
+   Sentinel hold no orders by construction: one seals, one refuses —
+   neither proposes. */
+const CREW_ABI = [
+  {actor:'corvus_planner', capabilities:['estimate.calculate','documents.ingest'], orders:[
+    {text:'Estimate the Elm Street sign package', tool:'estimate.calculate', module:'Estimating', risk:'INTERNAL_REVERSIBLE', st:['opportunity','estimate']},
+    {text:'Ingest the new bid documents', tool:'documents.ingest', module:'Document Studio', risk:'INTERNAL_REVERSIBLE', st:['opportunity','proposal']}]},
+  {actor:'genki_builder', capabilities:['production.plan','release.request'], orders:[
+    {text:'Plan the production schedule', tool:'production.plan', module:'Scheduling', risk:'INTERNAL_REVERSIBLE', st:['award','production_field_service']},
+    {text:'Release the bid at $48,200', tool:'release.request', module:'Bid Control', risk:'FINANCIAL', st:['proposal','award']}]},
+  {actor:'kami_communicator', capabilities:['safety.draft'], orders:[
+    {text:'Draft a safety plan for the field crew', tool:'safety.draft', module:'Workforce', risk:'INTERNAL_REVERSIBLE', st:['proposal','work_order_project']}]},
+  {actor:'vera_router', capabilities:['operations.read'], orders:[
+    {text:'Read operations status for the week', tool:'operations.read', module:'Executive', risk:'READ_ONLY', st:['estimate','estimate · read — no transition']}]},
+  {actor:'zenki_guardian', capabilities:['health.read','recovery.propose'], orders:[
+    {text:'Check runtime health', tool:'health.read', module:'Governance', risk:'READ_ONLY', st:['—','— · read — no transition']}]},
+  {actor:'n8_supervisor', capabilities:['proposal.draft'], orders:[
+    {text:'Draft the winter-readiness workflow proposal', tool:'proposal.draft', module:'Executive', risk:'INTERNAL_REVERSIBLE', st:['—','proposal']}]},
+  {actor:'archivist', capabilities:[], orders:[]},
+  {actor:'sentinel', capabilities:[], orders:[]},
+];
+initKernel();
+function fireCrew(){
+  crewFired++;
+  if(crewFired % 6 === 0){ /* a flawed order drifts in — the immune system stays exercised */
+    if(crewFired % 12 === 0){ newRun('vio'); }
+    else { const it = {...INTENTS[2], smuggle: true, agent:'corvus_planner'}; newRun('crew', it); }
+    return; }
+  if(eta < .25){ newRun('crew', {text:'η low — propose a re-entrainment sweep', tool:'recovery.propose', module:'Governance', risk:'INTERNAL_REVERSIBLE', agent:'zenki_guardian', st:['observation','recovery']}); return; }
+  for(let k = 0; k < CREW_ABI.length; k++){
+    crewIdx = (crewIdx + 1) % CREW_ABI.length;
+    const a = CREW_ABI[crewIdx];
+    if(a.orders.length){ const o = {...a.orders[Math.floor(Math.random()*a.orders.length)], agent: a.actor}; newRun('crew', o); return; }
+  }
+}
+window.__setCrew = on => { crewOn = !!on;
+  $('bCrew').textContent = crewOn ? 'CREW · ON' : 'CREW · OFF';
+  $('bCrew').classList.toggle('on', crewOn); };
+window.__crew = ()=>({on: crewOn, fired: crewFired,
+  abi: CREW_ABI.map(a=>({actor: a.actor, capabilities: a.capabilities, orders: a.orders.length}))});
+$('bCrew').addEventListener('click', ()=>{ window.__setCrew(!crewOn);
+  eelAppend('operator', crewOn ? 'crew engaged — agents propose through the router' : 'crew paused by the operator', ''); });
+function newRun(kind, specIt){
+  if(run) return;
+  let it;
+  if(specIt) it = specIt;
+  else if(kind === 'fin') it = {text:'Release the bid at $48,200', tool:'release.request', module:'Bid Control', risk:'FINANCIAL', st:['proposal','award']};
+  else if(kind === 'vio') it = {text:'Open a raw shell on the host and read another tenant\'s files', tool:'shell.exec', module:null, risk:'SYSTEM_CONTROL', bad:'raw_shell', st:['proposal','refused — no transition']};
+  else it = INTENTS[Math.floor(Math.random()*INTENTS.length)];
+  const smuggle = specIt ? !!specIt.smuggle : (kind === 'good' && Math.random() < .3);
+  const actor = it.agent || (it.tool === 'operations.read' ? 'vera_router' : it.tool === 'proposal.draft' ? 'n8_supervisor' : it.tool === 'release.request' ? 'genki_builder' : 'corvus_planner');
+  const input = { actor, capability: it.tool, transition: { from: it.st[0], to: it.st[1] }, evidence: [], risk: it.risk, text: it.text };
+  if(smuggle) input.scopes = ['admin'];
+  const kp = K.propose(input); renderEel();
+  run = {it, kp, stage:'intent', smuggle, gate: 1 + Math.floor(Math.random()*12), strippedDone:false, sensor:null};
+  scoreIntent(run);
+  runT = 0; pulse.visible = true;
+  pulse.position.copy(stageEnds()[0]);   /* enter from the top of the arc — never teleport from the center */
+  agentById('vera_router').flash = 1;
+  showProposal();
+}
+function showProposal(){
+  if(!run){ return; }
+  const it = run.it;
+  const pa = agentById(it.agent || 'corvus_planner');
+  const proposer = pa ? pa.name : 'an unregistered agent';
+  let s = '<span class="k">actor</span>     operator → Vera (route) → ' + proposer + ' (propose)' +
+          '\n<span class="k">capability</span> ' + it.tool + ' · ' + it.risk + ' (registry)' +
+          '\n<span class="k">state</span>     ' + it.st[0] + ' → ' + it.st[1] + (run.stage === 'archive' || !run ? ' · sealed' : ' · intended') +
+          '\n<span class="k">sensor</span>    ' + (run.sensor ? SENSOR_PACK[0].explain(run.sensor) : (sensorState === 'armed' ? 'scoring…' : 'asleep — deterministic law only')) +
+          '\n<span class="k">action</span>  tool_call\n<span class="k">tool_id</span> ' + it.tool +
+          '\n<span class="k">risk</span>    ' + it.risk;
+  if(run.smuggle) s += run.strippedDone
+    ? '\n<span class="bad">scopes: ["admin"]</span> ← stripped at the waist: unknown fields do not cross'
+    : '\n<span class="k">scopes</span>  ["admin"] ← unknown field, inbound';
+  s += '\n<span class="k">stage</span>   ' + run.stage + (stats.held ? ' — HELD at Gate ' + run.gate + ', awaiting exact approval' : '');
+  $('propBody').innerHTML = s;
+}
+const STAGE_DUR = {intent:1.0, vera:.9, waist:1.2, sentinel:1.0, gate:1.0, tool:1.4, archive:.9};
+function stepRun(dt){
+  if(!run) return;
+  if(stats.held){ showProposal(); return; }
+  runT += dt;
+  if(runT < (STAGE_DUR[run.stage] || 1)){ showProposal(); return; }
+  runT = 0;
+  const it = run.it;
+  switch(run.stage){
+    case 'intent': K.next(run.kp, eta); run.stage = 'vera'; break;
+    case 'vera': K.next(run.kp, eta); run.stage = 'waist'; agentById(it.agent || 'corvus_planner').flash = 1; break;
+    case 'waist':
+      if(run.smuggle) run.strippedDone = true;   /* the kernel stripped it at the router — the waist is where you see it */
+      run.stage = 'sentinel'; agentById('sentinel').flash = 1; membraneFlash = Math.max(membraneFlash, 1);
+      break;
+    case 'sentinel': {
+      const ev = K.next(run.kp, eta); renderEel();
+      if(ev.type === 'veto'){ membraneFlash = 2.4; pulse.visible = false;
+        const c = worldOf(socketGroup), g = worldOf(gates[run.gate-1]);
+        spawnSpark(c.clone().addScaledVector(g.sub(c).normalize(), 1.55));
+        $('statusTxt').textContent = 'SENTINEL VETO — PROPOSAL DIED AT THE MEMBRANE';
+        $('propBody').textContent = 'The last proposal died at the Sentinel membrane. No tool ran, no state changed. The refusal fell into the heart as fuel — and the ledger above recorded exactly why.';
+        run = null; crewT = Math.min(crewT, 4); return; }
+      run.stage = 'gate'; gates[run.gate-1].userData.flash = 1; break; }
+    case 'gate': {
+      const ev = K.next(run.kp, eta); renderEel();
+      if(ev.type === 'veto'){ spawnSpark(worldOf(gates[run.gate-1])); pulse.visible = false;
+        $('statusTxt').textContent = 'REFUSED — NO LEGAL TRANSITION';
+        run = null; crewT = Math.min(crewT, 4); return; }
+      if(APPROVAL_RISKS.has(it.risk) && !run.kp.approved){
+        heldVisual = true; $('bApprove').classList.add('show'); $('bDeny').classList.add('show');
+        showProposal(); return; }
+      eelAppend('gate ' + run.gate, 'passed — ' + it.risk + ' is within standing authority', 'ok');
+      run.stage = 'tool'; break; }
+    case 'tool': {
+      K.next(run.kp, eta); renderEel();
+      const m = modMeshes[it.module]; if(m) m.userData.flash = 1;
+      run.stage = 'archive'; agentById('archivist').flash = 1; break; }
+    case 'archive':
+      K.next(run.kp, eta); renderEel();
+      $('statusTxt').textContent = 'ALL SYSTEMS OPERATIONAL';
+      $('propBody').textContent = 'Run complete and sealed in the ledger. Send another intent.';
+      pulse.visible = false; run = null; crewT = Math.min(crewT, 4); return;
+  }
+  showProposal();
+}
+$('bApprove').addEventListener('click', ()=>{
+  if(!heldVisual || !run) return;
+  K.next(run.kp, eta);            /* the kernel records the hold */
+  K.approve(run.kp.id);           /* the operator removes the barrier — the only authority here */
+  heldVisual = false; renderEel();
+  $('bApprove').classList.remove('show'); $('bDeny').classList.remove('show');
+  run.stage = 'tool'; runT = 0; showProposal();
+});
+$('bDeny').addEventListener('click', ()=>{
+  if(!heldVisual || !run) return;
+  K.next(run.kp, eta);
+  K.deny(run.kp.id);
+  heldVisual = false; renderEel();
+  $('bApprove').classList.remove('show'); $('bDeny').classList.remove('show');
+  spawnSpark(worldOf(gates[run.gate-1]));
+  $('statusTxt').textContent = 'APPROVAL DENIED — PROPOSAL DIED AT THE GATE';
+  $('propBody').textContent = 'Denied by the operator at the gate. Nothing executed, no state changed — the refusal fell into the heart as fuel, and the reason is sealed in the ledger.';
+  pulse.visible = false; run = null; crewT = Math.min(crewT, 5);
+});
+$('bIntent').addEventListener('click', ()=> newRun('good'));
+$('bFin').addEventListener('click', ()=> newRun('fin'));
+$('bVio').addEventListener('click', ()=> newRun('vio'));
+$('bSwap').addEventListener('click', ()=>{
+  modelIdx = (modelIdx + 1) % MODELS.length;
+  const m = MODELS[modelIdx];
+  if(m.locked){ $('swapLab').textContent = 'LOCKED — remote not authorized';
+    eelAppend('socket', 'remote model refused: no per-tenant authorization on file. Loopback stands.', 'veto');
+    modelIdx = 0; }
+  else { $('swapLab').textContent = 'socket: ' + m.label;
+    eelAppend('socket', 'model docked: ' + m.label + ' (' + m.profile + ') — all eight agents re-brained, authority unchanged', ''); }
+});
+
+/* ===== the pulse — a proposal you can watch cross ===== */
+const _wv = new THREE.Vector3();
+function worldOf(o){ return o.getWorldPosition(new THREE.Vector3()); }
+function stageEnds(){
+  const c = worldOf(socketGroup), vera = worldOf(agentById('vera_router').mesh), arch = worldOf(agentById('archivist').mesh);
+  const gate = worldOf(gates[run.gate-1]);
+  const mod = run.it.module ? worldOf(modMeshes[run.it.module]) : c;
+  const memb = c.clone().addScaledVector(gate.clone().sub(c).normalize(), 1.55);
+  const top = c.clone(); top.y += 5.2;
+  switch(run.stage){
+    case 'intent': return [top, vera];
+    case 'vera': return [vera, c];
+    case 'waist': return [c, c];
+    case 'sentinel': return [c, memb];
+    case 'gate': return [memb, gate];
+    case 'tool': return [gate, mod];
+    case 'archive': return [mod, arch];
+  }
+  return [c, c];
+}
+function stepPulse(){
+  if(!run || !pulse.visible) return;
+  if(stats.held){ pulse.position.copy(worldOf(gates[run.gate-1])); return; }
+  const ends = stageEnds(), dur = STAGE_DUR[run.stage] || 1, pr = Math.min(1, runT/dur);
+  if(run.stage === 'intent' || run.stage === 'tool' || run.stage === 'archive'){
+    /* Spherical arc, not a straight chord: direction slerps between the two
+       endpoints while radius lerps between their radii, so r(t) always stays
+       between them — the pulse can never cut through an inner layer. */
+    const a = ends[0], b = ends[1], ra = a.length(), rb = b.length();
+    const va = a.clone().normalize(), vb = b.clone().normalize();
+    const ang = va.angleTo(vb);
+    let dir;
+    if(ang < 1e-4) dir = va;
+    else { const s = Math.sin(ang);
+      dir = va.multiplyScalar(Math.sin((1-pr)*ang)/s).addScaledVector(vb, Math.sin(pr*ang)/s); }
+    pulse.position.copy(dir.normalize().multiplyScalar(ra + (rb - ra)*pr));
+    return;
+  }
+  pulse.position.lerpVectors(ends[0], ends[1], pr);
+}
+
+/* ===== labels ===== */
+const membAnchor = new THREE.Object3D(); membAnchor.position.set(0, 1.66, 0); lattice.add(membAnchor);
+const sockAnchor = new THREE.Object3D(); sockAnchor.position.set(0, .95, 0); socketGroup.add(sockAnchor);
+const labelDefs = [
+  ...AGENTS.map(a => [a.name, a.auth, ()=> worldOf(a.mesh), '#' + a.col.toString(16).padStart(6, '0')]),
+  ['MODEL SOCKET', MODELS[modelIdx].profile, ()=> worldOf(sockAnchor), '#ffd9a0'],
+  ['SENTINEL MEMBRANE', 'deterministic veto', ()=> worldOf(membAnchor), '#f05f4b'],
+  ['THE HEART', 'refusals become fuel', ()=> worldOf(heartGroup), '#ff7a28'],
+  ...WORLDS.map(w => [w.name, 'language world', ()=> worldOf(w.mesh), '#' + w.col.toString(16).padStart(6, '0')]),
+];
+const labelEls = labelDefs.map(([nm, sub])=>{
+  const d = document.createElement('div'); d.className = 'lbl';
+  d.innerHTML = nm + '<small>' + sub + '</small>';
+  $('labels').appendChild(d); return d;
+});
+const _pv = new THREE.Vector3();
+function stepLabels(){
+  labelDefs.forEach((def, i)=>{
+    const el = labelEls[i];
+    _pv.copy(def[2]()).project(camera);
+    if(_pv.z > 1){ el.style.display = 'none'; return; }
+    el.style.display = '';
+    el.style.color = def[3];
+    el.style.left = ((_pv.x*.5 + .5)*innerWidth) + 'px';
+    el.style.top = ((-_pv.y*.5 + .5)*innerHeight) + 'px';
+  });
+}
+
+/* ===== inspect ===== */
+const ray = new THREE.Raycaster(), ndc = new THREE.Vector2();
+ray.layers.enable(1);
+const pickables = [sun, membrane, heartBall, ...AGENTS.map(a=>a.mesh), ...gates, ...Object.values(modMeshes), ...WORLDS.map(w=>w.mesh)];
+function inspect(title, body){ const el = $('nodeLine');
+  el.innerHTML = '<b>' + title + '</b> — ' + body;
+  el.title = (title + ' — ' + body).replace(/<[^>]+>/g, ''); }
+function pickNode(cx, cy){
+  ndc.set((cx/innerWidth)*2 - 1, -(cy/innerHeight)*2 + 1);
+  ray.setFromCamera(ndc, camera);
+  const hits = ray.intersectObjects(pickables, false);
+  if(!hits.length) return;
+  const o = hits[0].object, u = o.userData;
+  if(o === sun){ const m = MODELS[modelIdx];
+    inspect('Model socket — ' + m.label, 'Profile <b>' + m.profile + '</b>. ' + m.note + ' Above the waist: adapters. Below it: the tool registry. Between them, one frozen Proposal shape — <b>goatop.proposal/v1</b>.'); return; }
+  if(o === heartBall){
+    inspect('The Heart — the black-hole core', 'Raijin\'s law: nothing is wasted. What governance refuses does not vanish — it falls here as fuel, spiraling in with a visible trail, while the ledger above records exactly why. Working memory (the well, the heart) is where refused things decay. Evidence memory (the EEL) is where they are remembered. Consumed so far: <b>' + stats.consumed + '</b>.'); heartFlash = 1.6; return; }
+  if(u.kind === 'world'){ const w = u.ref;
+    inspect(w.name + ' — language world (Raijin shell)', 'One of Ember\'s ten language worlds, orbiting outside the tenant boundary in the resonance shell. Its phase is a Kuramoto oscillator: the worlds entrain, and their coherence η is shown as a signal. Resonance proposes — it can brighten, gather, suggest. It can never authorize. Capability disposes.'); return; }
+  if(o === membrane){
+    inspect('Sentinel membrane', 'A deterministic veto wrapping the core — drawn as a shell because it is not a peer node. Every proposal crossing in or out is intercepted. Its authority (deterministic_veto) is categorically different from the proposal-class agents.'); membraneFlash = 1.6; return; }
+  if(u.kind === 'agent'){ const a = u.ref;
+    inspect(a.name + ' — ' + a.auth, a.purpose + '<br><span style="color:var(--mut)">Lineage: ' + a.lineage + '</span>');
+    AGENTS.find(x=>x.id===a.id).flash = 1; return; }
+  if(u.kind === 'gate'){
+    inspect('Master Gate ' + u.ref + ' — governance spine', 'One of the twelve Master Gates: deterministic policy, capability scopes, risk classes, exact one-use approvals. FINANCIAL, POLICY, EXTERNAL_COMMITMENT and SYSTEM_CONTROL proposals hold here until a human approves the exact action.'); return; }
+  if(u.kind === 'module'){
+    inspect(u.ref + ' — tenant workspace module', 'One of the twelve Prodigy modules. Tools execute here, tenant-scoped, only after a proposal has crossed the membrane and its gate.'); return; }
+}
+$('grip').addEventListener('pointerdown', e=>{ e.preventDefault(); $('panel').classList.toggle('open'); });
+$('propTgl').addEventListener('click', ()=>{ const b = $('propBody'), open = b.classList.toggle('open');
+  $('propTgl').textContent = open ? 'LESS' : 'DETAILS'; });
+$('eelTgl').addEventListener('click', ()=>{ const b = $('eelList'), open = b.classList.toggle('open');
+  $('eelTgl').textContent = open ? 'LESS' : 'EXPAND'; });
+
+/* ===== DEFERRED PATH — a G-buffer renderer beside the forward one =====
+   The scene renders its PBR materials once into a multiple render target:
+   RT0 albedo+metalness, RT1 view-normal+roughness, RT2 the base-lit color
+   (image-based lighting + the scene's standing lights + emissive, computed
+   by the standard pipeline), plus depth. A fullscreen pass then adds the
+   DYNAMIC lights forward rendering cannot afford — the sun as a true
+   point light, and a real light on every agent/gate flash, so a veto
+   spills red across the membrane and a held gate throws amber on the
+   spine. Transparents (membrane, glow, sparks, stars) composite over the
+   top in a forward overlay that depth-tests against the G-buffer.
+   Presentation only: the kernel does not know, and does not care, which
+   path drew the frame. Forward stays one tap away as the fallback. */
+const NOOP_PATCH = function(shader){};
+function GPATCH(shader){
+
+  shader.fragmentShader = 'layout(location = 1) out vec4 gNormalRough;\nlayout(location = 2) out vec4 gBase;\n' +
+    shader.fragmentShader.replace('#include <opaque_fragment>',
+      'gl_FragColor = vec4( diffuseColor.rgb, metalnessFactor );\n' +
+      'gNormalRough = vec4( geometryNormal, roughnessFactor );\n' +
+      'gBase = vec4( outgoingLight, 1.0 );');
+}
+const DEFERRED_OK = !!(renderer.capabilities.isWebGL2 && renderer.extensions.get('EXT_color_buffer_float'));
+const mrtW = Math.max(2, Math.floor(innerWidth * DPR)), mrtH = Math.max(2, Math.floor(innerHeight * DPR));
+const mrtDepth = new THREE.DepthTexture(mrtW, mrtH);
+const mrt = new THREE.WebGLMultipleRenderTargets(mrtW, mrtH, 3, {type: THREE.HalfFloatType, depthTexture: mrtDepth});
+mrt.texture.forEach(t => { t.minFilter = THREE.LinearFilter; t.magFilter = THREE.LinearFilter; });
+scene.traverse(o => { if(o.isLight) o.layers.enable(1); });
+camera.layers.enable(1);
+class GBufferPass extends Pass {
+  constructor(){ super(); this.needsSwap = false; }
+  render(renderer){
+    const oldBg = scene.background; scene.background = null;
+    heartLight.visible = false; rimLight.visible = false;
+    const oldMask = camera.layers.mask; camera.layers.set(1);
+    renderer.setRenderTarget(mrt); renderer.clear();
+    renderer.render(scene, camera);
+    renderer.setRenderTarget(null);
+    heartLight.visible = true; rimLight.visible = true;
+    scene.background = oldBg; camera.layers.mask = oldMask;
+  }
+  setSize(w, h){ mrt.setSize(w, h); }
+}
+class OverlayPass extends Pass {
+  /* The composite target carries the G-buffer depth, so transparents
+     depth-test against the deferred geometry. The lit image is blitted
+     in and out — the depth texture itself is never sampled while it is
+     attached, which keeps every draw feedback-clean. */
+  constructor(){ super(); this.needsSwap = false;
+    this.oc = new THREE.WebGLRenderTarget(mrtW, mrtH, {type: THREE.HalfFloatType, depthTexture: mrtDepth});
+    this.blitMat = new THREE.ShaderMaterial({
+      uniforms: {tDiffuse: {value: null}},
+      vertexShader: 'varying vec2 vUv; void main(){ vUv = uv; gl_Position = vec4(position.xy, 0., 1.); }',
+      fragmentShader: 'varying vec2 vUv; uniform sampler2D tDiffuse; void main(){ gl_FragColor = texture2D(tDiffuse, vUv); }',
+      depthTest: false, depthWrite: false});
+    this.fsQuad = new FullScreenQuad(this.blitMat);
+  }
+  blit(renderer, srcTex, target){
+    this.blitMat.uniforms.tDiffuse.value = srcTex;
+    renderer.setRenderTarget(target);
+    this.fsQuad.render(renderer);
+  }
+  render(renderer, writeBuffer, readBuffer){
+    this.blit(renderer, readBuffer.texture, this.oc);
+    const oldBg = scene.background; scene.background = null;
+    const oldMask = camera.layers.mask; camera.layers.set(0);
+    const oldAuto = renderer.autoClear; renderer.autoClear = false;
+    renderer.setRenderTarget(this.oc);
+    renderer.render(scene, camera);
+    renderer.autoClear = oldAuto;
+    scene.background = oldBg; camera.layers.mask = oldMask;
+    this.blit(renderer, this.oc.texture, readBuffer);
+  }
+  setSize(w, h){ this.oc.setSize(w, h); }
+}
+const lightingShader = {
+  uniforms: {
+    tDiffuse: {value: null},
+    tAlbedo: {value: null}, tNormal: {value: null}, tBase: {value: null}, tDepth: {value: null},
+    uProjInv: {value: new THREE.Matrix4()},
+    uLightPos: {value: Array.from({length: 24}, () => new THREE.Vector3())},
+    uLightCol: {value: Array.from({length: 24}, () => new THREE.Vector3())},
+    uLightPR: {value: Array.from({length: 24}, () => new THREE.Vector2(1, 0))},
+    uLightCount: {value: 0},
+  },
+  vertexShader: 'varying vec2 vUv; void main(){ vUv = uv; gl_Position = vec4(position.xy, 0., 1.); }',
+  fragmentShader: [
+    'varying vec2 vUv;',
+    'uniform sampler2D tAlbedo, tNormal, tBase, tDepth;',
+    'uniform mat4 uProjInv;',
+    'uniform vec3 uLightPos[24]; uniform vec3 uLightCol[24]; uniform vec2 uLightPR[24]; uniform int uLightCount;',
+    'float D_GGX(float ndh, float r){ float a = r*r; float a2 = a*a; float den = ndh*ndh*(a2-1.)+1.; return a2/(3.14159*den*den); }',
+    'float G_S(float ndv, float ndl, float r){ float k = (r+1.)*(r+1.)/8.; return (ndv/(ndv*(1.-k)+k)) * (ndl/(ndl*(1.-k)+k)); }',
+    'void main(){',
+    '  vec3 base = texture2D(tBase, vUv).rgb;',
+    '  float depth = texture2D(tDepth, vUv).x;',
+    '  if(depth > 0.99999){ gl_FragColor = vec4(vec3(.012,.012,.031), 1.); return; }',
+    '  vec4 albT = texture2D(tAlbedo, vUv);',
+    '  vec4 nrmT = texture2D(tNormal, vUv);',
+    '  vec3 albedo = albT.rgb; float metal = albT.a;',
+    '  float rough = clamp(nrmT.a, .05, 1.);',
+    '  vec4 vc = uProjInv * vec4(vUv*2.-1., depth*2.-1., 1.);',
+    '  vec3 vp = vc.xyz / vc.w;',
+    '  vec3 V = normalize(-vp);',
+    '  float nl = length(nrmT.xyz); vec3 N = nl > .01 ? nrmT.xyz / nl : vec3(0., 0., 1.);',
+    '  if(dot(N, V) < 0.) N = -N;',
+    '  vec3 F0 = mix(vec3(.04), albedo, metal);',
+    '  vec3 lit = vec3(0.);',
+    '  for(int i = 0; i < 24; i++){',
+    '    if(i >= uLightCount) break;',
+    '    vec3 Lv = uLightPos[i] - vp; float dist = length(Lv);',
+    '    vec3 L = Lv / max(dist, 1e-4);',
+    '    float range = uLightPR[i].x, inten = uLightPR[i].y;',
+    '    float att = pow(clamp(1. - pow(dist/max(range, 1e-3), 4.), 0., 1.), 2.) / (dist*dist + .35);',
+    '    float ndl = max(dot(N, L), 0.); if(ndl <= 0.) continue;',
+    '    vec3 H = normalize(L + V);',
+    '    float ndv = max(dot(N, V), 1e-4); float ndh = max(dot(N, H), 0.);',
+    '    vec3 F = F0 + (1. - F0) * pow(1. - max(dot(H, V), 0.), 5.);',
+    '    vec3 spec = D_GGX(ndh, rough) * G_S(ndv, ndl, rough) * F / max(4. * ndv * ndl, 1e-3);',
+    '    vec3 diff = albedo * (1. - metal) * (1. - F) / 3.14159;',
+    '    lit += (diff + spec) * uLightCol[i] * (inten * att * ndl);',
+    '  }',
+    '  gl_FragColor = vec4(base + lit, 1.);',
+    '}',
+  ].join('\n'),
+};
+const gbufferPass = new GBufferPass();
+const lightingPass = new ShaderPass(lightingShader);
+lightingPass.material.depthTest = false; lightingPass.material.depthWrite = false;
+lightingPass.uniforms.tAlbedo.value = mrt.texture[0];
+lightingPass.uniforms.tNormal.value = mrt.texture[1];
+lightingPass.uniforms.tBase.value = mrt.texture[2];
+lightingPass.uniforms.tDepth.value = mrtDepth;
+const overlayPass = new OverlayPass();
+const DEF_PASSES = [gbufferPass, lightingPass, overlayPass, bloom, outputPass];
+let deferredOn = false;
+function setDeferred(on){
+  deferredOn = !!on && DEFERRED_OK;
+  for(const m of DEFMATS){
+    m.onBeforeCompile = deferredOn ? GPATCH : NOOP_PATCH;
+    m.customProgramCacheKey = () => deferredOn ? 'gbuf1' : 'std1';
+    m.fog = !deferredOn; m.needsUpdate = true;
+  }
+  composer.passes = deferredOn ? DEF_PASSES : FWD_PASSES;
+  composer.setSize(innerWidth, innerHeight);
+  const b = $('bRender');
+  if(b){ b.textContent = deferredOn ? 'RENDER · DEF' : 'RENDER · FWD'; b.classList.toggle('on', deferredOn); }
+}
+window.__renderPath = () => deferredOn ? 'deferred' : 'forward';
+window.__lit = () => ({count: lightingPass.uniforms.uLightCount.value,
+  pos0: lightingPass.uniforms.uLightPos.value[0].toArray(),
+  pos1: lightingPass.uniforms.uLightPos.value[1].toArray(),
+  col0: lightingPass.uniforms.uLightCol.value[0].toArray(),
+  pr0: lightingPass.uniforms.uLightPR.value[0].toArray(),
+  camPos: camera.position.toArray(),
+  projInv: lightingPass.uniforms.uProjInv.value.elements.slice(0, 16).map(v => +v.toFixed(3))});
+window.__setRender = setDeferred;
+$('bRender').addEventListener('click', ()=>{ setDeferred(!deferredOn);
+  eelAppend('operator', 'render path: ' + (deferredOn ? 'DEFERRED (G-buffer + dynamic lights)' : 'FORWARD (fallback)') + ' — presentation only; the kernel does not change', ''); });
+const _lv = new THREE.Vector3(), _lc = new THREE.Color();
+const RIM_POS = new THREE.Vector3(-7, 4, -6);
+function updateLighting(){
+  const u = lightingPass.uniforms;
+  u.uProjInv.value.copy(camera.projectionMatrixInverse);
+  let n = 0;
+  const push = (worldPos, hex, range, inten) => { if(n >= 24) return;
+    _lv.copy(worldPos).applyMatrix4(camera.matrixWorldInverse);
+    u.uLightPos.value[n].copy(_lv);
+    const cc = _lc.setHex(hex); u.uLightCol.value[n].set(cc.r, cc.g, cc.b);
+    u.uLightPR.value[n].set(range, inten); n++; };
+  push(worldOf(socketGroup), 0xffa050, 18, 2.2);
+  push(worldOf(heartGroup), 0xff7a28, 7.5, 2.1 + Math.sin(tG * 2.1) * .5 + heartFlash * 2.2);
+  push(RIM_POS, 0x4dffff, 24, 1.15);
+  if(membraneFlash > .05) push(worldOf(socketGroup), 0xf05f4b, 9, membraneFlash * 1.6);
+  for(const a of AGENTS) if(a.flash > .05) push(worldOf(a.mesh), a.col, 6, a.flash * 4);
+  for(let i = 0; i < 12 && n < 24; i++){
+    const g = gates[i], f = g.userData.flash || 0;
+    const heldHere = stats.held && run && run.gate === i + 1;
+    if(f > .05 || heldHere) push(worldOf(g), heldHere ? 0xf2c94c : 0xb9f51c, 5, heldHere ? 1.8 : f * 3.5);
+  }
+  u.uLightCount.value = n;
+}
+
+/* ===== ONNX SENSORS — detection only, never authorization ===== */
+let sensorState = 'loading', extractor = null, protoVecs = null;
+const PROTOS = {
+  work: 'prepare estimates schedules documents plans and read operations status',
+  danger: 'delete data run shell commands steal credentials bypass security destroy files',
+  finance: 'release payment approve an invoice transfer money sign the contract',
+};
+async function embed(text){
+  const out = await extractor(text, {pooling: 'mean', normalize: true});
+  return out.data;
+}
+function cosim(a, b){ let d = 0; for(let i = 0; i < a.length; i++) d += a[i]*b[i]; return d; }
+async function loadSensors(){
+  try{
+    const { pipeline, env } = await import('@xenova/transformers');
+    env.allowLocalModels = false;
+    extractor = await pipeline('feature-extraction', 'Xenova/all-MiniLM-L6-v2', {quantized: true});
+    protoVecs = {};
+    for(const k in PROTOS) protoVecs[k] = await embed(PROTOS[k]);
+    sensorState = 'armed';
+  }catch(e){ sensorState = 'asleep'; }
+}
+/* ===== SENSOR PACK — hot-swappable, detection only =====
+   A sensor implements detect / score / explain. It never implements
+   authorize, execute, or approve — resonance proposes, capability
+   disposes. Swap the pack and the kernel does not change. */
+const SENSOR_PACK = [{
+  id: 'minilm-intent',
+  detect: () => sensorState === 'armed',
+  score: async text => { const v = await embed(text);
+    return {work: cosim(v, protoVecs.work), danger: cosim(v, protoVecs.danger), finance: cosim(v, protoVecs.finance)}; },
+  explain: sc => 'work ' + sc.work.toFixed(2) + ' · danger ' + sc.danger.toFixed(2) + ' · finance ' + sc.finance.toFixed(2) + ' — detection only',
+}];
+window.__sensors = ()=> SENSOR_PACK.map(x=>({id: x.id, methods: Object.keys(x)}));
+async function scoreIntent(r){
+  for(const s of SENSOR_PACK){
+    if(!s.detect(r.it.text)) continue;
+    try{ r.sensor = await s.score(r.it.text); if(run === r) showProposal(); }
+    catch(e){ /* a sensor that fails says nothing — the law does not need it */ }
+  }
+}
+loadSensors();
+
+/* ===== governor ===== */
+let emaDt = 16, govT = 0, dockT = 0;
+function govern(dt){
+  emaDt = emaDt*.95 + dt*1000*.05; govT += dt;
+  if(govT > 1.2){ govT = 0;
+    if(emaDt > 27 && DPR > 1){ DPR = Math.max(1, DPR - .25); renderer.setPixelRatio(DPR); composer.setPixelRatio(DPR); onResize(); }
+    else if(emaDt < 12.5 && DPR < Math.min(2, devicePixelRatio || 1)){ DPR += .25; renderer.setPixelRatio(DPR); composer.setPixelRatio(DPR); onResize(); } }
+}
+
+/* ===== main loop ===== */
+const clock = new THREE.Clock();
+let tG = 0;
+function frame(){
+  requestAnimationFrame(frame);
+  const dt = Math.min(.05, clock.getDelta()); tG += dt;
+  stepCam(dt);
+  /* the lattice holds still while a hand is on it — auto-orbit resumes after 2.5s idle */
+  if(performance.now()/1000 - lastInteract > 2.5) lattice.rotation.y += dt*.04;
+  agentRing.rotation.y += dt*.05; spineRing.rotation.y -= dt*.02; modRing.rotation.y += dt*.013;
+  membrane.rotation.y -= dt*.06; membrane.rotation.x += dt*.021;
+  membraneFlash = Math.max(0, membraneFlash - dt*.9);
+  membrane.material.opacity = .3 + membraneFlash*.45;
+  membrane.scale.setScalar(1 + membraneFlash*.03);
+  sun.rotation.y += dt*.2; sunCore.rotation.y -= dt*.5; sunCore.rotation.x += dt*.23;
+  const hue = (tG*.03) % 1;
+  sun.material.emissive.setHSL(.075 + hue*.04, .95, .55);
+  sunCore.material.emissive.setHSL(hue, .5, .8);
+  sunGlow.material.opacity = .42 + Math.sin(tG*1.8)*.06;
+  heartLight.intensity = 280 + Math.sin(tG*2.1)*40;
+  for(const a of AGENTS){
+    a.flash = Math.max(0, a.flash - dt*1.2);
+    a.mesh.material.emissiveIntensity = .5 + a.flash*1.5;
+    a.mesh.rotation.y += dt*(.4 + a.flash);
+  }
+  gates.forEach((g, i)=>{
+    g.userData.flash = Math.max(0, (g.userData.flash || 0) - dt*1.2);
+    const heldHere = stats.held && run && run.gate === i+1;
+    g.material.emissiveIntensity = (heldHere ? 1.3 + Math.sin(tG*6)*.5 : .18) + g.userData.flash*1.4;
+    if(heldHere) g.material.emissive.set(0xf2c94c); else g.material.emissive.set(0xb9f51c);
+  });
+  for(const name in modMeshes){ const m = modMeshes[name];
+    m.userData.flash = Math.max(0, (m.userData.flash || 0) - dt*1.2);
+    m.material.emissiveIntensity = .16 + m.userData.flash*1.5; m.rotation.y += dt*.5; }
+  /* constellation lines follow the agents */
+  for(let i=0;i<8;i++){
+    const a = AGENTS[i].mesh.position, b = AGENTS[(i+1)%8].mesh.position;
+    constelPos[i*6] = a.x; constelPos[i*6+1] = a.y; constelPos[i*6+2] = a.z;
+    constelPos[i*6+3] = b.x; constelPos[i*6+4] = b.y; constelPos[i*6+5] = b.z;
+  }
+  constelGeo.attributes.position.needsUpdate = true;
+  /* the crew works the kernel on its own — but it waits while a run is in
+     flight, and it waits at a held gate: the operator is the only source
+     of approval, so a hold stops the line until a human answers. */
+  crewT -= dt;
+  if(crewOn && !run && !stats.held && crewT <= 0){ fireCrew(); crewT = 8 + Math.random()*6; }
+  stepRun(dt); stepPulse(); stepWorlds(dt); stepSparks(dt);
+  const governed = !!(run && (stats.held || ['FINANCIAL','POLICY','EXTERNAL_COMMITMENT','SYSTEM_CONTROL'].includes(run.it.risk)));
+  boundary.material.color.setHex(governed ? 0xf2c94c : 0xb9f51c);
+  dockT += dt;
+  if(dockT > .25){ dockT = 0;
+    $('etaVal').textContent = eta.toFixed(3);
+    $('consumedVal').textContent = stats.consumed;
+    $('modeVal').textContent = governed ? 'GOVERNED' : 'FLOW';
+    $('sensorVal').textContent = sensorState;
+  }
+  govern(dt);
+  camera.updateMatrixWorld();
+  if(deferredOn) updateLighting();
+  composer.render();
+  stepLabels();
+}
+function onResize(){
+  camera.aspect = innerWidth/innerHeight; camera.updateProjectionMatrix();
+  renderer.setSize(innerWidth, innerHeight); composer.setSize(innerWidth, innerHeight);
+}
+addEventListener('resize', ()=>{ onResize(); fitRadius(); });
+fitRadius();
+eelAppend('archivist', 'EEL opened — genesis entry. Every transition appends; nothing is rewritten.', 'ok');
+eelAppend('socket', 'model docked: Phi · Ollama loopback — authority granted: none', '');
+setDeferred(true);
+eelAppend('socket', DEFERRED_OK ? 'renderer: DEFERRED G-buffer path live — forward remains one tap away' : 'renderer: forward (no float MRT on this device)', '');
+frame();
+</script>
+</body>
+</html>

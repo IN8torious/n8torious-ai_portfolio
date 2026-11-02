@@ -23,6 +23,7 @@ world-engine foundation and adds the newest shipped lines of work.
   shared constitutional runtime.
 - **PoeTchi Zig Kernel v1.1:** source and proof cards for the
   transforms-unification release.
+- **SI Core Builds:** the Ball, the Onion lens, the Complete Prototype, the Rose, the Black-Hole Core, and Harakiri Unified — the Core line under its one constitution.
 - **N8toriousAI.com:** company homepage and privacy-page source.
 
 ## Retained from the foundation release

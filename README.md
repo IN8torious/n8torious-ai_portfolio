@@ -24,6 +24,7 @@ Release record: **[RELEASE_NOTES.md](RELEASE_NOTES.md)**
 | **[SI Constitutional Kernel](projects/si-constitutional-kernel/)** | Actor · Capability · Proposal · Receipt · State as runnable law | Source, builder, ledger, and tests included |
 | **[PoeTchi Zig Kernel v1.1](projects/poetchi-zig/)** | Freestanding Zig agent kernel with unified real-trigonometry projection | 19,652 parity checks · 0 failures |
 | **[N8toriousAI.com](projects/n8toriousai-website/)** | Company home, project dashboard, and privacy hub | Source included |
+| **[SI Core Builds](projects/si-core/)** | The Core itself: the Ball, the Onion lens, the Complete Prototype, the Rose, the Black-Hole Core, and Harakiri Unified | One kernel, every lens · field notes with counted mass and force |
 
 
 ## Harakiri OS — Agent-Native ARM64 Kernel
