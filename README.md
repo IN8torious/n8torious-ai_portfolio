@@ -1,11 +1,30 @@
 # N8TORIOUS AI — Portfolio
 
 **Nathan Brown** · Founder, N8torious AI · Akron, Ohio
-🌐 [raijinsocial.com](https://raijinsocial.com) · [deepalchemy.ai](https://deepalchemy.ai) · [deepalchemy.app](https://deepalchemy.app)
+🌐 [n8toriousai.com](https://n8toriousai.com) · [raijinsocial.com](https://raijinsocial.com) · [deepalchemy.ai](https://deepalchemy.ai) · [deepalchemy.app](https://deepalchemy.app)
 
 Agent-native operating systems, sovereign programming languages, and 3D world engines — built from the kernel up.
 
+
 ---
+
+## November 2026 Release — Newest Work
+
+The current release adds a shipped Android app, a public agent-factory
+toolkit, a runnable theory instrument, and the newest kernel work to
+the foundation below. Full index: **[PROJECTS.md](PROJECTS.md)** ·
+Release record: **[RELEASE_NOTES.md](RELEASE_NOTES.md)**
+
+| Project | What it is | Proof / status |
+|---|---|---|
+| **[Temple — Daily Bible](projects/temple/)** | Complete offline Android Bible: 66 books, daily verse/prayer, verse tools, plans, prayer lists | v1.0.2 · target API 36 · bundle package, DEX, and signature verified |
+| **[Agent Toolbox](projects/agent-toolbox/)** | A factory kit for governed agent systems: crew sheets, constitution, Gate protocol, kernel, Pain source, and 79 spec files | 117 files · packaged kernel tests pass |
+| **[ALTIMINAC](projects/altiminac/)** | Interactive Alchemedies instrument: stable fluids, buoyancy, resonance, coherence, seven operations | Headless battery 14/14, including measured stratification |
+| **[Alchemedies — Theory of Laws](projects/alchemedies/ALCHEMEDIES-THEORY-OF-LAWS.md)** | The full law book: fluid cognition, signals, operations, neural dynamics, reasoning, Crash First | Compiled from the working specs and engines |
+| **[SI Constitutional Kernel](projects/si-constitutional-kernel/)** | Actor · Capability · Proposal · Receipt · State as runnable law | Source, builder, ledger, and tests included |
+| **[PoeTchi Zig Kernel v1.1](projects/poetchi-zig/)** | Freestanding Zig agent kernel with unified real-trigonometry projection | 19,652 parity checks · 0 failures |
+| **[N8toriousAI.com](projects/n8toriousai-website/)** | Company home, project dashboard, and privacy hub | Source included |
+
 
 ## Harakiri OS — Agent-Native ARM64 Kernel
 
@@ -50,6 +69,8 @@ Languages designed for the hardware they run on:
 ## Theoretical Work
 
 **The Alchemedies Principle** — cognition and interface emerge from fluid dynamics. The water surface IS the system state. Archimedes buoyancy and density stratification as the cognition substrate — a generalization of gravity-well memory. Procedural physics beats context weights: weights burn tokens linearly, physics recurses for free.
+
+The complete working law book is now included as **[Alchemedies — Theory of Laws](projects/alchemedies/ALCHEMEDIES-THEORY-OF-LAWS.md)**, and **[ALTIMINAC](projects/altiminac/)** runs the theory as a live fluid instrument.
 
 ## 3D & Visual Engines
 

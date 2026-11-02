@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#05060a">
+<title>ALTIMINAC — an Alchemedies instrument</title>
+<style>
+  :root{
+    --ink:#e8e2d4; --dim:#8b8574; --crimson:#c8102e; --gold:#e8b84b;
+    --glass:rgba(10,12,20,.72); --line:rgba(232,226,212,.14);
+  }
+  *{ margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  html,body{ height:100%; overflow:hidden; background:#05060a; }
+  body{ font-family:ui-rounded,"Avenir Next","Segoe UI",system-ui,sans-serif; color:var(--ink); }
+  #tank{ position:fixed; inset:0; touch-action:none; display:block; }
+
+  header{ position:fixed; top:0; left:0; right:0; z-index:5; pointer-events:none;
+    padding:calc(10px + env(safe-area-inset-top)) 16px 22px;
+    background:linear-gradient(180deg, rgba(5,6,10,.88), rgba(5,6,10,0)); }
+  header h1{ font-size:19px; letter-spacing:.42em; font-weight:800; }
+  header h1 .a{ color:var(--crimson); }
+  header p{ font-size:10.5px; letter-spacing:.18em; color:var(--dim); margin-top:3px; text-transform:uppercase; }
+  header .spectrum{ height:2px; margin-top:9px; width:min(430px,62vw); border-radius:2px;
+    background:linear-gradient(90deg,#5a1020,#c8102e,#e0651f,#e8b84b,#7fae5a,#3f8f7a,#6a4fd0,#5a1020);
+    background-size:200% 100%; animation:flow 11s linear infinite; opacity:.85; }
+  @keyframes flow{ to{ background-position:200% 0; } }
+  @media (prefers-reduced-motion: reduce){ header .spectrum{ animation:none; } }
+
+  /* the instrument readout — numbers computed live from the field */
+  #readout{ position:fixed; left:14px; top:calc(96px + env(safe-area-inset-top)); z-index:5;
+    background:var(--glass); border:1px solid var(--line); border-radius:14px;
+    padding:10px 13px; backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+    font-variant-numeric:tabular-nums; min-width:172px; }
+  #readout .row{ display:flex; justify-content:space-between; gap:18px; font-size:11.5px; padding:2.5px 0; }
+  #readout .k{ color:var(--dim); letter-spacing:.12em; text-transform:uppercase; font-size:10px; padding-top:1px; }
+  #readout .v{ font-weight:700; }
+  #readout .v.hot{ color:var(--gold); }
+  #regime.lam{ color:#7fc7ae; } #regime.turb{ color:#e0651f; }
+
+  /* selected mote card */
+  #mote{ position:fixed; left:14px; bottom:calc(14px + env(safe-area-inset-bottom)); z-index:5;
+    background:var(--glass); border:1px solid var(--line); border-radius:14px; padding:10px 13px;
+    backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); max-width:min(300px,72vw);
+    font-size:12px; line-height:1.55; display:none; }
+  #mote.show{ display:block; }
+  #mote b{ letter-spacing:.08em; }
+  #mote .sub{ color:var(--dim); font-size:11px; }
+
+  /* THE SEVEN OPERATIONS — right dock, grip law: 48px targets, opens nothing on its own */
+  #dock{ position:fixed; right:calc(10px + env(safe-area-inset-right)); top:50%; transform:translateY(-50%);
+    z-index:6; display:flex; flex-direction:column; gap:8px; align-items:flex-end; }
+  #dock .cap{ font-size:9px; letter-spacing:.3em; color:var(--dim); writing-mode:vertical-rl;
+    margin:0 4px 2px 0; text-transform:uppercase; }
+  .op{ width:52px; height:52px; border-radius:16px; border:1px solid var(--line);
+    background:var(--glass); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+    color:var(--ink); cursor:pointer; display:flex; flex-direction:column; align-items:center;
+    justify-content:center; gap:1px; transition:transform .12s, border-color .12s; }
+  .op:active{ transform:scale(.93); border-color:var(--gold); }
+  .op .g{ font-size:19px; line-height:1; }
+  .op .n{ font-size:7.5px; letter-spacing:.08em; color:var(--dim); text-transform:uppercase; }
+  .op.mythic{ border-color:rgba(232,184,75,.55); }
+  #toast{ position:fixed; left:50%; bottom:calc(18px + env(safe-area-inset-bottom)); transform:translateX(-50%);
+    z-index:7; background:var(--glass); border:1px solid var(--line); border-radius:999px;
+    padding:8px 16px; font-size:12px; letter-spacing:.04em; opacity:0; pointer-events:none;
+    transition:opacity .3s; backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+    white-space:nowrap; max-width:92vw; overflow:hidden; text-overflow:ellipsis; }
+  #toast.show{ opacity:1; }
+  #toast b{ color:var(--gold); }
+</style>
+</head>
+<body>
+<canvas id="tank"></canvas>
+
+<header>
+  <h1><span class="a">ALTI</span>MINAC</h1>
+  <p>Alchemedies instrument · the physics is the thinking</p>
+  <div class="spectrum"></div>
+</header>
+
+<div id="readout">
+  <div class="row"><span class="k">coherence r</span><span class="v hot" id="r-coh">—</span></div>
+  <div class="row"><span class="k">mean quanta</span><span class="v" id="r-quanta">—</span></div>
+  <div class="row"><span class="k">motes</span><span class="v" id="r-count">—</span></div>
+  <div class="row"><span class="k">archived</span><span class="v" id="r-arch">0</span></div>
+  <div class="row"><span class="k">regime</span><span class="v" id="regime">—</span></div>
+  <div class="row"><span class="k">forge</span><span class="v">515 Hz · ω 0.515</span></div>
+</div>
+
+<div id="mote"></div>
+
+<nav id="dock" aria-label="The seven operations">
+  <div class="cap">operations</div>
+  <button class="op" data-op="calcination" title="Calcination — burn the dross into the core"><span class="g">🜂</span><span class="n">calcin</span></button>
+  <button class="op" data-op="dissolution" title="Dissolution — break a cluster back to prima materia"><span class="g">🜄</span><span class="n">dissol</span></button>
+  <button class="op" data-op="separation" title="Separation — extract the best parts to the Archive"><span class="g">🜔</span><span class="n">separ</span></button>
+  <button class="op" data-op="conjunction" title="Conjunction — fuse the two strongest motes"><span class="g">🜏</span><span class="n">conj</span></button>
+  <button class="op" data-op="fermentation" title="Fermentation — new motes coalesce from forge light"><span class="g">🜍</span><span class="n">fermen</span></button>
+  <button class="op" data-op="distillation" title="Distillation — deliberation cycles refine every quanta"><span class="g">🜆</span><span class="n">distil</span></button>
+  <button class="op mythic" data-op="coagulation" title="Coagulation — promote the strongest mote to Mythic (your tap is the Gate approval)"><span class="g">🜚</span><span class="n">coagul</span></button>
+</nav>
+
+<div id="toast"></div>
+
+<script>
+'use strict';
+/* =====================================================================
+   ALTIMINAC — an Alchemedies instrument.
+   Alchemy's seven operations, run on Archimedes' fluid.
+   The fluid is a real stable-fluid solver (Stam): diffusion, semi-
+   Lagrangian advection, projection. Temperature obeys Boussinesq —
+   hot fluid is light fluid, and light fluid rises. Motes stratify by
+   their own density (Ocean law), hear each other through a Lorentzian
+   receptor law, and phase-lock by Kuramoto coupling. Quanta are
+   composed from live field values with the unified weights.
+   Nothing here is painted: every readout is computed.
+   ===================================================================== */
+
+/* ---------- the stable fluid (Jos Stam), N x N interior ---------- */
+const N = 84, SZ = (N + 2) * (N + 2), IX = (i, j) => i + (N + 2) * j;
+const u = new Float32Array(SZ), v = new Float32Array(SZ),
+      u0 = new Float32Array(SZ), v0 = new Float32Array(SZ),
+      tmp = new Float32Array(SZ), tmpF = new Float32Array(SZ);
+let dens = new Float32Array(SZ), dens0 = new Float32Array(SZ);
+const VISC = 0.00008, DIFF = 0.00012;
+
+function setBnd(b, x) {
+  for (let i = 1; i <= N; i++) {
+    x[IX(0, i)]     = b === 1 ? -x[IX(1, i)] : x[IX(1, i)];
+    x[IX(N + 1, i)] = b === 1 ? -x[IX(N, i)] : x[IX(N, i)];
+    x[IX(i, 0)]     = b === 2 ? -x[IX(i, 1)] : x[IX(i, 1)];
+    x[IX(i, N + 1)] = b === 2 ? -x[IX(i, N)] : x[IX(i, N)];
+  }
+  x[IX(0, 0)]         = .5 * (x[IX(1, 0)] + x[IX(0, 1)]);
+  x[IX(0, N + 1)]     = .5 * (x[IX(1, N + 1)] + x[IX(0, N)]);
+  x[IX(N + 1, 0)]     = .5 * (x[IX(N, 0)] + x[IX(N + 1, 1)]);
+  x[IX(N + 1, N + 1)] = .5 * (x[IX(N, N + 1)] + x[IX(N + 1, N)]);
+}
+function linSolve(b, x, x0, a, c) {
+  for (let k = 0; k < 14; k++) {
+    for (let j = 1; j <= N; j++) for (let i = 1; i <= N; i++)
+      x[IX(i, j)] = (x0[IX(i, j)] + a * (x[IX(i - 1, j)] + x[IX(i + 1, j)] + x[IX(i, j - 1)] + x[IX(i, j + 1)])) / c;
+    setBnd(b, x);
+  }
+}
+function diffuse(b, x, x0, diff, dt) {
+  const a = dt * diff * N * N;
+  linSolve(b, x, x0, a, 1 + 4 * a);
+}
+function advect(b, d, d0, uu, vv, dt) {
+  const dt0 = dt * N;
+  for (let j = 1; j <= N; j++) for (let i = 1; i <= N; i++) {
+    let x = i - dt0 * uu[IX(i, j)], y = j - dt0 * vv[IX(i, j)];
+    x = Math.max(.5, Math.min(N + .5, x)); y = Math.max(.5, Math.min(N + .5, y));
+    const i0 = x | 0, i1 = i0 + 1, j0 = y | 0, j1 = j0 + 1;
+    const s1 = x - i0, s0 = 1 - s1, t1 = y - j0, t0 = 1 - t1;
+    d[IX(i, j)] = s0 * (t0 * d0[IX(i0, j0)] + t1 * d0[IX(i0, j1)]) +
+                  s1 * (t0 * d0[IX(i1, j0)] + t1 * d0[IX(i1, j1)]);
+  }
+  setBnd(b, d);
+}
+function project(uu, vv, p, div) {
+  const h = 1 / N;
+  for (let j = 1; j <= N; j++) for (let i = 1; i <= N; i++) {
+    div[IX(i, j)] = -0.5 * h * (uu[IX(i + 1, j)] - uu[IX(i - 1, j)] + vv[IX(i, j + 1)] - vv[IX(i, j - 1)]);
+    p[IX(i, j)] = 0;
+  }
+  setBnd(0, div); setBnd(0, p);
+  linSolve(0, p, div, 1, 4);
+  for (let j = 1; j <= N; j++) for (let i = 1; i <= N; i++) {
+    uu[IX(i, j)] -= 0.5 * (p[IX(i + 1, j)] - p[IX(i - 1, j)]) / h;
+    vv[IX(i, j)] -= 0.5 * (p[IX(i, j + 1)] - p[IX(i, j - 1)]) / h;
+  }
+  setBnd(1, uu); setBnd(2, vv);
+}
+function fluidStep(dt) {
+  // Boussinesq buoyancy: local temperature (dens) lifts the fluid.
+  for (let k = 0; k < SZ; k++) v[k] -= dens[k] * 2.6 * dt;
+  u0.set(u); diffuse(1, u, u0, VISC, dt);
+  v0.set(v); diffuse(2, v, v0, VISC, dt);
+  project(u, v, u0, v0);
+  u0.set(u); v0.set(v);
+  advect(1, u, u0, u0, v0, dt);
+  advect(2, v, v0, u0, v0, dt);
+  project(u, v, u0, v0);
+  dens0.set(dens); diffuse(0, dens, dens0, DIFF, dt);
+  dens0.set(dens); advect(0, dens, dens0, u, v, dt);
+  for (let k = 0; k < SZ; k++) dens[k] *= 0.996;      // the medium slowly cools
+}
+const sample = (f, fx, fy) => {  // bilinear sample, field coords 0..1
+  const i = Math.max(1, Math.min(N, 1 + fx * N)), j = Math.max(1, Math.min(N, 1 + fy * N));
+  const i0 = i | 0, j0 = j | 0, s = i - i0, t = j - j0;
+  return f[IX(i0, j0)] * (1 - s) * (1 - t) + f[IX(i0 + 1, j0)] * s * (1 - t) +
+         f[IX(i0, j0 + 1)] * (1 - s) * t + f[IX(i0 + 1, j0 + 1)] * s * t;
+};
+
+/* ---------- the wells — frequencies grounded in the language wells ---------- */
+const WELLS = [
+  { hz: 130, name: 'Rustba',    world: 'Pyrrhos',   col: '#e0651f', temperament: 'forge · ignition' },
+  { hz: 650, name: 'tRust',     world: 'Glaciem',   col: '#9fd4e8', temperament: 'verification · ice' },
+  { hz: 75,  name: 'Gemba',     world: 'Verdant',   col: '#7fae5a', temperament: 'growth · absorption' },
+  { hz: 528, name: 'RaijinLang',world: 'Mirell',    col: '#a06fd0', temperament: 'intent · clarity' },
+  { hz: 365, name: 'Lavemba',   world: 'Sirocco',   col: '#e8b84b', temperament: 'movement · storm' },
+  { hz: 515, name: 'Synthesis', world: 'Crystallis',col: '#f2ead8', temperament: 'the forge constant' },
+];
+const FORGE_HZ = 515, OMEGA = 515 / 1000;   // thesis constants: 515 derived, ω = 515/1000
+const BANDS = ['Trauma', 'Heavy', 'Turbulence', 'Sustaining', 'Constructive', 'Coherence', 'Transcendent'];
+
+/* Lorentzian receptor law — a mote hears the forge (515) by detuning. */
+const etaTo = (f, fTune, Q) => 1 / (1 + Math.pow(2 * Q * (f - fTune) / fTune, 2));
+
+/* ---------- motes — signal carriers with the triad {hz, fluid, mode} ---------- */
+let seed = 12012026;  // d120-style seeded rolls: mulberry32
+const rnd = () => { seed |= 0; seed = seed + 0x6D2B79F5 | 0; let t = Math.imul(seed ^ seed >>> 15, 1 | seed);
+  t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; };
+
+let motes = [], archived = 0, mythicCount = 0, nextId = 1;
+function makeMote(x, y, wellIdx) {
+  const w = WELLS[wellIdx !== undefined ? wellIdx : (rnd() * WELLS.length) | 0];
+  return {
+    id: nextId++, x: x !== undefined ? x : .12 + rnd() * .76, y: y !== undefined ? y : .12 + rnd() * .76,
+    vx: 0, vy: 0, rho: .68 + rnd() * .74,          // own density: < 1 rises, > 1 sinks
+    hz: w.hz, well: w, phase: rnd() * Math.PI * 2, omega: .25 + rnd() * .9,
+    conf: .5 + rnd() * .45, ground: .4 + rnd() * .6, quanta: 0, mythic: false,
+    r: 2.1 + rnd() * 2.0, born: performance.now(),
+  };
+}
+for (let i = 0; i < 210; i++) motes.push(makeMote());
+
+/* quanta — composed, not declared: 0.35 conf + 0.25 fluid + 0.20 resonance + 0.20 grounding */
+function composeQuanta(m, fluidHere, localAlign) {
+  const resonance = etaTo(m.hz, FORGE_HZ, 2.2) * .55 + localAlign * .45;
+  return Math.round(1000 * (0.35 * m.conf + 0.25 * Math.min(1, fluidHere * 2.4) +
+                            0.20 * resonance + 0.20 * m.ground));
+}
+
+/* ---------- the athanor — forge core, bottom center ---------- */
+const FORGE = { x: .5, y: .965 };
+let pulsePhase = 0;
+function stokeForge(strength) {
+  const gx = 1 + FORGE.x * N, gy = 1 + FORGE.y * N;
+  for (let j = -4; j <= 1; j++) for (let i = -7; i <= 7; i++) {
+    const fall = Math.exp(-(i * i) / 18 - (j * j) / 5);
+    const k = IX(Math.max(1, Math.min(N, Math.round(gx + i))), Math.max(1, Math.min(N, Math.round(gy + j))));
+    dens[k] = Math.min(2.4, dens[k] + strength * fall);
+    v[k] -= strength * fall * .6;
+  }
+}
+
+/* ---------- simulation step ---------- */
+let coherenceR = 0, meanSpeed = 0;
+function simStep(dt) {
+  pulsePhase += OMEGA * dt * 2.2;
+  stokeForge(.5 + .28 * Math.sin(pulsePhase));               // the forge breathes at ω
+  if (Math.random() < .30) {                                  // ambient stirring, seeded by chance
+    const cx = .15 + Math.random() * .7, cy = .2 + Math.random() * .6;
+    const k = IX(1 + (cx * N) | 0, 1 + (cy * N) | 0);
+    u[k] += (Math.random() - .5) * .5; v[k] += (Math.random() - .5) * .5;
+  }
+  fluidStep(dt);
+
+  /* Kuramoto coupling over neighbours + the Ocean law for every mote */
+  const R2 = .085 * .085;
+  let sCos = 0, sSin = 0, wSum = 0, spd = 0;
+  for (const m of motes) {
+    let dth = 0, cnt = 0, align = 0;
+    for (const o of motes) {
+      if (o === m) continue;
+      const dx = o.x - m.x, dy = o.y - m.y, d2 = dx * dx + dy * dy;
+      if (d2 < R2) { dth += Math.sin(o.phase - m.phase); cnt++; align += Math.cos(o.phase - m.phase); }
+    }
+    if (cnt) { m.phase += (m.omega * .16 + 1.5 * (dth / cnt)) * dt * 3.2; m._align = .5 + .5 * (align / cnt); }
+    else { m.phase += m.omega * dt * .5; m._align = .5; }
+
+    const fu = sample(u, m.x, m.y), fv = sample(v, m.x, m.y), heat = sample(dens, m.x, m.y);
+    const rhoMedium = 1 - .38 * Math.min(1.6, heat);          // Boussinesq: hot = light
+    m.vx += (fu * 1.9 - m.vx) * .06;
+    m.vy += (fv * 1.9 - m.vy) * .06 - (rhoMedium - m.rho) * .30 * dt;   // Ocean law, screen coords: rise = (ρmed − ρx)·k, up is −y
+    m.x += m.vx * dt; m.y += m.vy * dt;
+    if (m.x < .012) { m.x = .012; m.vx = Math.abs(m.vx) * .5; }
+    if (m.x > .988) { m.x = .988; m.vx = -Math.abs(m.vx) * .5; }
+    if (m.y < .012) { m.y = .012; m.vy = Math.abs(m.vy) * .5; }
+    if (m.y > .992) { m.y = .992; m.vy = -Math.abs(m.vy) * .5; }
+    m.quanta = composeQuanta(m, Math.hypot(fu, fv), m._align || .5);
+    const wgt = .3 + m.quanta / 1000;
+    sCos += wgt * Math.cos(m.phase); sSin += wgt * Math.sin(m.phase); wSum += wgt;
+    spd += Math.hypot(m.vx, m.vy);
+  }
+  coherenceR = wSum ? Math.hypot(sCos, sSin) / wSum : 0;      // L18: amplitude-weighted order
+  meanSpeed = motes.length ? spd / motes.length : 0;
+}
+
+/* ---------- rendering ---------- */
+const cv = document.getElementById('tank'), ctx = cv.getContext('2d');
+let W = 0, H = 0, field = null, fctx = null;
+function fit() {
+  const dpr = Math.min(2, window.devicePixelRatio || 1);
+  W = innerWidth; H = innerHeight;
+  cv.width = W * dpr; cv.height = H * dpr; cv.style.width = W + 'px'; cv.style.height = H + 'px';
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  field = document.createElement('canvas'); field.width = N; field.height = N;
+  fctx = field.getContext('2d');
+}
+addEventListener('resize', fit); fit();
+
+function draw(now) {
+  /* the medium itself: heat/dye as ember light on obsidian, 7 bands behind it */
+  const img = fctx.createImageData(N, N), px = img.data;
+  for (let j = 0; j < N; j++) for (let i = 0; i < N; i++) {
+    const d = Math.min(1.7, dens[IX(i + 1, j + 1)]), o = (j * N + i) * 4;
+    px[o]     = 30 + d * 150; px[o + 1] = 8 + d * 44; px[o + 2] = 14 + d * 20; px[o + 3] = 255;
+  }
+  fctx.putImageData(img, 0, 0);
+  ctx.fillStyle = '#05060a'; ctx.fillRect(0, 0, W, H);
+  const bandH = H / 7;
+  for (let b = 0; b < 7; b++) {                                  // stratified band wash, surface = Transcendent
+    ctx.fillStyle = `rgba(${40 + b * 16},${30 + b * 10},${70 - b * 6},${0.05 + (6 - b) * 0.004})`;
+    ctx.fillRect(0, H - (b + 1) * bandH, W, bandH);
+  }
+  ctx.save(); ctx.globalAlpha = .8; ctx.imageSmoothingEnabled = true;
+  ctx.drawImage(field, 0, 0, W, H); ctx.restore();
+
+  /* vorticity ghosts: where the flow curls hard, memory shows */
+  ctx.save(); ctx.globalAlpha = .16; ctx.fillStyle = '#9fd4e8';
+  for (let j = 3; j < N; j += 3) for (let i = 3; i < N; i += 3) {
+    const curl = (v[IX(i + 2, j + 1)] - v[IX(i, j + 1)]) - (u[IX(i + 1, j + 2)] - u[IX(i + 1, j)]);
+    if (Math.abs(curl) > .9) { ctx.beginPath(); ctx.arc((i / N) * W, (j / N) * H, 1.4, 0, 7); ctx.fill(); }
+  }
+  ctx.restore();
+
+  /* the forge pulse — rings leave the athanor on the ω phase */
+  const fx = FORGE.x * W, fy = FORGE.y * H;
+  const pr = ((now / 1000 * OMEGA) % 1) * Math.min(W, H) * .34;
+  ctx.save(); ctx.strokeStyle = `rgba(232,184,75,${.34 * (1 - pr / (Math.min(W, H) * .34))})`;
+  ctx.lineWidth = 1.4; ctx.beginPath(); ctx.arc(fx, fy, pr, 0, 7); ctx.stroke();
+  const glow = ctx.createRadialGradient(fx, fy, 0, fx, fy, 90);
+  glow.addColorStop(0, 'rgba(255,190,80,.5)'); glow.addColorStop(1, 'rgba(255,120,30,0)');
+  ctx.fillStyle = glow; ctx.beginPath(); ctx.arc(fx, fy, 90, 0, 7); ctx.fill(); ctx.restore();
+
+  /* motes */
+  for (const m of motes) {
+    const x = m.x * W, y = m.y * H, tw = .72 + .28 * Math.sin(m.phase * 2);
+    ctx.save();
+    ctx.shadowColor = m.well.col; ctx.shadowBlur = m.mythic ? 18 : 9;
+    ctx.fillStyle = m.well.col; ctx.globalAlpha = .55 + .45 * tw;
+    ctx.beginPath(); ctx.arc(x, y, m.r * (m.mythic ? 1.5 : 1), 0, 7); ctx.fill();
+    ctx.restore();
+    if (m.mythic) {
+      ctx.save(); ctx.strokeStyle = '#e8b84b'; ctx.lineWidth = 1.6;
+      ctx.beginPath(); ctx.arc(x, y, m.r * 2.1 + Math.sin(now / 300) * .8, 0, 7); ctx.stroke(); ctx.restore();
+    }
+    if (m === selected) {
+      ctx.save(); ctx.strokeStyle = '#e8e2d4'; ctx.lineWidth = 1.2;
+      ctx.beginPath(); ctx.arc(x, y, m.r + 5, 0, 7); ctx.stroke(); ctx.restore();
+    }
+  }
+}
+</script>
+<script>
+'use strict';
+/* ---------- the seven operations — each one a real mechanic ---------- */
+const toastEl = document.getElementById('toast');
+let toastTimer = 0;
+function toast(html) {
+  toastEl.innerHTML = html; toastEl.classList.add('show');
+  clearTimeout(toastTimer); toastTimer = setTimeout(() => toastEl.classList.remove('show'), 3400);
+}
+const OPS = {
+  calcination() {   /* burn the dross: lowest-quanta motes are pulled into the core, husks deleted */
+    const sorted = [...motes].filter(m => !m.mythic).sort((a, b) => a.quanta - b.quanta);
+    const burn = sorted.slice(0, Math.min(24, sorted.length));
+    stokeForge(2.2);
+    motes = motes.filter(m => !burn.includes(m));
+    toast(`🜂 <b>Calcination</b> — ${burn.length} dross motes burned into the core`);
+    return burn.length;
+  },
+  dissolution() {   /* the densest cluster breaks back into component motes; D spikes — forgetting, briefly */
+    if (!motes.length) return 0;
+    let cx = 0, cy = 0; motes.forEach(m => { cx += m.x; cy += m.y; }); cx /= motes.length; cy /= motes.length;
+    let made = 0;
+    for (const m of [...motes]) {
+      if (Math.hypot(m.x - cx, m.y - cy) < .13 && !m.mythic && made < 10) {
+        m.rho = .7 + Math.random() * .6; m.conf *= .82;
+        const a = Math.random() * Math.PI * 2, d = .05 + Math.random() * .07;
+        m.x = Math.max(.02, Math.min(.98, m.x + Math.cos(a) * d));
+        m.y = Math.max(.02, Math.min(.98, m.y + Math.sin(a) * d));
+        made++;
+      }
+    }
+    for (let k = 0; k < SZ; k++) dens[k] *= .55;      // diffusion wins for a beat
+    toast(`🜄 <b>Dissolution</b> — ${made} motes returned to prima materia`);
+    return made;
+  },
+  separation() {    /* best-parts extraction: the top fraction becomes Archive holdings */
+    const sorted = [...motes].filter(m => !m.mythic).sort((a, b) => b.quanta - a.quanta);
+    const take = sorted.slice(0, Math.max(1, (sorted.length * .08) | 0));
+    motes = motes.filter(m => !take.includes(m));
+    archived += take.length;
+    toast(`🜔 <b>Separation</b> — ${take.length} best parts extracted to the Archive (${archived} held)`);
+    return take.length;
+  },
+  conjunction() {   /* fusion by table: the two strongest combine into one lawful product */
+    const s = [...motes].filter(m => !m.mythic).sort((a, b) => b.quanta - a.quanta);
+    if (s.length < 2) { toast('🜏 <b>Conjunction</b> — needs two motes to fuse'); return 0; }
+    const [a, b] = s;
+    const fused = makeMote((a.x + b.x) / 2, (a.y + b.y) / 2, WELLS.indexOf(a.well));
+    fused.rho = (a.rho + b.rho) / 2; fused.hz = Math.round((a.hz + b.hz) / 2);
+    fused.conf = Math.min(.98, Math.max(a.conf, b.conf) + .05);
+    fused.r = Math.min(4.6, a.r + b.r * .45);
+    motes = motes.filter(m => m !== a && m !== b); motes.push(fused);
+    toast(`🜏 <b>Conjunction</b> — ${a.well.name} × ${b.well.name} fused at ${fused.hz} Hz`);
+    return 1;
+  },
+  fermentation() {  /* genesis: new life coalesces from forge light */
+    let made = 0;
+    for (let i = 0; i < 12; i++) {
+      const m = makeMote(.5 + (Math.random() - .5) * .34, .9 + Math.random() * .06);
+      m.rho = .55 + Math.random() * .3;              // born light — they rise out of the forge
+      motes.push(m); made++;
+    }
+    stokeForge(1.4);
+    toast(`🜍 <b>Fermentation</b> — ${made} new motes coalesce from forge light`);
+    return made;
+  },
+  distillation() {  /* deliberation cycles: resonance recomputed, confidence refined toward it */
+    for (let cycle = 0; cycle < 3; cycle++)
+      for (const m of motes) {
+        const target = .35 + .6 * etaTo(m.hz, FORGE_HZ, 2.2) * (m._align || .5);
+        m.conf += (target - m.conf) * .3;
+        m.ground = Math.min(1, m.ground + .02);
+      }
+    toast('🜆 <b>Distillation</b> — three deliberation cycles run; quanta refined');
+    return 3;
+  },
+  coagulation() {   /* manifest the stone: the strongest mote is promoted — by YOUR tap at the Gate */
+    const s = [...motes].filter(m => !m.mythic).sort((a, b) => b.quanta - a.quanta);
+    if (!s.length) { toast('🜚 <b>Coagulation</b> — nothing left to promote'); return 0; }
+    s[0].mythic = true; mythicCount++;
+    toast(`🜚 <b>Coagulation</b> — a ${s[0].well.name} mote (${s[0].quanta} quanta) promoted to <b>Mythic</b>`);
+    return 1;
+  },
+};
+document.querySelectorAll('.op').forEach(btn =>
+  btn.addEventListener('click', () => { OPS[btn.dataset.op](); blip(515, .05, 'sine'); }));
+
+/* ---------- selection + the mote's own note ---------- */
+let selected = null, actx = null;
+function blip(freq, dur, type) {
+  try {
+    actx = actx || new (window.AudioContext || window.webkitAudioContext)();
+    if (actx.state === 'suspended') actx.resume();
+    const o = actx.createOscillator(), g = actx.createGain();
+    o.type = type || 'triangle'; o.frequency.value = freq;
+    g.gain.setValueAtTime(.12, actx.currentTime);
+    g.gain.exponentialRampToValueAtTime(.0001, actx.currentTime + dur * 6);
+    o.connect(g); g.connect(actx.destination); o.start(); o.stop(actx.currentTime + dur * 6);
+  } catch (e) { /* audio is a garnish; the instrument runs silent too */ }
+}
+/* Musicode ladder: just intonation on 257.5 Hz, octave exactly 515 — a mote sounds its nearest note. */
+function moteNote(m) {
+  const steps = 26, ratio = Math.max(.5, Math.min(2, m.hz / 257.5));
+  const idx = Math.round((Math.log2(ratio) / 1) * (steps / 2));
+  return 257.5 * Math.pow(2, idx / (steps / 2));
+}
+const moteCard = document.getElementById('mote');
+function showMote(m) {
+  selected = m;
+  if (!m) { moteCard.classList.remove('show'); return; }
+  const band = BANDS[Math.max(0, Math.min(6, (1 - m.y) * 7 | 0))];
+  moteCard.innerHTML = `<b style="color:${m.well.col}">${m.well.name}</b> · ${m.well.world} — ${m.well.temperament}` +
+    `<div class="sub">${m.hz} Hz · ρ ${m.rho.toFixed(2)} · quanta ${m.quanta}${m.mythic ? ' · <b style="color:#e8b84b">MYTHIC</b>' : ''}<br>` +
+    `band ${band} · η to the forge ${etaTo(m.hz, FORGE_HZ, 2.2).toFixed(3)} · tap again to hear it</div>`;
+  moteCard.classList.add('show');
+}
+let downAt = 0, downXY = null;
+cv.addEventListener('pointerdown', e => { downAt = performance.now(); downXY = [e.clientX, e.clientY]; });
+cv.addEventListener('pointerup', e => {
+  if (performance.now() - downAt > 260 || !downXY) return;
+  if (Math.hypot(e.clientX - downXY[0], e.clientY - downXY[1]) > 8) return;
+  const fx = e.clientX / W, fy = e.clientY / H;
+  let best = null, bd = 1e9;
+  for (const m of motes) { const d = Math.hypot(m.x - fx, m.y - fy); if (d < bd) { bd = d; best = m; } }
+  if (best && bd < .045) { const again = selected === best; showMote(best); if (again) blip(moteNote(best), .09); }
+  else {  /* tap the water: stir it — a real source term in the field */
+    const k = IX(1 + (fx * N) | 0, 1 + (fy * N) | 0);
+    dens[k] = Math.min(2.2, dens[k] + .9); u[k] += (Math.random() - .5) * 2; v[k] -= 1.2;
+    showMote(null);
+  }
+});
+/* drag = current: pour velocity into the field where the finger moves */
+let lastPtr = null;
+cv.addEventListener('pointermove', e => {
+  if (downXY && performance.now() - downAt > 120) {
+    const fx = e.clientX / W, fy = e.clientY / H;
+    if (lastPtr) {
+      const k = IX(Math.max(1, Math.min(N, 1 + (fx * N) | 0)), Math.max(1, Math.min(N, 1 + (fy * N) | 0)));
+      u[k] += (fx - lastPtr[0]) * 26; v[k] += (fy - lastPtr[1]) * 26;
+      dens[k] = Math.min(2, dens[k] + .12);
+    }
+    lastPtr = [fx, fy];
+  }
+});
+addEventListener('pointerup', () => { lastPtr = null; downXY = null; });
+
+/* ---------- readouts + main loop ---------- */
+const el = id => document.getElementById(id);
+let lastUi = 0;
+function ui(now) {
+  if (now - lastUi < 220) return; lastUi = now;
+  el('r-coh').textContent = coherenceR.toFixed(3);
+  el('r-quanta').textContent = motes.length ? Math.round(motes.reduce((s, m) => s + m.quanta, 0) / motes.length) : '—';
+  el('r-count').textContent = motes.length + (mythicCount ? ` · ${mythicCount} mythic` : '');
+  el('r-arch').textContent = archived;
+  const Re = Math.round(meanSpeed * 900);                       // regime estimate from the live field
+  const rg = el('regime');
+  rg.textContent = (Re > 260 ? 'TURBULENT · brainstorm' : 'LAMINAR · focused') + ` · Re≈${Re}`;
+  rg.className = 'v ' + (Re > 260 ? 'turb' : 'lam'); rg.id = 'regime';
+  if (selected && !motes.includes(selected)) showMote(null);
+  else if (selected) showMote(selected);
+}
+let prev = performance.now();
+function loop(now) {
+  const dt = Math.min(.033, (now - prev) / 1000); prev = now;
+  simStep(.09); simStep(.09);
+  draw(now); ui(now);
+  requestAnimationFrame(loop);
+}
+requestAnimationFrame(loop);
+/* live handles for instruments (his law: window.X honest API) */
+window.ALTIMINAC = { motes: () => motes, ops: OPS, coherence: () => coherenceR,
+                     etaTo, composeQuanta, stokeForge, version: '1.0' };
+</script>
+</body>
+</html>
