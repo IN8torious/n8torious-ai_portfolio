@@ -19,6 +19,7 @@ Release record: **[RELEASE_NOTES.md](RELEASE_NOTES.md)**
 |---|---|---|
 | **[Temple — Daily Bible](projects/temple/)** | Complete offline Android Bible: 66 books, daily verse/prayer, verse tools, plans, prayer lists | v1.0.2 · target API 36 · bundle package, DEX, and signature verified |
 | **[Agent Toolbox](projects/agent-toolbox/)** | A factory kit for governed agent systems: crew sheets, constitution, Gate protocol, kernel, Pain source, and 79 spec files | 117 files · packaged kernel tests pass |
+| **[CapsuleOS](projects/capsuleos/)** | Selectable, reversible AME Wizard playbook from the Capsule Toolbox: 51 gated settings, mirrored revert, optional gated installer | Audited 27/27 · container rebuilt to the AME-proven format · [own repo](https://github.com/IN8torious/CapsuleOS) |
 | **[ALTIMINAC](projects/altiminac/)** | Interactive Alchemedies instrument: stable fluids, buoyancy, resonance, coherence, seven operations | Headless battery 14/14, including measured stratification |
 | **[Alchemedies — Theory of Laws](projects/alchemedies/ALCHEMEDIES-THEORY-OF-LAWS.md)** | The full law book: fluid cognition, signals, operations, neural dynamics, reasoning, Crash First | Compiled from the working specs and engines |
 | **[SI Constitutional Kernel](projects/si-constitutional-kernel/)** | Actor · Capability · Proposal · Receipt · State as runnable law | Source, builder, ledger, and tests included |
